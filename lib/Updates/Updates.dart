@@ -3,7 +3,6 @@ import 'package:gradient_icon/gradient_icon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //import 'package:google_fonts/google_fonts.dart';
 
-
 class Updates extends StatefulWidget {
   const Updates({super.key});
 
@@ -14,31 +13,64 @@ class Updates extends StatefulWidget {
 class _chatsState extends State<Updates> {
   @override
   Widget build(BuildContext context) {
-
-    var color = Color(0xc3d5d5d5);
-    var rng = Color(0xc3919191);
-    var colr =Color(0xffEFEFEF);
+    var arrNames=['Status Privacy','Create Channel','Settings'];
+    var color = const Color(0xc3d5d5d5);
+    var rng = const Color(0xc3919191);
+    var colr =const Color(0xffEFEFEF);
     var scrh=MediaQuery.of(context).size.height;
     var scrw=MediaQuery.of(context).size.width;
 
     return Scaffold(
-      appBar:AppBar(
-        backgroundColor: Color(0xff0e1717),
-        title: Text(style:TextStyle(
-            fontWeight: FontWeight.normal,
-            fontSize:25,
-            color: Colors.white
-        ),textAlign: TextAlign.left,'Updates'),
-        actions: [
-          // right me chala jayega isse icons etc
-          IconButton(onPressed: (){}, icon: Icon(Icons.photo_camera_outlined),color: Colors.white,),
-          IconButton(onPressed: (){}, icon:Icon(Icons.search),color: Colors.white,),
-          IconButton(onPressed: (){}, icon: Icon(Icons.more_vert),color: Colors.white,)
-        ],
-      ),
+        appBar: AppBar(
+          backgroundColor: Color(0xff0B1014),
+          title: const Text(
+            'Calls',
+            style: TextStyle(
+              fontSize: 25,
+              color: Colors.white,
+            ),
+          ),
+          actions: [
+            IconButton(onPressed: () {}, icon: const Icon(Icons.photo_camera_outlined), color: color),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.search), color: color),
+            Builder(
+              builder: (context) {
+                return IconButton(
+                  onPressed: () {
+                    Scaffold.of(context).openEndDrawer();
+                  },
+                  icon: const Icon(Icons.more_vert),
+                  color: color,
+                );
+              },
+            ),
+          ],
+        ),
+        endDrawer: Padding(
+          padding: const EdgeInsets.only(top:70),
+          child: Align(
+            alignment: Alignment.topRight,
+            child: Container(
+              width: scrw * 0.6,
+              height: scrh * 0.26,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Color(0xff171e1e),
+              ),
+              child: ListView.builder(
+                itemCount: arrNames.length,
+                itemBuilder: (context, index) {
+                  return ListTile(
+                    title: Text(arrNames[index],style: TextStyle(color: Colors.white70),),
+                  );
+                },
+              ),
+            ),
+          ),
+        ),
       body:
       Container(
-        decoration:BoxDecoration(
+        decoration:const BoxDecoration(
             color: Color(0xff0B1014)
         ),
         child: Column(
@@ -53,10 +85,10 @@ class _chatsState extends State<Updates> {
                 ),
                 child: Column(
                   children: [
-                    Row(
+                    const Row(
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 10,vertical: 8),
+                          padding: EdgeInsets.symmetric(horizontal: 10,vertical: 8),
                           child: Text("Status",style: TextStyle(color: Colors.white,fontSize: 23,fontWeight: FontWeight.w200),
                           ),
                         )
@@ -77,7 +109,7 @@ class _chatsState extends State<Updates> {
                                       borderRadius: BorderRadius.circular(36),
                                       border: Border.all(color: Colors.green,width: 2),
                                     ),
-                                    child: CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1535382651921-5e77ea4458f2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
+                                    child: const CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1535382651921-5e77ea4458f2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
                                 SizedBox(height:scrh*0.01,),
                                 Text("My Status",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                               ],
@@ -92,7 +124,7 @@ class _chatsState extends State<Updates> {
                                       borderRadius: BorderRadius.circular(36),
                                       border: Border.all(color: Colors.green,width: 2),
                                     ),
-                                    child: CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/finance-503/256/Analytics_Chart_Diagram_Pie_graph_Sales_report_Statistics_Stats.png"),backgroundColor:Colors.transparent,)),
+                                    child: const CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/finance-503/256/Analytics_Chart_Diagram_Pie_graph_Sales_report_Statistics_Stats.png"),backgroundColor:Colors.transparent,)),
                                 SizedBox(height:scrh*0.01,),
                                 Text("Sameeksha",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                               ],
@@ -107,7 +139,7 @@ class _chatsState extends State<Updates> {
                                       borderRadius: BorderRadius.circular(36),
                                       border: Border.all(color: Colors.green,width: 2),
                                     ),
-                                    child: CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/finance-503/256/Cash_Coin_Hand_Income_Investment_Money_Donation.png"),backgroundColor: Colors.transparent,)),
+                                    child: const CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/finance-503/256/Cash_Coin_Hand_Income_Investment_Money_Donation.png"),backgroundColor: Colors.transparent,)),
                                 SizedBox(height:scrh*0.01,),
                                 Text("Kartik",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                               ],
@@ -122,7 +154,7 @@ class _chatsState extends State<Updates> {
                                       borderRadius: BorderRadius.circular(36),
                                       border: Border.all(color: Colors.green,width: 2),
                                     ),
-                                    child: CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1535382651921-5e77ea4458f2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
+                                    child: const CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1535382651921-5e77ea4458f2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
                                 SizedBox(height:scrh*0.01,),
                                 Text("Dhruv",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                               ],
@@ -137,7 +169,7 @@ class _chatsState extends State<Updates> {
                                       borderRadius: BorderRadius.circular(36),
                                       border: Border.all(color: Colors.green,width: 2),
                                     ),
-                                    child: CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1535382651921-5e77ea4458f2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
+                                    child: const CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1535382651921-5e77ea4458f2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
                                 SizedBox(height:scrh*0.01,),
                                 Text("Krish",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                               ],
@@ -152,7 +184,7 @@ class _chatsState extends State<Updates> {
                                       borderRadius: BorderRadius.circular(36),
                                       border: Border.all(color: Colors.green,width: 2),
                                     ),
-                                    child: CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1535382651921-5e77ea4458f2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
+                                    child: const CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1535382651921-5e77ea4458f2?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
                                 SizedBox(height:scrh*0.01,),
                                 Text("Rudra",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                               ],
@@ -167,7 +199,7 @@ class _chatsState extends State<Updates> {
               ),
             ),
             Padding(
-              padding: EdgeInsets.symmetric(horizontal: 10),
+              padding: const EdgeInsets.symmetric(horizontal: 10),
               child: Column(
                crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
@@ -177,11 +209,11 @@ class _chatsState extends State<Updates> {
                     Text("Channels",style: TextStyle(color: colr,fontSize: 25),),
                     Row(
                       children: [
-                        Text("Explore",style: TextStyle(color: Colors.green),),
+                        const Text("Explore",style: TextStyle(color: Colors.green),),
                         SizedBox(
                           width: scrw*0.01,
                         ),
-                        FaIcon(FontAwesomeIcons.angleRight,color: Colors.green,size: 12,)
+                        const FaIcon(FontAwesomeIcons.angleRight,color: Colors.green,size: 12,)
                       ],
                     ),
                   ],
@@ -211,22 +243,22 @@ class _chatsState extends State<Updates> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/product-management-26/256/Creativity.png"),),
+                            const CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/product-management-26/256/Creativity.png"),),
                             Text("Hello",style: TextStyle(color: colr),),
-                            Container(
+                            SizedBox(
                               height: scrh*0.05,
                               width: scrw*0.25,
                               child: ElevatedButton(
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => Updates()),
+                                    MaterialPageRoute(builder: (context) => const Updates()),
                                   );
                                 },
                                 style:
                                 ElevatedButton.styleFrom(
                                   foregroundColor: Colors.white, backgroundColor: Colors.green,),
-                                child: Text('Join'),
+                                child: const Text('Join'),
                               ),
                             )
                           ],
@@ -248,22 +280,22 @@ class _chatsState extends State<Updates> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/finance-503/256/Cash_Coin_Hand_Income_Investment_Money_Donation.png"),),
+                            const CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/finance-503/256/Cash_Coin_Hand_Income_Investment_Money_Donation.png"),),
                             Text("Money",style: TextStyle(color: colr),),
-                            Container(
+                            SizedBox(
                               height: scrh*0.05,
                               width: scrw*0.25,
                               child: ElevatedButton(
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => Updates()),
+                                    MaterialPageRoute(builder: (context) => const Updates()),
                                   );
                                 },
                                 style:
                                 ElevatedButton.styleFrom(
                                   foregroundColor: Colors.white, backgroundColor: Colors.green,),
-                                child: Text('Join'),
+                                child: const Text('Join'),
                               ),
                             )
                           ],
@@ -285,22 +317,22 @@ class _chatsState extends State<Updates> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/product-management-26/256/Creativity.png"),),
+                            const CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/product-management-26/256/Creativity.png"),),
                             Text("Hello",style: TextStyle(color: colr),),
-                            Container(
+                            SizedBox(
                               height: scrh*0.05,
                               width: scrw*0.25,
                               child: ElevatedButton(
                                 onPressed: () {
                                   Navigator.push(
                                     context,
-                                    MaterialPageRoute(builder: (context) => Updates()),
+                                    MaterialPageRoute(builder: (context) => const Updates()),
                                   );
                                 },
                                 style:
                                 ElevatedButton.styleFrom(
                                   foregroundColor: Colors.white, backgroundColor: Colors.green,),
-                                child: Text('Join'),
+                                child: const Text('Join'),
                               ),
                             )
                           ],
@@ -322,22 +354,22 @@ class _chatsState extends State<Updates> {
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
-                        CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/product-management-26/256/Creativity.png"),),
+                        const CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/product-management-26/256/Creativity.png"),),
                       Text("Hello",style: TextStyle(color: colr),),
-                      Container(
+                      SizedBox(
                           height: scrh*0.05,
                           width: scrw*0.25,
                           child: ElevatedButton(
                             onPressed: () {
                               Navigator.push(
                                 context,
-                                MaterialPageRoute(builder: (context) => Updates()),
+                                MaterialPageRoute(builder: (context) => const Updates()),
                               );
                             },
                             style:
                             ElevatedButton.styleFrom(
                               foregroundColor: Colors.white, backgroundColor: Colors.green,),
-                            child: Text('Join'),
+                            child: const Text('Join'),
                           ),
                       ),
                   ],

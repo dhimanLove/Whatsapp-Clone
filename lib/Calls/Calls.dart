@@ -1,98 +1,126 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class Calls extends StatefulWidget {
+class Calls extends StatelessWidget {
   const Calls({super.key});
 
   @override
-  State<Calls> createState() => _CallsState();
-}
-
-class _CallsState extends State<Calls> {
-  @override
   Widget build(BuildContext context) {
+    // Screen ki width aur height yahan se le rahe hain
+    var scrw = MediaQuery.of(context).size.width;
+    var scrh = MediaQuery.of(context).size.height;
+    List <String> arrdrawer=['New Group','New Broadcast','Linked devices','Starred Messages','Payments','Settings'];
+    var arrfavlead=[CircleAvatar(backgroundImage: NetworkImage("https://cdn3d.iconscout.com/3d/premium/preview/green-love-3d-icon-download-in-png-blend-fbx-gltf-file-formats--heart-valentine-romance-romantic-emoji-pack-sign-symbols-icons-10258358.png?f=webp&h=700"),backgroundColor: Colors.white54,)];
+    var arrfavtitle=['Favourities'];
 
-    var scrh=MediaQuery.of(context).size.height;
-    var scrw=MediaQuery.of(context).size.width;
-    var color = Color(0xc3d5d5d5);
-    var rng = Color(0xc3919191);
-    var colr =Color(0xffEFEFEF);
+    // Contact icons ke liye CircleAvatar ke list banaya hai
+    var arrLeading = [
+      CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/famous-people-2/256/Princess_Diana.png"), backgroundColor: Colors.transparent),
+      CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_hoodie_boy_child.png"), backgroundColor: Colors.transparent),
+      CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_shirt_hairstyle.png"), backgroundColor: Colors.transparent),
+      CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/512/avatars_accounts___man_male_people_person_scarf.png"), backgroundColor: Colors.transparent),
+      CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_cowboy_hat.png"), backgroundColor: Colors.transparent),
+      CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_turtleneck_sunglasses_beard_wavy_hair.png"), backgroundColor: Colors.transparent),
+      CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_hat_cap_baseball_cap_necklace_shirtless.png"), backgroundColor: Colors.transparent),
+      CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_broken_glasses_thick_beard_beard_tie_shirt_glasses.png"), backgroundColor: Colors.transparent),
+    ];
+
+    // Contact names, subtitles aur trailing text ke lists
+    var arrNames = ['Sameeksha','Papa', 'Dhruv', 'Kartik', 'Yash', 'Tinku Jiya', 'Project wala', 'Maqsood'];
+    var arrSubtitle = ['Today','Yesterday',  '13/11/2024', '12/11/2024', '5/11/2024', '1/10/2024', '19/10/2024', '1/01/2024'];
+    var arrTrailing = [Icon(Icons.call,color: Colors.white70,),Icon(Icons.call,color: Colors.white70,),Icon(Icons.phone_missed,color: Colors.redAccent,),Icon(Icons.call,color: Colors.white70,),Icon(Icons.missed_video_call_rounded,color: Colors.redAccent,),Icon(Icons.video_call,color: Colors.white70,),Icon(Icons.call,color: Colors.white70,),Icon(Icons.call,color: Colors.white70,),];
+
+    // Kuch colors set kiye hain UI elements ke liye
+    var color = Colors.grey[300]; // Text color
+    var avatarColor = Colors.grey[400]; // Avatar background color
+
     return Scaffold(
-      appBar:AppBar(
-        backgroundColor: Color(0xff0b1010),
-        title: Text(style:TextStyle(
-            fontWeight: FontWeight.normal,
-            fontSize:25,
-            color: Colors.white
-        ),textAlign: TextAlign.left,'Calls'),
+      backgroundColor: Color(0xff0B1014), // Background color
+      appBar: AppBar(
+        backgroundColor: Color(0xff0B1014),
+        title: const Text(
+          'Calls',
+          style: TextStyle(
+            fontSize: 25,
+            color: Colors.white,
+          ),
+        ),
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.photo_camera_outlined),color: Colors.white,),
-          IconButton(onPressed: (){}, icon:Icon(Icons.search),color: Colors.white,),
-          IconButton(onPressed: (){}, icon: Icon(Icons.more_vert),color: Colors.white,)
+          IconButton(onPressed: () {}, icon: const Icon(Icons.photo_camera_outlined), color: color),
+          IconButton(onPressed: () {}, icon: const Icon(Icons.search), color: color),
+          Builder(
+            builder: (context) {
+              return IconButton(
+                onPressed: () {
+                  Scaffold.of(context).openEndDrawer();
+                },
+                icon: const Icon(Icons.more_vert),
+                color: color,
+              );
+            },
+          ),
         ],
       ),
-      body: Container(
-        decoration: BoxDecoration(color: Color(0xff0B1014)),
-        child: Column(
-          children: [
-            // First ListView
-            Expanded(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 2),
-                child: ListView(
-                  children: [
-                    Container(
-                      height: scrh*0.1,
-                      //color: Colors.red,
-                      child:
-                      ListTile(
-                        leading: CircleAvatar(backgroundImage: NetworkImage("https://img.freepik.com/free-photo/green-heart-inside-eco-friendly-brown-paperboard_53876-104830.jpg?t=st=1731308895~exp=1731312495~hmac=277a72376bc0d919293bbeec944090d29c3da04ab36ac2697d4b1f0e242e1e91&w=740"),backgroundColor: rng, radius: 25,),
-                        title: Text("Favourities",style: TextStyle(fontSize: 25,color: Colors.white),),
-                       ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(left: 13),
-                      child: Text("Recents",style: TextStyle(fontSize: 20,color: Colors.white)),
-                    ),
-                    ListTile(
-                      leading: CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_turtleneck_expression_emotion.png"),backgroundColor: rng,),
-                      title: Text("Pinokio",style: TextStyle(fontSize: 15,color: Colors.white),),
-                      subtitle:Row(children: [FaIcon(FontAwesomeIcons.arrowUp,size: 14,color: color,),SizedBox(width: scrw*0.03,), Text("Today 12:45 am",style: TextStyle(color: Colors.white54),)],),
-                      trailing:IconButton(onPressed: (){}, icon:Icon(Icons.phone,color: Colors.white,)),),
 
-                    ListTile(
-                      leading: CircleAvatar(backgroundImage: NetworkImage("https://as1.ftcdn.net/v2/jpg/09/66/02/54/1000_F_966025484_SVFZJ9vLSNFYxPyG013LUIBA1ygWGgT6.jpg"),backgroundColor:rng,),
-                      title: Text("Sameeksha",style: TextStyle(fontSize: 15,color: Colors.red),),
-                      subtitle: Row(children: [FaIcon(FontAwesomeIcons.arrowDown,size: 14,color: Colors.red,),SizedBox(width: scrw*0.03,), Text("Today 12:45 am",style: TextStyle(color: Colors.white54),)],),
-                      trailing:IconButton(onPressed: (){}, icon:Icon(Icons.phone,color: Colors.white,)),),
-                    ListTile(
-                      leading: CircleAvatar(backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU0vMJn9NTpca8c7waspkH6MoWdoWDqbEi4BtZxMPqs41YTzdBihpSh8Az5n0ORMQwz5Y&usqp=CAU"),backgroundColor: rng,),
-                      title: Text("App Mentoring",style: TextStyle(fontSize: 15,color: color),),
-                      subtitle:Row(children: [FaIcon(FontAwesomeIcons.arrowDown,size: 14,color: color,),SizedBox(width: scrw*0.03,), Text("Today 12:45 am",style: TextStyle(color: Colors.white54),)],) ,
-                      trailing:IconButton(onPressed: (){}, icon:Icon(Icons.phone,color: Colors.white,)),),
-                    ListTile(
-                      leading: CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_hat_cap_baseball_cap_necklace_shirtless.png"),backgroundColor: rng,),
-                      title: Text("Kartik",style: TextStyle(fontSize: 15,color: color),),
-                      subtitle:Row(children: [FaIcon(FontAwesomeIcons.arrowDown,size: 14,color: color,),SizedBox(width: scrw*0.03,), Text("Today 12:45 am",style: TextStyle(color: Colors.white54),)],),
-                      trailing:IconButton(onPressed: (){}, icon:Icon(Icons.phone,color: Colors.white,)),),
-                    ListTile(
-                      leading: CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_turtleneck_expression_emotion.png"),backgroundColor: rng,),
-                      title: Text("Pinokio",style: TextStyle(fontSize: 15,color: Colors.white),),
-                      subtitle:Row(children: [FaIcon(FontAwesomeIcons.arrowUp,size: 14,color: color,),SizedBox(width: scrw*0.03,), Text("Today 12:45 am",style: TextStyle(color: Colors.white54),)],),
-                      trailing:IconButton(onPressed: (){}, icon:Icon(Icons.phone,color: Colors.white,)),),
-                    ListTile(
-                      leading: CircleAvatar(backgroundImage: NetworkImage("https://as1.ftcdn.net/v2/jpg/09/66/02/54/1000_F_966025484_SVFZJ9vLSNFYxPyG013LUIBA1ygWGgT6.jpg"),backgroundColor:rng,),
-                      title: Text("Sameeksha",style: TextStyle(fontSize: 15,color: Colors.red),),
-                      subtitle: Row(children: [FaIcon(FontAwesomeIcons.arrowDown,size: 14,color: Colors.red,),SizedBox(width: scrw*0.03,), Text("Today 12:45 am",style: TextStyle(color: Colors.white54),)],),
-                      trailing:IconButton(onPressed: (){}, icon:Icon(Icons.phone,color: Colors.white,)),),
-                  ],
-                ),
-              ),
+      endDrawer:
+      Padding(
+        padding: const EdgeInsets.only(top:70),
+        child: Align(
+          alignment: Alignment.topRight,
+          child: Container(
+            width: scrw * 0.5,
+            height: scrh * 0.36,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Color(0xff171e1e),
             ),
-          ],
+            child: ListView.builder(
+              itemCount: arrdrawer.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  title: Text(
+                    arrdrawer[index],
+                    style: TextStyle(color: Colors.white70,fontWeight: FontWeight.w400), // You can replace Colors.blue with any color you like
+                  ),
+                );
+              },
+            ),
+          ),
         ),
+      ),
+      body: Column(
+
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(right: 270),
+            child: Text("Favourities",style: TextStyle(color: Colors.white,fontSize: 15),),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+        ListTile(
+          leading: CircleAvatar(backgroundImage: NetworkImage("https://cdn1.iconfinder.com/data/icons/3d-front-color/256/heart-front-color.png"),radius: 25,),
+          title: Text("Add Favourite",style: TextStyle(color: Colors.white,fontSize: 15),),
+        ),
+          SizedBox(
+            height: 20,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 270),
+            child: Text("Recents",style: TextStyle(color: Colors.white,fontSize: 15),),
+          ),
+          Expanded( // ListView ko screen ke bche hue space mein expand karne ke liye Expanded lagaya
+            child: ListView.builder(
+              itemCount: arrNames.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: arrLeading[index], // Avatar lagaya lead pe
+                  title: Text(arrNames[index], style: TextStyle(color: color)), // Contact name
+                  subtitle: Text(arrSubtitle[index], style: TextStyle(color: Colors.grey)),
+                  trailing: arrTrailing[index],
+                );},
+            ),
+          ),
+        ],
       ),
     );
   }

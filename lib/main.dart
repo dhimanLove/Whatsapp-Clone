@@ -17,13 +17,13 @@ class Whatsapp extends StatefulWidget {
 
 class _WhatsappState extends State<Whatsapp> {
   int _selectedIndex = 0;
-  final PageController _pageController = PageController();
+  final PageController _pageController = PageController(); //PageController ek controller hai jo PageView ko control karne ke liye use hota hai. Yeh scrolling aur page ke index pe control provide karta hai.
 
-  final List<Widget> _pages = [
-    Chats(),
-    Updates(),
-    Community(),
-    Calls(),
+  final List<Widget> _pages = [ //_pages ek list hai jo har tab ke widgets ko store karti hai.
+    const Chats(),
+    const Updates(),
+    const Community(),
+    const Calls(),
   ];
 
   void _onItemTapped(int index) {
@@ -49,7 +49,7 @@ class _WhatsappState extends State<Whatsapp> {
         ),
         bottomNavigationBar: Container(
           height: 70,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Color(0xff0B1014),
           ),
           child: ClipRRect(
@@ -60,7 +60,7 @@ class _WhatsappState extends State<Whatsapp> {
               currentIndex: _selectedIndex,
               onTap: _onItemTapped,
               type: BottomNavigationBarType.fixed,
-              items: [
+              items: const [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.chat),
                   label: 'Chats',
