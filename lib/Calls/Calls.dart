@@ -1,18 +1,24 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class Calls extends StatelessWidget {
   const Calls({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // Screen ki width aur height yahan se le rahe hain
     var scrw = MediaQuery.of(context).size.width;
     var scrh = MediaQuery.of(context).size.height;
-    List <String> arrdrawer=['New Group','New Broadcast','Linked devices','Starred Messages','Payments','Settings'];
-    var arrfavlead=[CircleAvatar(backgroundImage: NetworkImage("https://cdn3d.iconscout.com/3d/premium/preview/green-love-3d-icon-download-in-png-blend-fbx-gltf-file-formats--heart-valentine-romance-romantic-emoji-pack-sign-symbols-icons-10258358.png?f=webp&h=700"),backgroundColor: Colors.white54,)];
-    var arrfavtitle=['Favourities'];
 
-    // Contact icons ke liye CircleAvatar ke list banaya hai
+    List<String> arrdrawer = [
+      'New Group',
+      'New Broadcast',
+      'Linked devices',
+      'Starred Messages',
+      'Payments',
+      'Settings'
+    ];
+
+    var arrfavtitle = ['Favourites'];
     var arrLeading = [
       CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/famous-people-2/256/Princess_Diana.png"), backgroundColor: Colors.transparent),
       CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_hoodie_boy_child.png"), backgroundColor: Colors.transparent),
@@ -24,17 +30,24 @@ class Calls extends StatelessWidget {
       CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_broken_glasses_thick_beard_beard_tie_shirt_glasses.png"), backgroundColor: Colors.transparent),
     ];
 
-    // Contact names, subtitles aur trailing text ke lists
-    var arrNames = ['Sameeksha','Papa', 'Dhruv', 'Kartik', 'Yash', 'Tinku Jiya', 'Project wala', 'Maqsood'];
-    var arrSubtitle = ['Today','Yesterday',  '13/11/2024', '12/11/2024', '5/11/2024', '1/10/2024', '19/10/2024', '1/01/2024'];
-    var arrTrailing = [Icon(Icons.call,color: Colors.white70,),Icon(Icons.call,color: Colors.white70,),Icon(Icons.phone_missed,color: Colors.redAccent,),Icon(Icons.call,color: Colors.white70,),Icon(Icons.missed_video_call_rounded,color: Colors.redAccent,),Icon(Icons.video_call,color: Colors.white70,),Icon(Icons.call,color: Colors.white70,),Icon(Icons.call,color: Colors.white70,),];
+    var arrNames = ['Sameeksha', 'Papa', 'Dhruv', 'Kartik', 'Yash', 'Tinku Jiya', 'Project wala', 'Maqsood'];
+    var arrSubtitle = ['Today', 'Yesterday', '13/11/2024', '12/11/2024', '5/11/2024', '1/10/2024', '19/10/2024', '1/01/2024'];
+    var arrTrailing = [
+      Icon(Icons.call, color: Colors.white70),
+      Icon(Icons.call, color: Colors.white70),
+      Icon(Icons.phone_missed, color: Colors.redAccent),
+      Icon(Icons.call, color: Colors.white70),
+      Icon(Icons.missed_video_call_rounded, color: Colors.redAccent),
+      Icon(Icons.video_call, color: Colors.white70),
+      Icon(Icons.call, color: Colors.white70),
+      Icon(Icons.call, color: Colors.white70),
+    ];
 
-    // Kuch colors set kiye hain UI elements ke liye
-    var color = Colors.grey[300]; // Text color
-    var avatarColor = Colors.grey[400]; // Avatar background color
+    var color = Colors.grey[300];
+    var avatarColor = Colors.grey[400];
 
     return Scaffold(
-      backgroundColor: Color(0xff0B1014), // Background color
+      backgroundColor: Color(0xff0B1014),
       appBar: AppBar(
         backgroundColor: Color(0xff0B1014),
         title: const Text(
@@ -60,10 +73,8 @@ class Calls extends StatelessWidget {
           ),
         ],
       ),
-
-      endDrawer:
-      Padding(
-        padding: const EdgeInsets.only(top:70),
+      endDrawer: Padding(
+        padding: const EdgeInsets.only(top: 70),
         child: Align(
           alignment: Alignment.topRight,
           child: Container(
@@ -79,7 +90,7 @@ class Calls extends StatelessWidget {
                 return ListTile(
                   title: Text(
                     arrdrawer[index],
-                    style: TextStyle(color: Colors.white70,fontWeight: FontWeight.w400), // You can replace Colors.blue with any color you like
+                    style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w400),
                   ),
                 );
               },
@@ -88,36 +99,46 @@ class Calls extends StatelessWidget {
         ),
       ),
       body: Column(
-
         children: [
           Padding(
             padding: const EdgeInsets.only(right: 270),
-            child: Text("Favourities",style: TextStyle(color: Colors.white,fontSize: 15),),
+            child: Text("Favourites", style: TextStyle(color: Colors.white, fontSize: 15)),
           ),
-          SizedBox(
-            height: 20,
+          SizedBox(height: 20),
+          ListTile(
+            leading: Container(
+              height: scrh * 0.05,
+              width: scrh * 0.05,
+              decoration: BoxDecoration(
+                color: Colors.green,
+                borderRadius: BorderRadius.circular(20),
+              ),
+              child: Center(
+                child: FaIcon(FontAwesomeIcons.solidHeart, color: Colors.black),
+              ),
+            ),
+            title: Text("Add Favourite", style: TextStyle(color: Colors.white, fontSize: 15)),
           ),
-        ListTile(
-          leading: CircleAvatar(backgroundImage: NetworkImage("https://cdn1.iconfinder.com/data/icons/3d-front-color/256/heart-front-color.png"),radius: 25,),
-          title: Text("Add Favourite",style: TextStyle(color: Colors.white,fontSize: 15),),
-        ),
-          SizedBox(
-            height: 20,
-          ),
+          SizedBox(height: 20),
           Padding(
             padding: const EdgeInsets.only(right: 270),
-            child: Text("Recents",style: TextStyle(color: Colors.white,fontSize: 15),),
+            child: Text("Recents", style: TextStyle(color: Colors.white, fontSize: 15)),
           ),
-          Expanded( // ListView ko screen ke bche hue space mein expand karne ke liye Expanded lagaya
+          Expanded(
             child: ListView.builder(
               itemCount: arrNames.length,
               itemBuilder: (context, index) {
+                Color color = arrNames[index] == 'Dhruv' || arrNames[index]=='Yash'? Colors.red : Colors.white;
                 return ListTile(
-                  leading: arrLeading[index], // Avatar lagaya lead pe
-                  title: Text(arrNames[index], style: TextStyle(color: color)), // Contact name
+                  leading: arrLeading[index],
+                  title: Text(
+                    arrNames[index],
+                    style: TextStyle(color: color),
+                  ),
                   subtitle: Text(arrSubtitle[index], style: TextStyle(color: Colors.grey)),
                   trailing: arrTrailing[index],
-                );},
+                );
+              },
             ),
           ),
         ],

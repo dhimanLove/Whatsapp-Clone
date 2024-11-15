@@ -21,7 +21,8 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
-
+  badges: ^3.1.2
+  icons_plus: ^5.0.0
   google_fonts:  6.2.1
 
 
