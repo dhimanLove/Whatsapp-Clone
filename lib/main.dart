@@ -17,9 +17,9 @@ class Whatsapp extends StatefulWidget {
 
 class _WhatsappState extends State<Whatsapp> {
   int _selectedIndex = 0;
-  final PageController _pageController = PageController(); //PageController ek controller hai jo PageView ko control karne ke liye use hota hai. Yeh scrolling aur page ke index pe control provide karta hai.
+  final PageController _pageController = PageController();
 
-  final List<Widget> _pages = [ //_pages ek list hai jo har tab ke widgets ko store karti hai.
+  final List<Widget> _pages = [
     const Chats(),
     const Updates(),
     const Community(),
@@ -38,48 +38,92 @@ class _WhatsappState extends State<Whatsapp> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() {
-              _selectedIndex = index;
-            });
+        body: LayoutBuilder(
+          builder: (context, constraints) {
+
+            if (constraints.maxWidth > 600) {
+
+              return Row(
+                children: [
+                  NavigationRail(
+                    selectedIndex: _selectedIndex,
+                    onDestinationSelected: (index) {
+                      _onItemTapped(index);
+                    },
+                    labelType: NavigationRailLabelType.all,
+                    destinations: const [
+                      NavigationRailDestination(
+                        icon: Icon(Icons.chat),
+                        label: Text('Chats'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.update),
+                        label: Text('Updates'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.people_alt),
+                        label: Text('Communities'),
+                      ),
+                      NavigationRailDestination(
+                        icon: Icon(Icons.call),
+                        label: Text('Calls'),
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: PageView(
+                      controller: _pageController,
+                      onPageChanged: (index) {
+                        setState(() {
+                          _selectedIndex = index;
+                        });
+                      },
+                      children: _pages,
+                    ),
+                  ),
+                ],
+              );
+            } else {
+
+              return Scaffold(
+                body: PageView(
+                  controller: _pageController,
+                  onPageChanged: (index) {
+                    setState(() {
+                      _selectedIndex = index;
+                    });
+                  },
+                  children: _pages,
+                ),
+                bottomNavigationBar: BottomNavigationBar(
+                  backgroundColor: const Color(0xff0B1014),
+                  selectedItemColor: Colors.white,
+                  unselectedItemColor: Colors.white54,
+                  currentIndex: _selectedIndex,
+                  onTap: _onItemTapped,
+                  type: BottomNavigationBarType.fixed,
+                  items: const [
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.chat),
+                      label: 'Chats',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.update),
+                      label: 'Updates',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.people_alt),
+                      label: 'Communities',
+                    ),
+                    BottomNavigationBarItem(
+                      icon: Icon(Icons.call),
+                      label: 'Calls',
+                    ),
+                  ],
+                ),
+              );
+            }
           },
-          children: _pages,
-        ),
-        bottomNavigationBar: Container(
-          height: 70,
-          decoration: const BoxDecoration(
-            color: Color(0xff0B1014),
-          ),
-          child: ClipRRect(
-            child: BottomNavigationBar(
-              backgroundColor: Colors.transparent,
-              selectedItemColor: Colors.white,
-              unselectedItemColor: Colors.white54,
-              currentIndex: _selectedIndex,
-              onTap: _onItemTapped,
-              type: BottomNavigationBarType.fixed,
-              items: const [
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.chat),
-                  label: 'Chats',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.update),
-                  label: 'Updates',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.people_alt),
-                  label: 'Communities',
-                ),
-                BottomNavigationBarItem(
-                  icon: Icon(Icons.call),
-                  label: 'Calls',
-                ),
-              ],
-            ),
-          ),
         ),
       ),
     );
