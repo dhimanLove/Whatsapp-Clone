@@ -14,6 +14,9 @@ dependencies:
   font_awesome_flutter: ^10.8.0
   flutter_contacts: ^1.1.9+2
   gradient_icon: ^2.0.9
+  camera: ^0.11.0+2
+  path_provider: ^2.1.5
+  path: ^1.9.0
 
   cupertino_icons: ^1.0.8
 
@@ -29,6 +32,9 @@ dev_dependencies:
   flutter_lints: ^4.0.0
 
 flutter:
-
   uses-material-design: true
+  assets:
+    - lib/assets/I.jpg
+    - lib/assets/payments.png
+
 

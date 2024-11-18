@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gradient_icon/gradient_icon.dart';
+import 'package:whatsapp/chats/Linkeddev.dart';
+import 'package:whatsapp/chats/Payments.dart';
+import 'package:whatsapp/chats/Settings.dart';
+import 'package:whatsapp/chats/Starred.dart';
+import 'package:whatsapp/communities/Communities.dart';
 
 class Chats extends StatefulWidget {
   const Chats({super.key});
@@ -20,38 +25,42 @@ class _ChatsState extends State<Chats> {
   ];
 
    List<Widget> arrLeading = [
-    CircleAvatar(
+    const CircleAvatar(
       backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU0vMJn9NTpca8c7waspkH6MoWdoWDqbEi4BtZxMPqs41YTzdBihpSh8Az5n0ORMQwz5Y&usqp=CAU"),
       backgroundColor: Colors.transparent,
     ),
-    CircleAvatar(
-      backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_turbin_culture.png"),
+    const CircleAvatar(
+      backgroundImage: NetworkImage("https://images.unsplash.com/photo-1572647678520-ebef18aa78cc?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
       backgroundColor: Colors.transparent,
     ),
-    CircleAvatar(
-      backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_hoodie_boy_child.png"),
+    const CircleAvatar(
+      backgroundImage: NetworkImage("https://images.unsplash.com/photo-1662306616121-34a330735f2c?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
       backgroundColor: Colors.transparent,
     ),
-    CircleAvatar(
-      backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_shirt_hairstyle.png"),
+    const CircleAvatar(
+      backgroundImage: NetworkImage("https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
       backgroundColor: Colors.transparent,
     ),
-    CircleAvatar(
-      backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/512/avatars_accounts___man_male_people_person_scarf.png"),
+     const CircleAvatar(
+       backgroundImage: NetworkImage('https://images.unsplash.com/photo-1531386151447-fd76ad50012f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+       backgroundColor: Colors.transparent,
+     ),
+    const CircleAvatar(
+      backgroundImage: NetworkImage('https://images.unsplash.com/photo-1437502920657-db9708bfe2ef?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
       backgroundColor: Colors.transparent,
     ),
-    CircleAvatar(
-      backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_cowboy_hat.png"),
+    const CircleAvatar(
+      backgroundImage: NetworkImage("https://images.unsplash.com/photo-1453396450673-3fe83d2db2c4?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
       backgroundColor: Colors.transparent,
     ),
-    CircleAvatar(
-      backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_turtleneck_sunglasses_beard_wavy_hair.png"),
+    const CircleAvatar(
+      backgroundImage: NetworkImage('https://images.unsplash.com/photo-1610926597998-fc7f2c1b89b0?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
       backgroundColor: Colors.transparent,
     ),
-    CircleAvatar(
-      backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_hat_cap_baseball_cap_necklace_shirtless.png"),
-      backgroundColor: Colors.transparent,
-    ),
+     const CircleAvatar(
+       backgroundImage: NetworkImage('https://images.unsplash.com/photo-1725902380927-081e7400b920?q=80&w=1915&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+       backgroundColor: Colors.transparent,
+     ),
   ];
 
    List<String> arrNames = [
@@ -62,7 +71,8 @@ class _ChatsState extends State<Chats> {
     'Kungsu',
     'Ajay Bhaiya GDG',
     'Tinku Jiya',
-    'Project wala'
+    'Project wala',
+        'Project wala'
   ];
 
    List<String> arrSubtitle = [
@@ -71,9 +81,11 @@ class _ChatsState extends State<Chats> {
     "Bahr chalte hai",
     "Join the Meet Fast!",
     "Awaz bnd kr!",
+    "Awaz bnd kr!",
     "Progress Dikhao Loveraj..",
     "Jacket tick-tick kr rhi hai?",
-    "Chal Bahr chlte hai!"
+    "Chal Bahr chlte hai!",
+
   ];
 
    List<String> arrTrailing = [
@@ -84,7 +96,8 @@ class _ChatsState extends State<Chats> {
     "12/11/2024",
     "11/11/2024",
     "19/10/2024",
-    "2/02/2024"
+    "2/02/2024",
+     "2/02/2024"
   ];
 
   @override
@@ -98,8 +111,8 @@ class _ChatsState extends State<Chats> {
         title: const Text(
           'WhatsApp',
           style: TextStyle(
-            fontWeight: FontWeight.bold,
-            fontSize: 30,
+            fontWeight: FontWeight.w500,
+            fontSize: 23,
             color: Colors.white,
           ),
         ),
@@ -126,24 +139,161 @@ class _ChatsState extends State<Chats> {
           alignment: Alignment.topRight,
           child: Container(
             width: scrW * 0.5,
-            height: scrH * 0.36,
+            height: scrH * 0.39,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: const Color(0xff171e1e),
             ),
-            child: ListView.builder(
-              itemCount: arrDrawer.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(
-                    arrDrawer[index],
-                    style: const TextStyle(
-                      color: Colors.white70,
-                      fontWeight: FontWeight.w400,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 13),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => const Chats(),
+                          ),
+                        );
+                      },
+                      child:Container(
+                        width: scrW*0.4,
+                        height: scrH*0.03,
+                        //color: Colors.red,
+                        child:  const Text(
+                          "New Group",
+                          style: TextStyle(color: Colors.white),
+                        ),
+                      )
+                    ),
+
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Chats(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "New Broadcast",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
+                    ),
+
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Linkeddev(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Linked Devices",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
+                    ),
+
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Starred(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Starred messages",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
+                    ),
+
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Payments(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Payments",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
                     ),
                   ),
-                );
-              },
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Settings(),
+                            )
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Settings",
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        )
+                    ),
+
+                  ),
+
+                ],
+              ),
             ),
           ),
         ),
@@ -156,21 +306,23 @@ class _ChatsState extends State<Chats> {
               height: scrH * .06,
               width: scrW * .90,
               decoration: BoxDecoration(
-                color: Colors.white24,
+                color: Colors.white10,
                 borderRadius: BorderRadius.circular(40),
               ),
-              child: Row(
+              child: const Row(
                 children: [
-                  const SizedBox(width: 20),
-                  const Padding(
+                  SizedBox(width: 20),
+                  Padding(
                     padding: EdgeInsets.only(bottom: 16),
                     child: Row(
+                     // https://images.fonearena.com/blog/wp-content/uploads/2024/04/Meta-AI-Assistant.gif
                       children: [
                         GradientIcon(
                           icon: Icons.circle_outlined,
                           gradient: LinearGradient(
                             colors: [
                               Colors.deepPurpleAccent,
+                              Colors.pinkAccent,
                               Colors.deepPurple,
                               Colors.blue,
                               Colors.cyan
@@ -183,11 +335,11 @@ class _ChatsState extends State<Chats> {
                         Padding(
                           padding: EdgeInsets.only(top: 13, left: 10),
                           child: Text(
-                            "Ask Meta AI",
+                            "Ask Meta AI or Search",
                             style: TextStyle(
                               fontSize: 17,
                               color: Colors.white60,
-                              fontWeight: FontWeight.w400,
+                              fontWeight: FontWeight.w200,
                             ),
                           ),
                         ),
@@ -197,9 +349,64 @@ class _ChatsState extends State<Chats> {
                 ],
               ),
             ),
+            SizedBox(height: scrH*0.02,),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Container(
+                height: scrH*0.033,
+                width: scrW*0.1,
+               decoration: BoxDecoration(
+                   color: const Color(0xff20292f),
+                 borderRadius: BorderRadius.circular(10)
+               ),
+                  child: const Center(child: Text("All",style: TextStyle(color: Colors.white38))),
+              ),
+                Container(
+                  height: scrH*0.033,
+                  width: scrW*0.2,
+                  decoration: BoxDecoration(
+                      color: const Color(0xff20292f),
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: const Center(child: Text("Unread",style: TextStyle(color: Colors.white38))),
+                ),
+
+                Container(
+                  height: scrH*0.033,
+                  width: scrW*0.24,
+                  decoration: BoxDecoration(
+                      color: const Color(0xff20292f),
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: const Center(child: Text("Favourities",style: TextStyle(color: Colors.white38),)),
+                ),
+
+                Container(
+                  height: scrH*0.033,
+                  width: scrW*0.18,
+                  decoration: BoxDecoration(
+                      color: const Color(0xff20292f),
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: const Center(child: Text("Groups",style: TextStyle(color: Colors.white38),)),
+                ),
+                Container(
+                  height: scrH*0.033,
+                  width: scrW*0.12,
+                  decoration: BoxDecoration(
+                      color: const Color(0xff20292f),
+                      borderRadius: BorderRadius.circular(10)
+                  ),
+                  child: const Center(child: Icon(Icons.add,color: Colors.white38,)),
+                ),
+              ],
+            ),
+            SizedBox(height: scrH*0.02,),
             Expanded(
               child: ListView.builder(
-                itemCount: arrNames.length,
+                shrinkWrap: true,
+                itemCount: arrTrailing.length,
                 itemBuilder: (context, index) {
                   return ListTile(
                     leading: arrLeading[index],

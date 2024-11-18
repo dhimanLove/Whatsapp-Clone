@@ -23,7 +23,9 @@ class _chatsState extends State<Updates> {
 
     var arrLeading = [
 
-    CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/3d-applications/256/app_icons_social_media_search___logo_google_engine_software.png"), backgroundColor: Colors.transparent),
+    CircleAvatar(
+        backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/3d-applications/256/app_icons_social_media_search___logo_google_engine_software.png"), backgroundColor: Colors.transparent
+    ),
     CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/season-7/340/family_car_travel_vacation_trip_vehicle_happy-256.png"), backgroundColor: Colors.transparent),
     CircleAvatar(backgroundImage: NetworkImage("https://cdn4.iconfinder.com/data/icons/kitchen-and-food-6/256/Doughnut.png"), backgroundColor: Colors.transparent),];
     var arrte = ['App Mentoring','Travel Venture','Khazana'];
@@ -122,8 +124,8 @@ class _chatsState extends State<Updates> {
                                               //border: Border.all(color: Colors.green, width: 2), // Green border around the avatar
                                             ),
                                             child: const CircleAvatar(
-                                              radius: 34, // Slightly smaller than container to fit within the border
-                                              backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_turtleneck_expression_emotion.png"),
+                                              radius: 34,
+                                              backgroundImage: NetworkImage('"https://images.unsplash.com/photo-1491555103944-7c647fd857e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"'),
                                               backgroundColor: Colors.transparent,
                                             ),
                                           ),
