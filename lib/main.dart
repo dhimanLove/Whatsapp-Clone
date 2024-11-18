@@ -47,12 +47,12 @@ class _WhatsappState extends State<Whatsapp> {
 
   @override
   Widget build(BuildContext context) {
-    var screenWidth = MediaQuery.of(context).size.width;
-    bool isWideScreen = screenWidth > 600;
+    var scrw = MediaQuery.of(context).size.width;
+    bool screen = scrw > 600;
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
-        body: isWideScreen
+        body: screen
             ? Row(
           children: [
             NavigationRail(

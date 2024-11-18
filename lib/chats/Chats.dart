@@ -85,8 +85,7 @@ class _ChatsState extends State<Chats> {
     "Progress Dikhao Loveraj..",
     "Jacket tick-tick kr rhi hai?",
     "Chal Bahr chlte hai!",
-
-  ];
+   ];
 
    List<String> arrTrailing = [
     "10:17 am",
@@ -221,7 +220,6 @@ class _ChatsState extends State<Chats> {
                     ),
 
                   ),
-
                   Align(
                     alignment: Alignment.centerLeft,
                     child: InkWell(
@@ -289,9 +287,7 @@ class _ChatsState extends State<Chats> {
                           ),
                         )
                     ),
-
                   ),
-
                 ],
               ),
             ),
@@ -429,6 +425,25 @@ class _ChatsState extends State<Chats> {
           ],
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          print("FAB Pressed!");
+        },
+        child: Container(
+          child: Column(
+            children: [
+              Container(
+
+              ),
+              Container(
+                color: Colors.green,
+                child: Icon(Icons.add,color: Colors.white70,),
+              ),
+            ],
+          ),
+        )
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

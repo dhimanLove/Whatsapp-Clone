@@ -20,6 +20,7 @@ class _CommunityState extends State<Community> {
     ];
     var arr1 = [
       CircleAvatar(
+        radius: 25,
         backgroundImage: NetworkImage(
             "https://undergrad.cs.umd.edu/sites/undergrad.cs.umd.edu/files/GDSC_Logo_White_Background_0.png"),
       ),
@@ -32,7 +33,7 @@ class _CommunityState extends State<Community> {
             "https://cdn0.iconfinder.com/data/icons/3d-learning-and-education-illustrations-set/256/Discussion.png"),backgroundColor: Colors.white38,
       )
     ];
-    var arr2 = ['Unofficial', 'Dance', 'General'];
+    var arr2 = ['Unofficial', 'App Mentoring', 'General'];
     var arr3 = ['Meet at 9:30', 'Submit the tasks', 'Krish 123445...'];
     var arr4 = ['9:30 pm', '4:45 pm', '2:10 pm'];
 
@@ -245,7 +246,7 @@ class _CommunityState extends State<Community> {
                         itemCount: arrTitle.length,
                         itemBuilder: (context, index) {
                           return ListTile(
-                            leading: arr1[index],
+                            leading: CircleAvatar(backgroundImage:NetworkImage('https://images.unsplash.com/photo-1709884735626-63e92727d8b6?q=80&w=928&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),),
                             title: Text(
                               arr2[index],
                               style: TextStyle(color: Colors.white),
