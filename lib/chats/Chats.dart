@@ -2,9 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gradient_icon/gradient_icon.dart';
 import 'package:whatsapp/chats/Linkeddev.dart';
+import 'package:whatsapp/chats/New%20Group.dart';
 import 'package:whatsapp/chats/Payments.dart';
 import 'package:whatsapp/chats/Settings.dart';
 import 'package:whatsapp/chats/Starred.dart';
+import 'package:whatsapp/chats/details.dart';
+import 'package:whatsapp/chats/group.dart';
 import 'package:whatsapp/communities/Communities.dart';
 
 class Chats extends StatefulWidget {
@@ -82,8 +85,8 @@ class _ChatsState extends State<Chats> {
     "Join the Meet Fast!",
     "Awaz bnd kr!",
     "Awaz bnd kr!",
-    "Progress Dikhao Loveraj..",
-    "Jacket tick-tick kr rhi hai?",
+    "Progress Dikhao...",
+    "Jacket tick-tick kr...",
     "Chal Bahr chlte hai!",
    ];
 
@@ -156,7 +159,7 @@ class _ChatsState extends State<Chats> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                            builder: (context) => const Chats(),
+                            builder: (context) => Group(),
                           ),
                         );
                       },
@@ -164,15 +167,14 @@ class _ChatsState extends State<Chats> {
                         width: scrW*0.4,
                         height: scrH*0.03,
                         //color: Colors.red,
-                        child:  const Text(
+                        child: Text(
                           "New Group",
-                          style: TextStyle(color: Colors.white),
+                          style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w300),
                         ),
                       )
                     ),
 
                   ),
-
                   Align(
                     alignment: Alignment.centerLeft,
                     child: InkWell(
@@ -180,7 +182,7 @@ class _ChatsState extends State<Chats> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const Chats(),
+                              builder: (context) => Broad(),
                             ),
                           );
                         },
@@ -188,9 +190,9 @@ class _ChatsState extends State<Chats> {
                           width: scrW*0.4,
                           height: scrH*0.03,
                           //color: Colors.red,
-                          child:  const Text(
+                          child:  Text(
                             "New Broadcast",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w300),
                           ),
                         )
                     ),
@@ -214,7 +216,7 @@ class _ChatsState extends State<Chats> {
                           //color: Colors.red,
                           child:  const Text(
                             "Linked Devices",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w300),
                           ),
                         )
                     ),
@@ -237,7 +239,7 @@ class _ChatsState extends State<Chats> {
                           //color: Colors.red,
                           child:  const Text(
                             "Starred messages",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w300),
                           ),
                         )
                     ),
@@ -261,7 +263,7 @@ class _ChatsState extends State<Chats> {
                           //color: Colors.red,
                           child:  const Text(
                             "Payments",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w300),
                           ),
                         )
                     ),
@@ -283,7 +285,7 @@ class _ChatsState extends State<Chats> {
                           //color: Colors.red,
                           child:  const Text(
                             "Settings",
-                            style: TextStyle(color: Colors.white),
+                            style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w300),
                           ),
                         )
                     ),
@@ -303,7 +305,7 @@ class _ChatsState extends State<Chats> {
               width: scrW * .90,
               decoration: BoxDecoration(
                 color: Colors.white10,
-                borderRadius: BorderRadius.circular(40),
+                borderRadius: BorderRadius.circular(45),
               ),
               child: const Row(
                 children: [
@@ -346,57 +348,61 @@ class _ChatsState extends State<Chats> {
               ),
             ),
             SizedBox(height: scrH*0.02,),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                Container(
-                height: scrH*0.033,
-                width: scrW*0.1,
-               decoration: BoxDecoration(
-                   color: const Color(0xff20292f),
-                 borderRadius: BorderRadius.circular(10)
-               ),
-                  child: const Center(child: Text("All",style: TextStyle(color: Colors.white38))),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal:21,vertical: 0),
+              child: Row(
+                children: [
+                  Container(
+                  height: scrH*0.033,
+                  width: scrW*0.1,
+                 decoration: BoxDecoration(
+                     color: const Color(0xff20292f),
+                   borderRadius: BorderRadius.circular(10)
+                 ),
+                    child: const Center(child: Text("All",style: TextStyle(color: Colors.white38))),
+                ),
+                  SizedBox(width: scrW*0.01,),
+                  Container(
+                    height: scrH*0.033,
+                    width: scrW*0.2,
+                    decoration: BoxDecoration(
+                        color: const Color(0xff20292f),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: const Center(child: Text("Unread",style: TextStyle(color: Colors.white38))),
+                  ),
+                  SizedBox(width: scrW*0.01,),
+                  Container(
+                    height: scrH*0.033,
+                    width: scrW*0.24,
+                    decoration: BoxDecoration(
+                        color: const Color(0xff20292f),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: const Center(child: Text("Favourities",style: TextStyle(color: Colors.white38),)),
+                  ),
+                  SizedBox(width: scrW*0.01,),
+                  Container(
+                    height: scrH*0.033,
+                    width: scrW*0.18,
+                    decoration: BoxDecoration(
+                        color: const Color(0xff20292f),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: const Center(child: Text("Groups",style: TextStyle(color: Colors.white38),)),
+                  ),
+                  SizedBox(width: scrW*0.01,),
+                  Container(
+                    height: scrH*0.033,
+                    width: scrW*0.12,
+                    decoration: BoxDecoration(
+                        color: const Color(0xff20292f),
+                        borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: const Center(child: Icon(Icons.add,color: Colors.white38,)),
+                  ),
+                ],
               ),
-                Container(
-                  height: scrH*0.033,
-                  width: scrW*0.2,
-                  decoration: BoxDecoration(
-                      color: const Color(0xff20292f),
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  child: const Center(child: Text("Unread",style: TextStyle(color: Colors.white38))),
-                ),
-
-                Container(
-                  height: scrH*0.033,
-                  width: scrW*0.24,
-                  decoration: BoxDecoration(
-                      color: const Color(0xff20292f),
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  child: const Center(child: Text("Favourities",style: TextStyle(color: Colors.white38),)),
-                ),
-
-                Container(
-                  height: scrH*0.033,
-                  width: scrW*0.18,
-                  decoration: BoxDecoration(
-                      color: const Color(0xff20292f),
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  child: const Center(child: Text("Groups",style: TextStyle(color: Colors.white38),)),
-                ),
-                Container(
-                  height: scrH*0.033,
-                  width: scrW*0.12,
-                  decoration: BoxDecoration(
-                      color: const Color(0xff20292f),
-                      borderRadius: BorderRadius.circular(10)
-                  ),
-                  child: const Center(child: Icon(Icons.add,color: Colors.white38,)),
-                ),
-              ],
             ),
             SizedBox(height: scrH*0.02,),
             Expanded(
@@ -405,14 +411,23 @@ class _ChatsState extends State<Chats> {
                 itemCount: arrTrailing.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    leading: arrLeading[index],
+                    leading:InkWell(onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Details()));
+                    },child:arrLeading[index],),
                     title: Text(
                       arrNames[index],
                       style: const TextStyle(color: Color(0xffEFEFEF)),
                     ),
-                    subtitle: Text(
-                      arrSubtitle[index],
-                      style: const TextStyle(color: Color(0xc3919191)),
+                    subtitle:Row(
+                      children: [
+                        Icon(Icons.check,size: 12,color: Colors.blue,),
+                        SizedBox(width: scrW*0.005,),
+                        Text(
+                          softWrap: true,
+                          overflow: TextOverflow.ellipsis,
+                          arrSubtitle[index],style: TextStyle(color: Color(0xc3919191)),
+                        )
+                      ],
                     ),
                     trailing: Text(
                       arrTrailing[index],
@@ -425,23 +440,44 @@ class _ChatsState extends State<Chats> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          print("FAB Pressed!");
-        },
-        child: Container(
-          child: Column(
-            children: [
-              Container(
-
+      floatingActionButton: Column(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Container(
+            height: scrH*0.055,
+            width: scrW*0.12,
+            child: FloatingActionButton(
+              backgroundColor: Color(0xff1b262f),
+              onPressed: () {},
+              child:const Padding(
+                padding: const EdgeInsets.only(bottom: 17),
+                child: GradientIcon(
+                  icon: Icons.circle_outlined,
+                  gradient: LinearGradient(
+                    colors:
+                    [
+                      Colors.deepPurpleAccent,
+                      Colors.pinkAccent,
+                      Colors.deepPurple,
+                      Colors.blue,
+                      Colors.cyan
+                    ],
+                    begin: Alignment.centerLeft,
+                    end: Alignment.bottomRight,
+                  ),
+                  size: 30,
+                ),
               ),
-              Container(
-                color: Colors.green,
-                child: Icon(Icons.add,color: Colors.white70,),
-              ),
-            ],
+            ),
           ),
-        )
+          SizedBox(height: 16),
+          FloatingActionButton(
+            backgroundColor: Colors.green,
+            onPressed: () {
+            },
+            child: Icon(Icons.message_rounded,color: Colors.black,),
+          ),
+        ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );

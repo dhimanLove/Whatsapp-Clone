@@ -76,7 +76,7 @@ class _WhatsappState extends State<Whatsapp> {
                   label: Text('Communities'),
                 ),
                 NavigationRailDestination(
-                  icon: Icon(Icons.call),
+                  icon: Icon(Icons.call,),
                   label: Text('Calls'),
                 ),
               ],
@@ -109,8 +109,9 @@ class _WhatsappState extends State<Whatsapp> {
           ),
           bottomNavigationBar: BottomNavigationBar(
             backgroundColor: const Color(0xff0B1014),
-            selectedItemColor: Colors.white,
+            selectedItemColor: Colors.green,
             unselectedItemColor: Colors.white54,
+            unselectedFontSize: 10,
             currentIndex: _selectedIndex,
             onTap: _onItemTapped,
             type: BottomNavigationBarType.fixed,

@@ -13,8 +13,8 @@ class Calls extends StatelessWidget {
       'New Group',
       'New Broadcast',
       'Linked devices',
-      'Starred Messages',
-      'Payments',
+      'Calls Messages',
+      'Calls',
       'Settings'
     ];
 
@@ -79,21 +79,158 @@ class Calls extends StatelessWidget {
           alignment: Alignment.topRight,
           child: Container(
             width: scrw * 0.5,
-            height: scrh * 0.36,
+            height: scrh * 0.39,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Color(0xff171e1e),
+              color: const Color(0xff171e1e),
             ),
-            child: ListView.builder(
-              itemCount: arrdrawer.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(
-                    arrdrawer[index],
-                    style: TextStyle(color: Colors.white70, fontWeight: FontWeight.w400),
+            child: Padding(
+              padding: const EdgeInsets.only(left: 13),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Calls(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrw*0.4,
+                          height: scrh*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "New Group",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+
                   ),
-                );
-              },
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Calls(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrw*0.4,
+                          height: scrh*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "New Broadcast",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Calls(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrw*0.4,
+                          height: scrh*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Linked Devices",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Calls(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrw*0.4,
+                          height: scrh*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Calls messages",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Calls(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrw*0.4,
+                          height: scrh*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Calls",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Calls(),
+                              )
+                          );
+                        },
+                        child:Container(
+                          width: scrw*0.4,
+                          height: scrh*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Settings",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -143,6 +280,13 @@ class Calls extends StatelessWidget {
           ),
         ],
       ),
+      floatingActionButton: 
+          FloatingActionButton(
+            backgroundColor: Colors.green,
+            onPressed: () {},
+          child: Icon(Icons.add_ic_call_rounded,color: Colors.black,),
+          ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
     );
   }
 }

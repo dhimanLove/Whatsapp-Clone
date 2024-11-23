@@ -71,7 +71,7 @@ class _CommunityState extends State<Community> {
       appBar: AppBar(
         backgroundColor: Color(0xff0B1014),
         title: const Text(
-          'Calls',
+          'Communities',
           style: TextStyle(
             fontSize: 25,
             color: Colors.white,
@@ -107,24 +107,158 @@ class _CommunityState extends State<Community> {
           alignment: Alignment.topRight,
           child: Container(
             width: scrW * 0.5,
-            height: scrH * 0.36,
+            height: scrH * 0.39,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
-              color: Color(0xff171e1e),
+              color: const Color(0xff171e1e),
             ),
-            child: ListView.builder(
-              itemCount: arrDrawer.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  title: Text(
-                    arrDrawer[index],
-                    style: TextStyle(
-                      color: Colors.white70,
-                      fontWeight: FontWeight.w400,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 13),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Community(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "New Group",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Community(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "New Broadcast",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Community(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Linked Devices",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Community(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Starred messages",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+
+                  ),
+
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const Community(),
+                            ),
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Payments",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
                     ),
                   ),
-                );
-              },
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Community(),
+                              )
+                          );
+                        },
+                        child:Container(
+                          width: scrW*0.4,
+                          height: scrH*0.03,
+                          //color: Colors.red,
+                          child:  const Text(
+                            "Settings",
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                          ),
+                        )
+                    ),
+                  ),
+                ],
+              ),
             ),
           ),
         ),
@@ -203,7 +337,21 @@ class _CommunityState extends State<Community> {
                       child: Padding(
                         padding: const EdgeInsets.only(top: 5),
                         child: ListTile(
-                          leading: arr1[0],
+                          leading: Container(
+                            height: scrH * 0.06,
+                            width: scrW * 0.14,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: Colors.red,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.network(
+                                "https://undergrad.cs.umd.edu/sites/undergrad.cs.umd.edu/files/GDSC_Logo_White_Background_0.png",
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
                           title: Text(
                             "GDG - Volunteers 2024",
                             style: TextStyle(fontSize: 20, color: Colors.white),
@@ -280,16 +428,40 @@ class _CommunityState extends State<Community> {
                         ],
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 17),
+                      child: Container(
+                        height: scrH*0.01,
+                        width: scrW*0.8,
+                        decoration: BoxDecoration(
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
                     SizedBox(width: scrW * 1, height: scrH * 0.04),
                     Container(
                       height: scrH * 0.1,
                       decoration: BoxDecoration(
-                        border: Border(bottom: BorderSide(color: Colors.white54, width: 2)),
+                        border: Border(bottom: BorderSide(color: Colors.white54, width: 1)),
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(top: 5),
                         child: ListTile(
-                          leading: arrim[0],
+                          leading: Container(
+                            height: scrH * 0.06,
+                            width: scrW * 0.14,
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(12),
+                              color: Colors.red,
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(12),
+                              child: Image.network(
+                                "https://rukminim2.flixcart.com/image/850/1000/l1pc3gw0/poster/a/j/0/small-mahatma-gandhi-photopaper-print-poster-mahatma-gandhi-original-imagd7zgwqceksp8.jpeg?q=90&crop=false",
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
                           title: Text(
                             "General",
                             style: TextStyle(fontSize: 20, color: Colors.white),

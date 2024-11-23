@@ -29,16 +29,51 @@ class _SplashsceeState extends State<Splashscee> {
 
     return Scaffold(
       body: Container(
+        width: scrW*1,
         color:  const Color(0xff0B1014),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Icon(FontAwesomeIcons.whatsapp,size: 100,color: Colors.green,),
-              SizedBox(height: scrH*0.05,),
-              Text("Whatsapp", style: TextStyle(color: Colors.white,fontSize: 40),)
-            ],
-          ),
+        child: Column(
+          children: [
+            Spacer(),
+            Center(
+              child: Icon(
+                FontAwesomeIcons.whatsapp,
+                size: 90,
+                color: Colors.white70,
+              ),
+            ),
+           Spacer(),
+            Column(
+              children: [
+                SizedBox(height: 5),
+                Text(
+                  "from",
+                  style: TextStyle(
+                    color: Colors.white70,
+                    fontSize: 12,
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 150),
+                  child: Row(
+                    children: [
+                      Icon(FontAwesomeIcons.meta,color: Colors.white70,size: 20,),
+                      SizedBox(
+                        width: 7,
+                      ),
+                      Text(
+                        "Meta",
+                        style: TextStyle(
+                          color: Colors.white70,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            SizedBox(height: 20),
+          ],
         ),
       ),
     );

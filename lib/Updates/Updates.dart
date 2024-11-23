@@ -3,6 +3,8 @@ import 'package:gradient_icon/gradient_icon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //import 'package:google_fonts/google_fonts.dart';
 import 'package:badges/badges.dart' as badges;
+import 'package:whatsapp/Updates/statusprivacy.dart';
+import 'package:whatsapp/chats/Settings.dart';
 
 class Updates extends StatefulWidget {
   const Updates({super.key});
@@ -22,21 +24,38 @@ class _chatsState extends State<Updates> {
     var scrw=MediaQuery.of(context).size.width;
 
     var arrLeading = [
-
     CircleAvatar(
-        backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/3d-applications/256/app_icons_social_media_search___logo_google_engine_software.png"), backgroundColor: Colors.transparent
+        backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/3d-applications/256/app_icons_social_media_search___logo_google_engine_software.png"),
+        backgroundColor: Colors.transparent
     ),
-    CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/season-7/340/family_car_travel_vacation_trip_vehicle_happy-256.png"), backgroundColor: Colors.transparent),
-    CircleAvatar(backgroundImage: NetworkImage("https://cdn4.iconfinder.com/data/icons/kitchen-and-food-6/256/Doughnut.png"), backgroundColor: Colors.transparent),];
-    var arrte = ['App Mentoring','Travel Venture','Khazana'];
-    var arrSubtitle = ["You: Meeting kab h sir ?..",'Travel Ticket to Thai..','Khao Pet bhar ke..'];
-    var arrTrailing = ["10:17 am",'11:12 am','11:12 am'];
+    CircleAvatar(backgroundImage: NetworkImage("https://cdn2.iconfinder.com/data/icons/season-7/340/family_car_travel_vacation_trip_vehicle_happy-256.png"),
+        backgroundColor: Colors.transparent),
+
+    CircleAvatar(backgroundImage: NetworkImage("https://cdn4.iconfinder.com/data/icons/kitchen-and-food-6/256/Doughnut.png"),
+        backgroundColor: Colors.transparent),
+    ];
+
+    var arrte = [
+      'App Mentoring',
+      'Travel Venture',
+      'Khazana'
+    ];
+    var arrSubtitle = [
+      "You: Meeting kab h sir ?..",
+      'Travel Ticket to Thai..',
+      'Khao Pet bhar ke..'
+    ];
+    var arrTrailing = [
+      "10:17 am",
+      '11:12 am',
+      '11:12 am'
+    ];
 
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Color(0xff0B1014),
           title: const Text(
-            'Calls',
+            'Updates',
             style: TextStyle(
               fontSize: 25,
               color: Colors.white,
@@ -59,23 +78,90 @@ class _chatsState extends State<Updates> {
           ],
         ),
         endDrawer: Padding(
-          padding: const EdgeInsets.only(top:70),
+          padding: const EdgeInsets.only(top: 70),
           child: Align(
             alignment: Alignment.topRight,
             child: Container(
               width: scrw * 0.5,
-              height: scrh * 0.26,
+              height: scrh * 0.22,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
-                color: Color(0xff171e1e),
+                color: const Color(0xff171e1e),
               ),
-              child: ListView.builder(
-                itemCount: arrNames.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    title: Text(arrNames[index],style: TextStyle(color: Colors.white70),),
-                  );
-                },
+              child: Padding(
+                padding: const EdgeInsets.only(left: 13),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const statusp(),
+                              ),
+                            );
+                          },
+                          child:Container(
+                            width: scrw*0.6,
+                            height: scrh*0.03,
+                            //color: Colors.red,
+                            child:  const Text(
+                              "Status Privacy",
+                              style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w300),
+                            ),
+                          )
+                      ),
+                    ),
+
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Updates(),
+                              ),
+                            );
+                          },
+                          child:Container(
+                            width: scrw*0.6,
+                            height: scrh*0.03,
+                            child:  const Text(
+                              "Create Channel",
+                              style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w300),
+                            ),
+                          )
+                      ),
+                    ),
+
+                    Align(
+                      alignment: Alignment.centerLeft,
+                      child: InkWell(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => const Settings(),
+                              ),
+                            );
+                          },
+                          child:Container(
+                            width: scrw*0.6,
+                            height: scrh*0.03,
+                            child:  const Text(
+                              "Settings",
+                              style: TextStyle(color: Colors.white,fontSize: 15,fontWeight: FontWeight.w300),
+                            ),
+                          )
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
           ),
@@ -125,7 +211,7 @@ class _chatsState extends State<Updates> {
                                             ),
                                             child: const CircleAvatar(
                                               radius: 34,
-                                              backgroundImage: NetworkImage('"https://images.unsplash.com/photo-1491555103944-7c647fd857e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"'),
+                                              backgroundImage: NetworkImage('https://images.unsplash.com/photo-1491555103944-7c647fd857e6?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
                                               backgroundColor: Colors.transparent,
                                             ),
                                           ),
@@ -430,6 +516,32 @@ class _chatsState extends State<Updates> {
                           ),
                         ],
                       ),
-                    ),)])));
+                    ),)])),
+      floatingActionButton: Column(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Container(
+          height: scrh*0.055,
+          width: scrw*0.12,
+          child: FloatingActionButton(
+            backgroundColor: Color(0xff1b262f),
+            onPressed: () {},
+            child: Padding(
+              padding: const EdgeInsets.only(bottom: 0),
+              child: Icon(Icons.edit,color: Colors.white70,)
+            ),
+          ),
+        ),
+        SizedBox(height: 16),
+        FloatingActionButton(
+          backgroundColor: Colors.green,
+          onPressed: () {
+          },
+          child: Icon(Icons.camera_alt,color: Colors.black,),
+        ),
+      ],
+    ),
+    floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+    );
   }
 }
