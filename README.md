@@ -6,7 +6,7 @@
   <body>
 <div class="rtx">
 <img src='https://github.com/dhimanLove/Whatsapp-Clone/blob/master/Screenshos/splashscreen.jpg' height="500" width="230">
-<img src="https://github.com/dhimanLove/Whatsapp-Clone/blob/master/Screenshos/Chats.jpg" height="500" width="230">
+<img src="https://github.com/dhimanLove/Whatsapp-Clone/blob/master/Screenshos/IMG-20241126-WA0006.jpg" height="500" width="230">
 <img src="https://github.com/dhimanLove/Whatsapp-Clone/blob/master/Screenshos/Chats%20with%20Drawer.jpg" height="500" width="230">
 <img src='https://github.com/dhimanLove/Whatsapp-Clone/blob/master/Screenshos/NewBroasdcast.jpg' height="500" width="230">  
 <img src='https://github.com/dhimanLove/Whatsapp-Clone/blob/master/Screenshos/settings.jpg' height="500" width="230">
