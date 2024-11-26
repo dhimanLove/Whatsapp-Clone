@@ -11,18 +11,13 @@ class _DetailsState extends State<Details> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        color: Color(0xff0B1014),
-        child:
-        Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Hero(tag: 'bg', child: Image.network("https://cdn3.iconfinder.com/data/icons/milenia-travel-female-3d/256/Transportation_30.png"),
-              ),
-              Text("Hero Animation",style: TextStyle(fontSize: 35,color: Colors.white70),)
-            ],
+      body: Center(
+        child: Hero(
+          tag: 'bg',  // Must match the tag in the ListTile
+          child: CircleAvatar(
+            backgroundImage: NetworkImage("https://gdscmpstme.com/images/gdsc-logo.png"),
+            radius: 100,  // Make sure this radius is large enough to see the transition
+            backgroundColor: Colors.white,
           ),
         ),
       ),

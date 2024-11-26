@@ -353,51 +353,51 @@ class _ChatsState extends State<Chats> {
               child: Row(
                 children: [
                   Container(
-                  height: scrH*0.033,
+                  height: scrH*0.038,
                   width: scrW*0.1,
                  decoration: BoxDecoration(
-                     color: const Color(0xff20292f),
-                   borderRadius: BorderRadius.circular(10)
+                     color: const Color(0xff1A3A2D),
+                   borderRadius: BorderRadius.circular(20)
                  ),
-                    child: const Center(child: Text("All",style: TextStyle(color: Colors.white38))),
+                    child: const Center(child: Text("All",style: TextStyle(color: Colors.green))),
                 ),
                   SizedBox(width: scrW*0.01,),
                   Container(
-                    height: scrH*0.033,
+                    height: scrH*0.038,
                     width: scrW*0.2,
                     decoration: BoxDecoration(
                         color: const Color(0xff20292f),
-                        borderRadius: BorderRadius.circular(10)
+                        borderRadius: BorderRadius.circular(20)
                     ),
                     child: const Center(child: Text("Unread",style: TextStyle(color: Colors.white38))),
                   ),
                   SizedBox(width: scrW*0.01,),
                   Container(
-                    height: scrH*0.033,
+                    height: scrH*0.038,
                     width: scrW*0.24,
                     decoration: BoxDecoration(
                         color: const Color(0xff20292f),
-                        borderRadius: BorderRadius.circular(10)
+                        borderRadius: BorderRadius.circular(20)
                     ),
                     child: const Center(child: Text("Favourities",style: TextStyle(color: Colors.white38),)),
                   ),
                   SizedBox(width: scrW*0.01,),
                   Container(
-                    height: scrH*0.033,
+                    height: scrH*0.038,
                     width: scrW*0.18,
                     decoration: BoxDecoration(
                         color: const Color(0xff20292f),
-                        borderRadius: BorderRadius.circular(10)
+                        borderRadius: BorderRadius.circular(20)
                     ),
                     child: const Center(child: Text("Groups",style: TextStyle(color: Colors.white38),)),
                   ),
                   SizedBox(width: scrW*0.01,),
                   Container(
-                    height: scrH*0.033,
+                    height: scrH*0.038,
                     width: scrW*0.12,
                     decoration: BoxDecoration(
                         color: const Color(0xff20292f),
-                        borderRadius: BorderRadius.circular(10)
+                        borderRadius: BorderRadius.circular(20)
                     ),
                     child: const Center(child: Icon(Icons.add,color: Colors.white38,)),
                   ),
@@ -405,33 +405,64 @@ class _ChatsState extends State<Chats> {
               ),
             ),
             SizedBox(height: scrH*0.02,),
+            ListTile(
+              leading: Container(
+                height: scrH*0.13,
+                width: scrW*0.122,
+               // color: Colors.red,
+                child: Stack(
+                  children: [
+                    CircleAvatar(backgroundImage: NetworkImage("https://gdscmpstme.com/images/gdsc-logo.png"),backgroundColor: Colors.white,radius: 20,),
+                    Positioned(bottom:0 ,top:12,left: 9,
+                      child:
+                      Container(
+                        decoration: BoxDecoration(
+                        ),
+                        child:CircleAvatar(backgroundImage:  NetworkImage('https://w7.pngwing.com/pngs/22/444/png-transparent-messenger-facebook-messenger-messenger-logo-social-media-icon-thumbnail.png'),radius: 17,),
+                      ))
+                  ],
+                ),
+              ),
+              title: Text("GDSC Volunteer 2024",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w200),),
+              subtitle: Text("Everyone Join Fast",style: TextStyle(color: Colors.white38,fontWeight: FontWeight.w200),),
+              trailing: Text("10:15 am",style: TextStyle(color: Colors.white60,fontWeight: FontWeight.w200),),
+            ),
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: arrTrailing.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    leading:InkWell(onTap: (){
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>Details()));
-                    },child:arrLeading[index],),
+                    leading: InkWell(
+                      onTap: () {
+                        // Navigate to Details screen
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => Details()),
+                        );
+                      },
+                      child: Hero(
+                        tag: 'bg',
+                        child: arrLeading[index],
+                      ),
+                    ),
                     title: Text(
                       arrNames[index],
-                      style: const TextStyle(color: Color(0xffEFEFEF)),
+                      style: const TextStyle(color: Color(0xffEFEFEF), fontWeight: FontWeight.w200),
                     ),
-                    subtitle:Row(
+                    subtitle: Row(
                       children: [
-                        Icon(Icons.check,size: 12,color: Colors.blue,),
-                        SizedBox(width: scrW*0.005,),
+                        Icon(Icons.check, size: 12, color: Colors.blue),
+                        SizedBox(width: scrW * 0.005),
                         Text(
-                          softWrap: true,
-                          overflow: TextOverflow.ellipsis,
-                          arrSubtitle[index],style: TextStyle(color: Color(0xc3919191)),
-                        )
+                          arrSubtitle[index],
+                          style: TextStyle(color: Color(0xc3919191), fontWeight: FontWeight.w200),
+                        ),
                       ],
                     ),
                     trailing: Text(
                       arrTrailing[index],
-                      style: const TextStyle(color: Color(0xc3d5d5d5)),
+                      style: const TextStyle(color: Color(0xc3d5d5d5), fontWeight: FontWeight.w200),
                     ),
                   );
                 },

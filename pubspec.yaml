@@ -37,5 +37,6 @@ flutter:
   assets:
     - lib/assets/I.jpg
     - lib/assets/payments.png
+    - lib/assets/Channels.png
 
 

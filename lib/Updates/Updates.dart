@@ -62,8 +62,8 @@ class _chatsState extends State<Updates> {
             ),
           ),
           actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.photo_camera_outlined), color: color),
-            IconButton(onPressed: () {}, icon: const Icon(Icons.search), color: color),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.photo_camera_outlined), color: colr),
+            IconButton(onPressed: () {}, icon: const Icon(Icons.search), color: colr),
             Builder(
               builder: (context) {
                 return IconButton(
@@ -71,7 +71,7 @@ class _chatsState extends State<Updates> {
                     Scaffold.of(context).openEndDrawer();
                   },
                   icon: const Icon(Icons.more_vert),
-                  color: color,
+                  color: colr,
                 );
               },
             ),
@@ -116,16 +116,56 @@ class _chatsState extends State<Updates> {
                           )
                       ),
                     ),
-
                     Align(
                       alignment: Alignment.centerLeft,
                       child: InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => const Updates(),
+                            showModalBottomSheet(
+                              context: context,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                               ),
+                              backgroundColor: Color(0xff0B131A),
+                              builder: (context) {
+                                return Container(
+                                  padding: const EdgeInsets.all(16.0),
+                                  height: scrh*0.9, // Set height as per requirement
+                                  child: Column(
+                                    crossAxisAlignment: CrossAxisAlignment.start,
+                                    children: [
+                                      Center(
+                                        child: Container(
+                                          //color: Colors.red,
+                                          height:scrh*0.16,
+                                            width: scrw*0.6,
+                                            child: Image.asset('lib/assets/Channels.png',fit: BoxFit.contain,)
+                                        ),
+                                      ),
+                                      const Text(
+                                        "Create a channel to reach unlimited followers",
+                                        style: TextStyle(fontSize: 25,color: Colors.white),
+                                        textAlign: TextAlign.center,
+                                      ),
+                                       ListTile(
+                                        leading: FaIcon(FontAwesomeIcons.globe, color: Colors.white,size: 17,),
+                                        title: Text("Anyone can discover your channel",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w200,fontSize: 15),),
+                                        subtitle: Text("Channels are public , so anyone can find them and see 30 days of history",style: TextStyle(color: Colors.white54,fontWeight: FontWeight.w200,fontSize: 13),),
+                                        onTap: () {
+                                          Navigator.pop(context); // Close the bottom sheet
+                                        },
+                                      ),
+                                      ListTile(
+                                        leading: const FaIcon(FontAwesomeIcons.eyeSlash, color: Colors.white,size: 17,),
+                                        title: const Text('People see your channel, not you ',style: TextStyle(color: Colors.white,fontWeight: FontWeight.w200,fontSize: 15),),
+                                        subtitle: Text("Followers can't see your phone number just you can see.",style: TextStyle(color: Colors.white54,fontWeight: FontWeight.w200,fontSize: 13),),
+                                        onTap: () {
+                                          Navigator.pop(context);
+                                        },
+                                      ),
+                                    ],
+                                  ),
+                                );
+                              },
                             );
                           },
                           child:Container(
@@ -329,9 +369,9 @@ class _chatsState extends State<Updates> {
                       itemBuilder: (context, index) {
                         return ListTile(
                           leading: arrLeading[index],
-                          title: Text(arrte[index],style: TextStyle(color: Colors.white),),
-                          subtitle: Text(arrSubtitle[index],style: TextStyle(color: Colors.white60),),
-                          trailing: Text(arrTrailing[index],style: TextStyle(color: Colors.white54),),
+                          title: Text(arrte[index],style: TextStyle(color: Colors.white,fontWeight: FontWeight.w200),),
+                          subtitle: Text(arrSubtitle[index],style: TextStyle(color: Colors.white60,fontWeight: FontWeight.w200),),
+                          trailing: Text(arrTrailing[index],style: TextStyle(color: Colors.white54,fontWeight: FontWeight.w200),),
                         );
                       },
                     ),

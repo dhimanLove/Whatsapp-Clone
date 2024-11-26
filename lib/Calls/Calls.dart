@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:whatsapp/Calls/Delete.dart';
+import 'package:whatsapp/chats/Settings.dart';
 
 class Calls extends StatelessWidget {
   const Calls({super.key});
@@ -79,7 +81,7 @@ class Calls extends StatelessWidget {
           alignment: Alignment.topRight,
           child: Container(
             width: scrw * 0.5,
-            height: scrh * 0.39,
+            height: scrh * 0.16,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(10),
               color: const Color(0xff171e1e),
@@ -92,121 +94,81 @@ class Calls extends StatelessWidget {
                 children: [
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Calls(),
-                            ),
-                          );
-                        },
-                        child:Container(
-                          width: scrw*0.4,
-                          height: scrh*0.03,
-                          //color: Colors.red,
-                          child:  const Text(
-                            "New Group",
-                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
-                          ),
-                        )
-                    ),
+                    child: TextButton(
+                      onPressed: () {
+                        showDialog(
+                          context: context,
+                          builder: (BuildContext context) {
+                            return Dialog(
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(40),
+                              ),
+                              child: Container(
+                                width: 300,
+                                height: scrh*0.17,
+                                decoration: BoxDecoration(
+                                  color: const Color(0xff2e3638), // Background color
+                                  borderRadius: BorderRadius.circular(26),
+                                ),
+                                child: Column(
+                                  //mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsets.symmetric(horizontal: 22,vertical: 18),
+                                      child: Text(
+                                        "Do you want to clear your entire call logs?",
+                                        //textAlign: TextAlign.center,
+                                        style: TextStyle(
+                                          color: Colors.white54,
+                                          fontSize: 14,
+                                          fontWeight: FontWeight.w200,
+                                        ),
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                          },
+                                          child: Text(
+                                            "Cancel",
+                                            style: TextStyle(
+                                              color: Colors.green,
+                                              //fontSize: 14,
+                                              fontWeight: FontWeight.w200,
+                                            ),
+                                          ),
+                                        ),
+                                        TextButton(
+                                          onPressed: () {
+                                            Navigator.of(context).pop();
+                                            // Add clear logic here
+                                          },
+                                          child: Text(
+                                            "OK",
+                                            style: TextStyle(
+                                              color: Colors.green,
+                                              //fontSize: 14,
+                                              fontWeight: FontWeight.w200,
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            );
 
-                  ),
-
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Calls(),
-                            ),
-                          );
-                        },
-                        child:Container(
-                          width: scrw*0.4,
-                          height: scrh*0.03,
-                          //color: Colors.red,
-                          child:  const Text(
-                            "New Broadcast",
-                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
-                          ),
-                        )
-                    ),
-
-                  ),
-
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Calls(),
-                            ),
-                          );
-                        },
-                        child:Container(
-                          width: scrw*0.4,
-                          height: scrh*0.03,
-                          //color: Colors.red,
-                          child:  const Text(
-                            "Linked Devices",
-                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
-                          ),
-                        )
-                    ),
-
-                  ),
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Calls(),
-                            ),
-                          );
-                        },
-                        child:Container(
-                          width: scrw*0.4,
-                          height: scrh*0.03,
-                          //color: Colors.red,
-                          child:  const Text(
-                            "Calls messages",
-                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
-                          ),
-                        )
-                    ),
-
-                  ),
-
-                  Align(
-                    alignment: Alignment.centerLeft,
-                    child: InkWell(
-                        onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => const Calls(),
-                            ),
-                          );
-                        },
-                        child:Container(
-                          width: scrw*0.4,
-                          height: scrh*0.03,
-                          //color: Colors.red,
-                          child:  const Text(
-                            "Calls",
-                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
-                          ),
-                        )
+                          },
+                        );
+                      },
+                      child: const Text("Clear call logs",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w200,fontSize: 16),),
                     ),
                   ),
+
                   Align(
                     alignment: Alignment.centerLeft,
                     child: InkWell(
@@ -214,7 +176,7 @@ class Calls extends StatelessWidget {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => const Calls(),
+                                builder: (context) => const Settings(),
                               )
                           );
                         },
@@ -224,7 +186,7 @@ class Calls extends StatelessWidget {
                           //color: Colors.red,
                           child:  const Text(
                             "Settings",
-                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w300),
+                            style: TextStyle(color: Colors.white,fontSize: 16,fontWeight: FontWeight.w200),
                           ),
                         )
                     ),
@@ -270,9 +232,9 @@ class Calls extends StatelessWidget {
                   leading: arrLeading[index],
                   title: Text(
                     arrNames[index],
-                    style: TextStyle(color: color),
+                    style: TextStyle(color: color,fontWeight: FontWeight.w200),
                   ),
-                  subtitle: Text(arrSubtitle[index], style: TextStyle(color: Colors.grey)),
+                  subtitle: Text(arrSubtitle[index], style: TextStyle(color: Colors.grey,fontWeight: FontWeight.w200)),
                   trailing: arrTrailing[index],
                 );
               },
