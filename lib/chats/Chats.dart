@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gradient_icon/gradient_icon.dart';
+import 'package:whatsapp/Camera.dart';
 import 'package:whatsapp/chats/Linkeddev.dart';
 import 'package:whatsapp/chats/New%20Group.dart';
 import 'package:whatsapp/chats/Payments.dart';
@@ -120,7 +121,9 @@ class _ChatsState extends State<Chats> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Camera()));
+            },
             icon: const Icon(Icons.photo_camera_outlined),
             color: Colors.white,
           ),

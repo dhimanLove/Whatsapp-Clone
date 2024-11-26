@@ -45,7 +45,7 @@ class _StarredState extends State<Starred> {
                   width: scrw*0.7,
                   child: Align(
                       alignment:Alignment.topCenter,
-                      child: Text("Tap and Hold on any message in any chat to star it , so you can easily find it later",style: TextStyle(color: Colors.white70,fontSize: 17,fontWeight: FontWeight.w200),)),
+                      child: Text("Tap and Hold on any message in any chat to star it , so you can easily find it later",style: TextStyle(color: Colors.white70,fontSize: 17,fontWeight: FontWeight.w200),textAlign: TextAlign.center,)),
                 )
               ],
             ),
