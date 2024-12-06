@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gradient_icon/gradient_icon.dart';
 import 'package:whatsapp/Camera.dart';
 import 'package:whatsapp/chats/Linkeddev.dart';
@@ -9,7 +9,6 @@ import 'package:whatsapp/chats/Settings.dart';
 import 'package:whatsapp/chats/Starred.dart';
 import 'package:whatsapp/chats/details.dart';
 import 'package:whatsapp/chats/group.dart';
-import 'package:whatsapp/communities/Communities.dart';
 
 class Chats extends StatefulWidget {
   const Chats({super.key});
@@ -155,6 +154,7 @@ class _ChatsState extends State<Chats> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
+
                   Align(
                     alignment: Alignment.centerLeft,
                     child: InkWell(
@@ -166,7 +166,7 @@ class _ChatsState extends State<Chats> {
                           ),
                         );
                       },
-                      child:Container(
+                      child:SizedBox(
                         width: scrW*0.4,
                         height: scrH*0.03,
                         //color: Colors.red,
@@ -176,8 +176,8 @@ class _ChatsState extends State<Chats> {
                         ),
                       )
                     ),
-
                   ),
+
                   Align(
                     alignment: Alignment.centerLeft,
                     child: InkWell(
@@ -189,7 +189,7 @@ class _ChatsState extends State<Chats> {
                             ),
                           );
                         },
-                        child:Container(
+                        child:SizedBox(
                           width: scrW*0.4,
                           height: scrH*0.03,
                           //color: Colors.red,
@@ -199,7 +199,6 @@ class _ChatsState extends State<Chats> {
                           ),
                         )
                     ),
-
                   ),
 
                   Align(
@@ -213,7 +212,7 @@ class _ChatsState extends State<Chats> {
                             ),
                           );
                         },
-                        child:Container(
+                        child:SizedBox(
                           width: scrW*0.4,
                           height: scrH*0.03,
                           //color: Colors.red,
@@ -223,8 +222,8 @@ class _ChatsState extends State<Chats> {
                           ),
                         )
                     ),
-
                   ),
+
                   Align(
                     alignment: Alignment.centerLeft,
                     child: InkWell(
@@ -236,7 +235,7 @@ class _ChatsState extends State<Chats> {
                             ),
                           );
                         },
-                        child:Container(
+                        child:SizedBox(
                           width: scrW*0.4,
                           height: scrH*0.03,
                           //color: Colors.red,
@@ -246,7 +245,6 @@ class _ChatsState extends State<Chats> {
                           ),
                         )
                     ),
-
                   ),
 
                   Align(
@@ -260,7 +258,7 @@ class _ChatsState extends State<Chats> {
                             ),
                           );
                         },
-                        child:Container(
+                        child:SizedBox(
                           width: scrW*0.4,
                           height: scrH*0.03,
                           //color: Colors.red,
@@ -271,6 +269,7 @@ class _ChatsState extends State<Chats> {
                         )
                     ),
                   ),
+
                   Align(
                     alignment: Alignment.centerLeft,
                     child: InkWell(
@@ -282,7 +281,7 @@ class _ChatsState extends State<Chats> {
                             )
                           );
                         },
-                        child:Container(
+                        child:SizedBox(
                           width: scrW*0.4,
                           height: scrH*0.03,
                           //color: Colors.red,
@@ -299,6 +298,7 @@ class _ChatsState extends State<Chats> {
           ),
         ),
       ),
+
       body: Container(
         decoration: const BoxDecoration(color: Color(0xff0B1014)),
         child: Column(
@@ -409,7 +409,7 @@ class _ChatsState extends State<Chats> {
             ),
             SizedBox(height: scrH*0.02,),
             ListTile(
-              leading: Container(
+              leading: SizedBox(
                 height: scrH*0.13,
                 width: scrW*0.122,
                // color: Colors.red,
@@ -477,14 +477,14 @@ class _ChatsState extends State<Chats> {
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Container(
+          SizedBox(
             height: scrH*0.055,
             width: scrW*0.12,
             child: FloatingActionButton(
               backgroundColor: Color(0xff1b262f),
               onPressed: () {},
               child:const Padding(
-                padding: const EdgeInsets.only(bottom: 17),
+                padding: EdgeInsets.only(bottom: 17),
                 child: GradientIcon(
                   icon: Icons.circle_outlined,
                   gradient: LinearGradient(
