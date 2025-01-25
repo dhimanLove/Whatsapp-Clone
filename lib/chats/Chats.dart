@@ -1,7 +1,12 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 //import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:gradient_icon/gradient_icon.dart';
-import 'package:whatsapp/Camera.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:whatsapp/chats/Chats/Chatscreeen.dart';
 import 'package:whatsapp/chats/Linkeddev.dart';
 import 'package:whatsapp/chats/New%20Group.dart';
 import 'package:whatsapp/chats/Payments.dart';
@@ -18,6 +23,17 @@ class Chats extends StatefulWidget {
 }
 
 class _ChatsState extends State<Chats> {
+  File? _imageFile;
+  Future<void> _takePicture() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.camera);
+
+    if (image != null) {
+      setState(() {
+        _imageFile = File(image.path); // Store the image file
+      });
+    }
+  }
    List<String> arrDrawer = [
     'New Group',
     'New Broadcast',
@@ -27,7 +43,7 @@ class _ChatsState extends State<Chats> {
     'Settings'
   ];
 
-   List<Widget> arrLeading = [
+  List<Widget> arrLeading = [
     const CircleAvatar(
       backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU0vMJn9NTpca8c7waspkH6MoWdoWDqbEi4BtZxMPqs41YTzdBihpSh8Az5n0ORMQwz5Y&usqp=CAU"),
       backgroundColor: Colors.transparent,
@@ -44,10 +60,10 @@ class _ChatsState extends State<Chats> {
       backgroundImage: NetworkImage("https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),
       backgroundColor: Colors.transparent,
     ),
-     const CircleAvatar(
-       backgroundImage: NetworkImage('https://images.unsplash.com/photo-1531386151447-fd76ad50012f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-       backgroundColor: Colors.transparent,
-     ),
+    const CircleAvatar(
+      backgroundImage: NetworkImage('https://images.unsplash.com/photo-1531386151447-fd76ad50012f?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+      backgroundColor: Colors.transparent,
+    ),
     const CircleAvatar(
       backgroundImage: NetworkImage('https://images.unsplash.com/photo-1437502920657-db9708bfe2ef?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
       backgroundColor: Colors.transparent,
@@ -60,11 +76,12 @@ class _ChatsState extends State<Chats> {
       backgroundImage: NetworkImage('https://images.unsplash.com/photo-1610926597998-fc7f2c1b89b0?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
       backgroundColor: Colors.transparent,
     ),
-     const CircleAvatar(
-       backgroundImage: NetworkImage('https://images.unsplash.com/photo-1725902380927-081e7400b920?q=80&w=1915&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
-       backgroundColor: Colors.transparent,
-     ),
+    const CircleAvatar(
+      backgroundImage: NetworkImage('https://images.unsplash.com/photo-1725902380927-081e7400b920?q=80&w=1915&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
+      backgroundColor: Colors.transparent,
+    ),
   ];
+
 
    List<String> arrNames = [
     'App Mentoring',
@@ -120,9 +137,7 @@ class _ChatsState extends State<Chats> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context)=>Camera()));
-            },
+            onPressed: () {_takePicture();},
             icon: const Icon(Icons.photo_camera_outlined),
             color: Colors.white,
           ),
@@ -277,7 +292,7 @@ class _ChatsState extends State<Chats> {
                           Navigator.push(
                             context,
                             MaterialPageRoute(
-                              builder: (context) => const Settings(),
+                              builder: (context) => Settings(),
                             )
                           );
                         },
@@ -409,10 +424,9 @@ class _ChatsState extends State<Chats> {
             ),
             SizedBox(height: scrH*0.02,),
             ListTile(
-              leading: SizedBox(
+              leading: Container(
                 height: scrH*0.13,
                 width: scrW*0.122,
-               // color: Colors.red,
                 child: Stack(
                   children: [
                     CircleAvatar(backgroundImage: NetworkImage("https://gdscmpstme.com/images/gdsc-logo.png"),backgroundColor: Colors.white,radius: 20,),
@@ -438,7 +452,6 @@ class _ChatsState extends State<Chats> {
                   return ListTile(
                     leading: InkWell(
                       onTap: () {
-                        // Navigate to Details screen
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Details()),
@@ -449,19 +462,29 @@ class _ChatsState extends State<Chats> {
                         child: arrLeading[index],
                       ),
                     ),
-                    title: Text(
-                      arrNames[index],
-                      style: const TextStyle(color: Color(0xffEFEFEF), fontWeight: FontWeight.w200),
+                    title: GestureDetector(
+                      child: Text(
+                        arrNames[index],
+                        style: const TextStyle(color: Color(0xffEFEFEF), fontWeight: FontWeight.w200),
+                      ),
+                      onTap: () {
+                        Get.to(() => ChatScreen());
+                      },
                     ),
-                    subtitle: Row(
-                      children: [
-                        Icon(Icons.check, size: 12, color: Colors.blue),
-                        SizedBox(width: scrW * 0.005),
-                        Text(
-                          arrSubtitle[index],
-                          style: TextStyle(color: Color(0xc3919191), fontWeight: FontWeight.w200),
-                        ),
-                      ],
+                    subtitle: GestureDetector(
+                      child: Row(
+                        children: [
+                         Icon(FontAwesomeIcons.checkDouble,color: Colors.lightBlue,size: 13),
+                          SizedBox(width: scrW * 0.005),
+                          Text(
+                            arrSubtitle[index],
+                            style: TextStyle(color: Color(0xc3919191), fontWeight: FontWeight.w200),
+                          ),
+                        ],
+                      ),
+                      onTap: () {
+                        Get.to(() => ChatScreen());
+                      },
                     ),
                     trailing: Text(
                       arrTrailing[index],

@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:whatsapp/Calls/Calls.dart';
-import 'package:whatsapp/Splashscee.dart';
 import 'package:whatsapp/Updates/Updates.dart';
 import 'package:whatsapp/Chats/Chats.dart';
 import 'package:whatsapp/communities/Communities.dart';
+
 
 void main() {
   runApp(const MyApp());
@@ -14,10 +15,9 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-     // theme: ThemeData(),
+    return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const Splashscee(), // Start with Splashscee
+      home: const Whatsapp(),
     );
   }
 }
@@ -48,94 +48,92 @@ class _WhatsappState extends State<Whatsapp> {
 
   @override
   Widget build(BuildContext context) {
-    var scrw = MediaQuery.of(context).size.width;
-    bool screen = scrw > 600;
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        body: screen
-            ? Row(
-          children: [
-            NavigationRail(
-              selectedIndex: _selectedIndex,
-              onDestinationSelected: (index) {
-                _onItemTapped(index);
-              },
-              labelType: NavigationRailLabelType.all,
-              backgroundColor: const Color(0xff0B1014),
-              destinations: const [
-                NavigationRailDestination(
-                  icon: Icon(Icons.chat),
-                  label: Text('Chats'),
-                ),
-                NavigationRailDestination(
-                  icon: Icon(Icons.update),
-                  label: Text('Updates'),
-                ),
-                NavigationRailDestination(
-                  icon: Icon(Icons.people_alt),
-                  label: Text('Communities'),
-                ),
-                NavigationRailDestination(
-                  icon: Icon(Icons.call,),
-                  label: Text('Calls'),
-                ),
-              ],
-              selectedLabelTextStyle: const TextStyle(color: Colors.white),
-              unselectedLabelTextStyle:
-              const TextStyle(color: Colors.white54),
-            ),
-            Expanded(
-              child: PageView(
-                controller: _pageController,
-                onPageChanged: (index) {
-                  setState(() {
-                    _selectedIndex = index;
-                  });
-                },
-                children: _pages,
-              ),
-            ),
-          ],
-        )
-            : Scaffold(
-          body: PageView(
-            controller: _pageController,
-            onPageChanged: (index) {
-              setState(() {
-                _selectedIndex = index;
-              });
+    var scrW = MediaQuery.of(context).size.width;
+    bool isWideScreen = scrW > 600; // Check for wide screens
+
+    return Scaffold(
+      body: isWideScreen
+          ? Row(
+        children: [
+          NavigationRail(
+            selectedIndex: _selectedIndex,
+            onDestinationSelected: (index) {
+              _onItemTapped(index);
             },
-            children: _pages,
-          ),
-          bottomNavigationBar: BottomNavigationBar(
+            labelType: NavigationRailLabelType.all,
             backgroundColor: const Color(0xff0B1014),
-            selectedItemColor: Colors.green,
-            unselectedItemColor: Colors.white54,
-            unselectedFontSize: 10,
-            currentIndex: _selectedIndex,
-            onTap: _onItemTapped,
-            type: BottomNavigationBarType.fixed,
-            items: const [
-              BottomNavigationBarItem(
+            destinations: const [
+              NavigationRailDestination(
                 icon: Icon(Icons.chat),
-                label: 'Chats',
+                label: Text('Chats'),
               ),
-              BottomNavigationBarItem(
+              NavigationRailDestination(
                 icon: Icon(Icons.update),
-                label: 'Updates',
+                label: Text('Updates'),
               ),
-              BottomNavigationBarItem(
+              NavigationRailDestination(
                 icon: Icon(Icons.people_alt),
-                label: 'Communities',
+                label: Text('Communities'),
               ),
-              BottomNavigationBarItem(
+              NavigationRailDestination(
                 icon: Icon(Icons.call),
-                label: 'Calls',
+                label: Text('Calls'),
               ),
             ],
+            selectedLabelTextStyle: const TextStyle(color: Colors.white),
+            unselectedLabelTextStyle:
+            const TextStyle(color: Colors.white54),
           ),
-        ),
+          Expanded(
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: (index) {
+                setState(() {
+                  _selectedIndex = index;
+                });
+              },
+              children: _pages,
+            ),
+          ),
+        ],
+      )
+          : PageView(
+        controller: _pageController,
+        onPageChanged: (index) {
+          setState(() {
+            _selectedIndex = index;
+          });
+        },
+        children: _pages,
+      ),
+      bottomNavigationBar: isWideScreen
+          ? null // Hide BottomNavigationBar on wide screens
+          : BottomNavigationBar(
+        backgroundColor: const Color(0xff0B1014),
+        selectedItemColor: Colors.green,
+        unselectedItemColor: Colors.white54,
+        unselectedFontSize: 10,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
+        type: BottomNavigationBarType.fixed,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.chat),
+            label: 'Chats',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.update),
+            label: 'Updates',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.people_alt),
+            label: 'Communities',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.call),
+            label: 'Calls',
+          ),
+        ],
       ),
     );
   }

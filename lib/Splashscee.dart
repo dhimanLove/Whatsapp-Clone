@@ -1,6 +1,9 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:whatsapp/Chats/Chats.dart';
+import 'package:whatsapp/Login&Signup/Language.dart';
+import 'package:whatsapp/Settings/Chat.dart';
 import 'package:whatsapp/main.dart';
 
 class Splashscee extends StatefulWidget {
@@ -17,7 +20,7 @@ class _SplashsceeState extends State<Splashscee> {
     super.initState();
 
     Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=>Whatsapp(),
+      Navigator.push(context, MaterialPageRoute(builder: (context)=>Chats(),
       ));
     });
   }

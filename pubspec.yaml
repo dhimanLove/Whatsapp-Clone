@@ -9,17 +9,24 @@ environment:
 
 
 dependencies:
+  path_provider:
   flutter:
     sdk: flutter
   font_awesome_flutter: ^10.8.0
-  flutter_contacts: ^1.1.9+2
-  gradient_icon: ^2.0.9
-  camera: ^0.11.0+2
-  path_provider: ^2.1.5
-  path: ^1.9.0
-  flutter_native_splash: ^2.4.3
-
+  google_fonts:  6.2.1
+  get: ^4.6.6
+  google_sign_in: ^6.2.2
+  random_string: ^2.3.1
+  gesture_x_detector: ^1.1.1
+  supabase_flutter: ^2.8.3
+  intl: ^0.20.2
+  image_picker:
   cupertino_icons: ^1.0.8
+  fl_chart: ^0.70.2
+  getwidget: ^5.0.0
+  gradient_icon: ^2.0.9
+  camera:
+
 
 dev_dependencies:
   flutter_test:
@@ -30,7 +37,7 @@ dev_dependencies:
   google_fonts:  6.2.1
 
 
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
 flutter:
   uses-material-design: true
@@ -38,5 +45,6 @@ flutter:
     - lib/assets/I.jpg
     - lib/assets/payments.png
     - lib/assets/Channels.png
+    - lib/assets/Background.png
 
 
