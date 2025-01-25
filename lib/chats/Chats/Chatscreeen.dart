@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ChatScreen extends StatefulWidget {
   @override
@@ -7,6 +10,24 @@ class ChatScreen extends StatefulWidget {
 }
 
 class _ChatScreenState extends State<ChatScreen> {
+  Future pickimage() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
+    if (image != null) {
+      setState(() {
+      });
+    }
+  }
+  Future<void> _takePicture() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.camera);
+
+    if (image != null) {
+      setState(() {
+// Store the image file
+      });
+    }
+  }
   final TextEditingController _controller = TextEditingController();
   List<String> messages = [
     'Kya Haal ?',
@@ -82,7 +103,9 @@ class _ChatScreenState extends State<ChatScreen> {
             color: Colors.white,
           ),
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+              _takePicture();
+            },
             icon: const Icon(Icons.video_call),
             color: Colors.white,
           ),
@@ -287,19 +310,30 @@ class _ChatScreenState extends State<ChatScreen> {
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30),
-                  color: Colors.white,
+                  color: Color(0xff171e1e),
                 ),
                 child: Row(
                   children: [
-                    IconButton(onPressed: () {}, icon: Icon(Icons.attach_file)),
+                    IconButton(onPressed: () {
+                      pickimage();
+                    }, icon: Icon(Icons.attach_file,color: Colors.white70,)),
                     SizedBox(width: 10),
-                    Icon(Icons.camera_alt),
+                    IconButton(
+                      onPressed: () {
+                        _takePicture();
+                      },
+                      icon: Icon(Icons.camera_alt,color: Colors.white70,),
+                    ),
                     SizedBox(width: 10),
                     Expanded(
                       child: TextField(
+                        style: TextStyle(color: Colors.white70),
                         controller: _controller,
                         decoration: InputDecoration(
+                          focusedBorder: InputBorder.none,
+                          border: InputBorder.none,
                           hintText: 'Type a message...',
+                          hintStyle: TextStyle(color: Colors.white70),
                         ),
                       ),
                     ),
@@ -319,7 +353,7 @@ class _ChatScreenState extends State<ChatScreen> {
                           _sendMessage();
                         }
                       },
-                      icon: Icon(Icons.send),
+                      icon: Icon(Icons.send,color: Colors.white70,),
                     ),
                   ],
                 ),
