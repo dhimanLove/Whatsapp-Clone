@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/Settings/help/appinfo.dart';
 
 class Help extends StatelessWidget {
   @override
@@ -25,18 +26,30 @@ class Help extends StatelessWidget {
             leading: Icon(Icons.help_outline,color: Colors.white54,),
             title: Text("Help centre",style: TextStyle(color: Colors.white54),),
             subtitle: Text("Get help, contact us",style: TextStyle(color: Colors.white54,fontWeight: FontWeight.w200),),
+            onTap: () {
+              Get.toNamed("/helpcenter");
+            },
           ),
           ListTile(
             leading: Icon(Icons.contact_page_outlined,color: Colors.white54,),
             title: Text("Terms and Privacy Policy",style: TextStyle(color: Colors.white54),),
+            onTap: () {
+              Get.toNamed("/termsandprivacy");
+            },
           ),
           ListTile(
             leading: Icon(Icons.report_gmailerrorred_outlined,color: Colors.white54,),
             title: Text("Channel reports",style: TextStyle(color: Colors.white54),),
+            onTap: () {
+              Get.toNamed("/channelreports");
+            },
           ),
           ListTile(
             leading: Icon(Icons.info_outline,color: Colors.white54,),
             title: Text("App info",style: TextStyle(color: Colors.white54),),
+            onTap: () {
+              Get.to(() => Appinfo());
+            },
           ),
         ],
       )

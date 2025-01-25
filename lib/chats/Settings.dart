@@ -7,6 +7,7 @@ import 'package:whatsapp/Settings/Avatars.dart';
 import 'package:whatsapp/Settings/Chat.dart';
 import 'package:whatsapp/Settings/Privacy.dart';
 import 'package:whatsapp/Settings/help.dart';
+import 'package:whatsapp/Settings/invite%20friend.dart';
 import 'package:whatsapp/Settings/list.dart';
 import 'package:whatsapp/Settings/notifications.dart';
 import 'package:whatsapp/Settings/storage.dart';
@@ -220,12 +221,17 @@ class _SettingsState extends State<Settings> {
                 },
               ),
             ),
-            const Padding(
+             Padding(
               padding: EdgeInsets.only(left: 10),
-              child: ListTile(
+              child:
+              ListTile(
                 leading: Icon(Icons.people_alt_outlined, color: Colors.white54),
                 title: Text("Invite Friend", style: TextStyle(color: Colors.white54)),
-              ),
+                onTap: () {
+                  Get.to(Invite());
+                },
+              )
+
             ),
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 10, top: 40),

@@ -104,7 +104,7 @@ class _ChatState extends State<Chat> {
             SizedBox(height: 9),
             ListTile(
               leading: Icon(
-                Icons.sunny,
+                Icons.brightness_3,
                 color: Colors.white70,
               ),
               title: Text(
@@ -112,11 +112,65 @@ class _ChatState extends State<Chat> {
                 style: TextStyle(color: Colors.white70),
               ),
               subtitle: Text(
-                "Change theme",
+                "Dark",
                 style: TextStyle(color: Colors.white54),
               ),
               onTap: () {
-                // Navigate to theme settings
+                Get.dialog(
+                  AlertDialog(
+                    title: Text("Select Theme",style: stl,),
+                    backgroundColor: Color(0xff1e2323),
+                    content: Column(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        ListTile(
+                          title: Row(
+                            children: [
+                              Icon(
+                                Icons.brightness_3,
+                                color: Colors.white70,
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "Dark",
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ],
+                          ),
+                          onTap: () {
+                            Get.back();
+                            Get.changeTheme(ThemeData.dark());
+                          },
+                        ),
+                        ListTile(
+                          title: Row(
+                            children: [
+                              Icon(
+                                Icons.brightness_5,
+                                color: Colors.white70,
+                              ),
+                              SizedBox(width: 10),
+                              Text(
+                                "Light",
+                                style: TextStyle(
+                                  color: Colors.white70,
+                                  fontWeight: FontWeight.w300,
+                                ),
+                              ),
+                            ],
+                          ),
+                          onTap: () {
+                            Get.back();
+                            Get.changeTheme(ThemeData.light());
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                );
               },
             ),
             ListTile(
