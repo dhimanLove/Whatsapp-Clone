@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/Settings/Storage/Managestorage.dart';
 import 'package:whatsapp/Settings/Storage/proxy.dart';
 
 class Storage extends StatefulWidget {
@@ -39,6 +40,9 @@ class _StorageState extends State<Storage> {
                 leading: const Icon(Icons.folder_open_rounded, color: Colors.white70),
                 title: const Text("Manage Storage", style: TextStyle(color: Colors.white70)),
                 subtitle: const Text("2.8 GB", style: TextStyle(color: Colors.white54)),
+                onTap: (){
+                  Get.to(ManageStoragePage());
+                },
               ),
               const Divider(color: Colors.white54, thickness: 0.2),
               ListTile(

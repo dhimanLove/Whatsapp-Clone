@@ -119,7 +119,7 @@ class Account extends StatelessWidget {
             leading: Icon(FontAwesomeIcons.trash,color: colr,),
             title: Text("Delete account",style: TextStyle(color: colr,fontSize: 16),),
             onTap: (){
-              Get.to(Deleteaccount());
+              Get.to(DeleteAccount());
             },
           ),
         ]

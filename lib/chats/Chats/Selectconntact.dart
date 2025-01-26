@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/chats/group.dart';
 
 class Selectconntact extends StatefulWidget {
   const Selectconntact({super.key});
@@ -120,6 +121,9 @@ class _SelectconntactState extends State<Selectconntact> {
                   "New group",
                   style: TextStyle(color: Colors.white),
                 ),
+                onTap: (){
+                  Group();
+                },
               ),
               ListTile(
                 leading: CircleAvatar(

@@ -2,13 +2,17 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/Settings/Privacy/Advanced.dart';
 import 'package:whatsapp/Settings/Privacy/Groups.dart';
 import 'package:whatsapp/Settings/Privacy/Last%20seen.dart';
 import 'package:whatsapp/Settings/Privacy/Profilephoto.dart';
 import 'package:whatsapp/Settings/Privacy/about.dart';
+import 'package:whatsapp/Settings/Privacy/applock.dart';
 import 'package:whatsapp/Settings/Privacy/blocked.dart';
 import 'package:whatsapp/Settings/Privacy/calls.dart';
+import 'package:whatsapp/Settings/Privacy/chatlock.dart';
 import 'package:whatsapp/Settings/Privacy/ive%20Location.dart';
+import 'package:whatsapp/Settings/Privacy/privacycheck.dart';
 import 'package:whatsapp/Settings/Privacy/status.dart';
 import 'package:whatsapp/Settings/Timer.dart';
 
@@ -158,14 +162,14 @@ class _PrivacyState extends State<Privacy> {
                 title: Text("App Lock",style: stl,),
                 subtitle: Text("Disabled",style: TextStyle(color: Colors.white38),),
                 onTap: (){
-                  Get;
+                  Get.to(AppLockScreen());
                 },
               ),
               ListTile(
                 title: Text("Chat Lock",style: stl,),
                 subtitle: Text("Disabled",style: TextStyle(color: Colors.white38),),
                 onTap: (){
-                  Get;
+                  Get.to(ChatLockScreen());
                 },
               ),
               ListTile(
@@ -197,7 +201,7 @@ class _PrivacyState extends State<Privacy> {
                 title: Text("Advanced",style: stl,),
                 subtitle: Text("Media visibility, link previews, and more",style: TextStyle(color: Colors.white38),),
                 onTap: (){
-                  Get;
+                  Get.to(AdvancedSettingsPage());
                 },
               ),
               SizedBox(height: 10),
@@ -206,8 +210,11 @@ class _PrivacyState extends State<Privacy> {
               ),
               SizedBox(height: 10),
               ListTile(
-                title: Text("Privacy Checkup",style: stl,),
-                subtitle: Text("Improve your privacy settings",style: TextStyle(color: Colors.white38),),
+                title: Text("Privacy Checkup", style: stl),
+                subtitle: Text("Improve your privacy settings", style: TextStyle(color: Colors.white38)),
+                onTap: () {
+                  Get.to(PrivacyCheckupPage());
+                },
               )
             ],
           ),

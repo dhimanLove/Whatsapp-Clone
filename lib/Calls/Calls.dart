@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:whatsapp/Calls/Delete.dart';
+import 'package:whatsapp/Calls/Selectcalls.dart';
 import 'package:whatsapp/chats/Settings.dart';
 
 class Calls extends StatelessWidget {
@@ -245,7 +247,9 @@ class Calls extends StatelessWidget {
       floatingActionButton: 
           FloatingActionButton(
             backgroundColor: Colors.green,
-            onPressed: () {},
+            onPressed: () {
+              Get.to(ContactUI());
+            },
           child: Icon(Icons.add_ic_call_rounded,color: Colors.black,),
           ),
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,

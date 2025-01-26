@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/Settings/help/Channelreports.dart';
 import 'package:whatsapp/Settings/help/appinfo.dart';
 import 'package:whatsapp/Settings/help/helpcenter.dart';
 
@@ -42,7 +43,7 @@ class Help extends StatelessWidget {
             leading: Icon(Icons.report_gmailerrorred_outlined,color: Colors.white54,),
             title: Text("Channel reports",style: TextStyle(color: Colors.white54),),
             onTap: () {
-              Get.toNamed("/channelreports");
+              Get.to(Reports());
             },
           ),
           ListTile(

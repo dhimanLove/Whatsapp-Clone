@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:gradient_icon/gradient_icon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //import 'package:google_fonts/google_fonts.dart';
-import 'package:badges/badges.dart' as badges;
+import 'package:badges/badges.dart' ;
+import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp/Updates/statusprivacy.dart';
 import 'package:whatsapp/chats/Settings.dart';
 
@@ -14,6 +15,16 @@ class Updates extends StatefulWidget {
 }
 
 class _chatsState extends State<Updates> {
+  Future<void> _takePicture() async {
+    final ImagePicker picker = ImagePicker();
+    final XFile? image = await picker.pickImage(source: ImageSource.camera);
+
+    if (image != null) {
+      setState(() {
+// Store the image file
+      });
+    }
+  }
   @override
   Widget build(BuildContext context) {
     var arrNames=['Status Privacy','Create Channel','Settings'];
@@ -62,7 +73,9 @@ class _chatsState extends State<Updates> {
             ),
           ),
           actions: [
-            IconButton(onPressed: () {}, icon: const Icon(Icons.photo_camera_outlined), color: colr),
+            IconButton(onPressed: () {
+              _takePicture();
+            }, icon: const Icon(Icons.photo_camera_outlined), color: colr),
             IconButton(onPressed: () {}, icon: const Icon(Icons.search), color: colr),
             Builder(
               builder: (context) {
@@ -576,6 +589,7 @@ class _chatsState extends State<Updates> {
         FloatingActionButton(
           backgroundColor: Colors.green,
           onPressed: () {
+            _takePicture();
           },
           child: Icon(Icons.camera_alt,color: Colors.black,),
         ),

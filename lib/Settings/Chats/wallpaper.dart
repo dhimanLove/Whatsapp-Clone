@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 class WallpaperPage extends StatelessWidget {
   final List imageUrls = List.generate(
-    30, // Kitni images dikhani hain
+    30,
         (index) => 'https://picsum.photos/200/300?random=$index',
   );
 
@@ -20,7 +20,7 @@ class WallpaperPage extends StatelessWidget {
       ),
       body: GridView.builder(
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3, // Ek row mein kitni images
+          crossAxisCount: 3,
           crossAxisSpacing: 8,
           mainAxisSpacing: 8,
         ),
