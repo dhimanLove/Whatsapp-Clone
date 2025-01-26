@@ -10,6 +10,7 @@ import 'package:whatsapp/Settings/help.dart';
 import 'package:whatsapp/Settings/invite%20friend.dart';
 import 'package:whatsapp/Settings/list.dart';
 import 'package:whatsapp/Settings/notifications.dart';
+import 'package:whatsapp/Settings/pfpmain.dart';
 import 'package:whatsapp/Settings/storage.dart';
 
 class Settings extends StatefulWidget {
@@ -97,7 +98,8 @@ class _SettingsState extends State<Settings> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
+            onPressed: () {
+            },
             icon: const FaIcon(FontAwesomeIcons.search, size: 18, color: Colors.white),
           ),
         ],
@@ -116,6 +118,9 @@ class _SettingsState extends State<Settings> {
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: ListTile(
+                  onTap: (){
+                    Get.to(Pfpmain());
+                  },
                   leading: arrme[0],
                   title: const Text(
                     "Love Raj",

@@ -3,6 +3,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/Settings/Chats/Backup.dart';
+import 'package:whatsapp/Settings/Chats/history.dart';
+import 'package:whatsapp/Settings/Chats/transferdata.dart';
+import 'package:whatsapp/Settings/Chats/wallpaper.dart';
 
 class Chat extends StatefulWidget {
   const Chat({super.key});
@@ -187,7 +191,7 @@ class _ChatState extends State<Chat> {
                 style: TextStyle(color: Colors.white54),
               ),
               onTap: () {
-                // Navigate to wallpaper settings
+                Get.to(WallpaperPage());
               },
             ),
             SizedBox(height: 20),
@@ -291,8 +295,11 @@ class _ChatState extends State<Chat> {
               thickness: 0.2,
             ),
             Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text("Archived Chats"),
+                SizedBox(height: 10),
+                Text("Archived Chats",style: TextStyle(color: Colors.white70,fontWeight: FontWeight.w300)),
+                SizedBox(height: 10),
                 ListTile(
                   title: Text(
                     "Keep chats archived",
@@ -327,6 +334,9 @@ class _ChatState extends State<Chat> {
                 color: Colors.white70,
               ),
               title: Text("Chat backup", style: stl),
+              onTap: (){
+                Get.to(Backupchat());
+              },
             ),
             ListTile(
               leading: Icon(
@@ -334,6 +344,9 @@ class _ChatState extends State<Chat> {
                 color: Colors.white70,
               ),
               title: Text("Transfer data", style: stl),
+              onTap: (){
+                Get.to(Transferdata());
+              },
             ),
             ListTile(
               leading: Icon(
@@ -341,6 +354,9 @@ class _ChatState extends State<Chat> {
                 color: Colors.white70,
               ),
               title: Text("Chat history", style: stl),
+              onTap: (){
+                Get.to(Chathistory());
+              },
             ),
           ],
         ),

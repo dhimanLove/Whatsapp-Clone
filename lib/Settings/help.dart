@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp/Settings/help/appinfo.dart';
+import 'package:whatsapp/Settings/help/helpcenter.dart';
 
 class Help extends StatelessWidget {
   @override
@@ -27,7 +28,7 @@ class Help extends StatelessWidget {
             title: Text("Help centre",style: TextStyle(color: Colors.white54),),
             subtitle: Text("Get help, contact us",style: TextStyle(color: Colors.white54,fontWeight: FontWeight.w200),),
             onTap: () {
-              Get.toNamed("/helpcenter");
+              Get.to(HelpCenterScreen());
             },
           ),
           ListTile(

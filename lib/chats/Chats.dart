@@ -7,6 +7,7 @@ import 'package:get/get.dart';
 import 'package:gradient_icon/gradient_icon.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp/chats/Chats/Chatscreeen.dart';
+import 'package:whatsapp/chats/Chats/meta.dart';
 import 'package:whatsapp/chats/Linkeddev.dart';
 import 'package:whatsapp/chats/New%20Group.dart';
 import 'package:whatsapp/chats/Payments.dart';
@@ -14,6 +15,7 @@ import 'package:whatsapp/chats/Settings.dart';
 import 'package:whatsapp/chats/Starred.dart';
 import 'package:whatsapp/chats/details.dart';
 import 'package:whatsapp/chats/group.dart';
+import 'Chats/Selectconntact.dart';
 
 class Chats extends StatefulWidget {
   const Chats({super.key});
@@ -127,14 +129,8 @@ class _ChatsState extends State<Chats> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: const Color(0xff0B1014),
-        title: const Text(
-          'WhatsApp',
-          style: TextStyle(
-            fontWeight: FontWeight.w500,
-            fontSize: 23,
-            color: Colors.white,
-          ),
-        ),
+        title:
+        Text("WhatsApp",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w600,fontSize: 26),),
         actions: [
           IconButton(
             onPressed: () {_takePicture();},
@@ -450,7 +446,8 @@ class _ChatsState extends State<Chats> {
                 itemCount: arrTrailing.length,
                 itemBuilder: (context, index) {
                   return ListTile(
-                    leading: InkWell(
+                    leading:
+                    InkWell(
                       onTap: () {
                         Navigator.push(
                           context,
@@ -462,6 +459,7 @@ class _ChatsState extends State<Chats> {
                         child: arrLeading[index],
                       ),
                     ),
+
                     title: GestureDetector(
                       child: Text(
                         arrNames[index],
@@ -505,7 +503,9 @@ class _ChatsState extends State<Chats> {
             width: scrW*0.12,
             child: FloatingActionButton(
               backgroundColor: Color(0xff1b262f),
-              onPressed: () {},
+              onPressed: () {
+                Get.to(ai());
+              },
               child:const Padding(
                 padding: EdgeInsets.only(bottom: 17),
                 child: GradientIcon(
@@ -531,6 +531,7 @@ class _ChatsState extends State<Chats> {
           FloatingActionButton(
             backgroundColor: Colors.green,
             onPressed: () {
+              Get.to(Selectconntact());
             },
             child: Icon(Icons.message_rounded,color: Colors.black,),
           ),

@@ -14,7 +14,6 @@ class _NotificationsState extends State<Notifications> {
   bool ised = true;
   bool dep = true;
   bool id = true;
-  String _selectedOption = "Off";
 
   @override
   Widget build(BuildContext context) {
