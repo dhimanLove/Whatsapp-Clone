@@ -1,19 +1,17 @@
 name: whatsapp
 description: "A new Flutter project."
-
 publish_to: 'none'
 version: 1.0.0+1
 
 environment:
   sdk: ^3.5.3
 
-
 dependencies:
-  path_provider:
   flutter:
     sdk: flutter
+  path_provider:
   font_awesome_flutter: ^10.8.0
-  google_fonts:  6.2.1
+  google_fonts: 6.2.1
   get: ^4.6.6
   google_sign_in: ^6.2.2
   random_string: ^2.3.1
@@ -27,24 +25,25 @@ dependencies:
   gradient_icon: ^2.0.9
   camera:
 
-
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
   badges: ^3.1.2
   icons_plus: ^5.0.0
-  google_fonts:  6.2.1
-
-
   flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.3
+
+flutter_launcher_icons:
+  android: true
+  ios: true
+  image_path: "lib/assets/Icon.png"
+  adaptive_icon_foreground: "lib/assets/Icon.png"
+  adaptive_icon_background: "#FFFFFF"
 
 flutter:
   uses-material-design: true
   assets:
-    - lib/assets/I.jpg
+    - lib/assets/Icon.png
     - lib/assets/payments.png
     - lib/assets/Channels.png
     - lib/assets/Background.png
-
-

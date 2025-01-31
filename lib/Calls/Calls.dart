@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
-import 'package:whatsapp/Calls/Delete.dart';
+//import 'package:whatsapp/Calls/Delete.dart';
 import 'package:whatsapp/Calls/Selectcalls.dart';
 import 'package:whatsapp/chats/Settings.dart';
 
@@ -182,7 +182,7 @@ class Calls extends StatelessWidget {
                               )
                           );
                         },
-                        child:Container(
+                        child:SizedBox(
                           width: scrw*0.4,
                           height: scrh*0.03,
                           //color: Colors.red,

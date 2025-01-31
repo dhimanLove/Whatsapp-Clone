@@ -123,6 +123,7 @@ class _ChatsState extends State<Chats> {
 
   @override
   Widget build(BuildContext context) {
+    TextEditingController metta =TextEditingController();
     var scrH = MediaQuery.of(context).size.height;
     var scrW = MediaQuery.of(context).size.width;
 
@@ -314,184 +315,199 @@ class _ChatsState extends State<Chats> {
         decoration: const BoxDecoration(color: Color(0xff0B1014)),
         child: Column(
           children: [
-            Container(
-              height: scrH * .06,
-              width: scrW * .90,
-              decoration: BoxDecoration(
-                color: Colors.white10,
-                borderRadius: BorderRadius.circular(45),
-              ),
-              child: const Row(
-                children: [
-                  SizedBox(width: 20),
-                  Padding(
-                    padding: EdgeInsets.only(bottom: 16),
-                    child: Row(
-                     // https://images.fonearena.com/blog/wp-content/uploads/2024/04/Meta-AI-Assistant.gif
-                      children: [
-                        GradientIcon(
-                          icon: Icons.circle_outlined,
-                          gradient: LinearGradient(
-                            colors: [
-                              Colors.deepPurpleAccent,
-                              Colors.pinkAccent,
-                              Colors.deepPurple,
-                              Colors.blue,
-                              Colors.cyan
-                            ],
-                            begin: Alignment.centerLeft,
-                            end: Alignment.bottomRight,
-                          ),
-                          size: 25,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 13, left: 10),
-                          child: Text(
-                            "Ask Meta AI or Search",
-                            style: TextStyle(
-                              fontSize: 17,
-                              color: Colors.white60,
-                              fontWeight: FontWeight.w200,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: scrH*0.02,),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal:21,vertical: 0),
-              child: Row(
-                children: [
-                  Container(
-                  height: scrH*0.038,
-                  width: scrW*0.1,
-                 decoration: BoxDecoration(
-                     color: const Color(0xff1A3A2D),
-                   borderRadius: BorderRadius.circular(20)
-                 ),
-                    child: const Center(child: Text("All",style: TextStyle(color: Colors.green))),
-                ),
-                  SizedBox(width: scrW*0.01,),
-                  Container(
-                    height: scrH*0.038,
-                    width: scrW*0.2,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff20292f),
-                        borderRadius: BorderRadius.circular(20)
-                    ),
-                    child: const Center(child: Text("Unread",style: TextStyle(color: Colors.white38))),
-                  ),
-                  SizedBox(width: scrW*0.01,),
-                  Container(
-                    height: scrH*0.038,
-                    width: scrW*0.24,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff20292f),
-                        borderRadius: BorderRadius.circular(20)
-                    ),
-                    child: const Center(child: Text("Favourities",style: TextStyle(color: Colors.white38),)),
-                  ),
-                  SizedBox(width: scrW*0.01,),
-                  Container(
-                    height: scrH*0.038,
-                    width: scrW*0.18,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff20292f),
-                        borderRadius: BorderRadius.circular(20)
-                    ),
-                    child: const Center(child: Text("Groups",style: TextStyle(color: Colors.white38),)),
-                  ),
-                  SizedBox(width: scrW*0.01,),
-                  Container(
-                    height: scrH*0.038,
-                    width: scrW*0.12,
-                    decoration: BoxDecoration(
-                        color: const Color(0xff20292f),
-                        borderRadius: BorderRadius.circular(20)
-                    ),
-                    child: const Center(child: Icon(Icons.add,color: Colors.white38,)),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(height: scrH*0.02,),
-            ListTile(
-              leading: Container(
-                height: scrH*0.13,
-                width: scrW*0.122,
-                child: Stack(
-                  children: [
-                    CircleAvatar(backgroundImage: NetworkImage("https://gdscmpstme.com/images/gdsc-logo.png"),backgroundColor: Colors.white,radius: 20,),
-                    Positioned(bottom:0 ,top:12,left: 9,
-                      child:
-                      Container(
-                        decoration: BoxDecoration(
-                        ),
-                        child:CircleAvatar(backgroundImage:  NetworkImage('https://w7.pngwing.com/pngs/22/444/png-transparent-messenger-facebook-messenger-messenger-logo-social-media-icon-thumbnail.png'),radius: 17,),
-                      ))
-                  ],
-                ),
-              ),
-              title: Text("GDSC Volunteer 2024",style: TextStyle(color: Colors.white,fontWeight: FontWeight.w200),),
-              subtitle: Text("Everyone Join Fast",style: TextStyle(color: Colors.white38,fontWeight: FontWeight.w200),),
-              trailing: Text("10:15 am",style: TextStyle(color: Colors.white60,fontWeight: FontWeight.w200),),
-            ),
+
             Expanded(
               child: ListView.builder(
                 shrinkWrap: true,
                 itemCount: arrTrailing.length,
                 itemBuilder: (context, index) {
-                  return ListTile(
-                    leading:
-                    InkWell(
-                      onTap: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Details()),
-                        );
-                      },
-                      child: Hero(
-                        tag: 'bg',
-                        child: arrLeading[index],
-                      ),
-                    ),
-
-                    title: GestureDetector(
-                      child: Text(
-                        arrNames[index],
-                        style: const TextStyle(color: Color(0xffEFEFEF), fontWeight: FontWeight.w200),
-                      ),
-                      onTap: () {
-                        Get.to(() => ChatScreen());
-                      },
-                    ),
-                    subtitle: GestureDetector(
-                      child: Row(
-                        children: [
-                         Icon(FontAwesomeIcons.checkDouble,color: Colors.lightBlue,size: 13),
-                          SizedBox(width: scrW * 0.005),
-                          Text(
-                            arrSubtitle[index],
-                            style: TextStyle(color: Color(0xc3919191), fontWeight: FontWeight.w200),
+                  if (index == 0) {
+                    return Column(
+                      children: [
+                        Container(
+                          height: scrH * .06,
+                          width: scrW * .90,
+                          decoration: BoxDecoration(
+                            color: Colors.white10,
+                            borderRadius: BorderRadius.circular(45),
                           ),
-                        ],
+                          child: Row(
+                            children: [
+                              SizedBox(width: 20),
+                              Padding(
+                                padding: EdgeInsets.only(bottom: 16),
+                                child: Row(
+                                  children: [
+                                    GradientIcon(
+                                      icon: Icons.circle_outlined,
+                                      gradient: LinearGradient(
+                                        colors: [
+                                          Colors.deepPurpleAccent,
+                                          Colors.pinkAccent,
+                                          Colors.deepPurple,
+                                          Colors.blue,
+                                          Colors.cyan
+                                        ],
+                                        begin: Alignment.centerLeft,
+                                        end: Alignment.bottomRight,
+                                      ),
+                                      size: 25,
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsets.only(top: 13, left: 10),
+                                      child: Text("Ask Meta ai or search",style: TextStyle(color: Colors.white38,fontWeight: FontWeight.w200,
+                                      fontSize: 18),)
+
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: scrH * 0.02),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 0),
+                          child: Row(
+                            children: [
+                              Container(
+                                height: scrH * 0.038,
+                                width: scrW * 0.1,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xff1A3A2D),
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Center(child: Text("All", style: TextStyle(color: Colors.green))),
+                              ),
+                              SizedBox(width: scrW * 0.01),
+                              Container(
+                                height: scrH * 0.038,
+                                width: scrW * 0.2,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xff20292f),
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Center(child: Text("Unread", style: TextStyle(color: Colors.white38))),
+                              ),
+                              SizedBox(width: scrW * 0.01),
+                              Container(
+                                height: scrH * 0.038,
+                                width: scrW * 0.24,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xff20292f),
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Center(child: Text("Favourites", style: TextStyle(color: Colors.white38))),
+                              ),
+                              SizedBox(width: scrW * 0.01),
+                              Container(
+                                height: scrH * 0.038,
+                                width: scrW * 0.18,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xff20292f),
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Center(child: Text("Groups", style: TextStyle(color: Colors.white38))),
+                              ),
+                              SizedBox(width: scrW * 0.01),
+                              Container(
+                                height: scrH * 0.038,
+                                width: scrW * 0.12,
+                                decoration: BoxDecoration(
+                                    color: const Color(0xff20292f),
+                                    borderRadius: BorderRadius.circular(20)),
+                                child: const Center(child: Icon(Icons.add, color: Colors.white38)),
+                              ),
+                            ],
+                          ),
+                        ),
+                        SizedBox(height: scrH * 0.02),
+                        ListTile(
+                          leading: Container(
+                            height: scrH * 0.13,
+                            width: scrW * 0.122,
+                            child: Stack(
+                              children: [
+                                CircleAvatar(
+                                  backgroundImage: NetworkImage("https://gdscmpstme.com/images/gdsc-logo.png"),
+                                  backgroundColor: Colors.white,
+                                  radius: 20,
+                                ),
+                                Positioned(
+                                  bottom: 0,
+                                  top: 12,
+                                  left: 9,
+                                  child: Container(
+                                    decoration: BoxDecoration(),
+                                    child: CircleAvatar(
+                                      backgroundImage: NetworkImage(
+                                          'https://w7.pngwing.com/pngs/22/444/png-transparent-messenger-facebook-messenger-messenger-logo-social-media-icon-thumbnail.png'),
+                                      radius: 17,
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          title: Text(
+                            "GDSC Volunteer 2024",
+                            style: TextStyle(color: Colors.white, fontWeight: FontWeight.w200),
+                          ),
+                          subtitle: Text(
+                            "Everyone Join Fast",
+                            style: TextStyle(color: Colors.white38, fontWeight: FontWeight.w200),
+                          ),
+                          trailing: Text(
+                            "10:15 am",
+                            style: TextStyle(color: Colors.white60, fontWeight: FontWeight.w200),
+                          ),
+                        ),
+                      ],
+                    );
+                  } else {
+                    return ListTile(
+                      leading: InkWell(
+                        onTap: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(builder: (context) => Details()),
+                          );
+                        },
+                        child: Hero(
+                          tag: 'bg',
+                          child: arrLeading[index],
+                        ),
                       ),
-                      onTap: () {
-                        Get.to(() => ChatScreen());
-                      },
-                    ),
-                    trailing: Text(
-                      arrTrailing[index],
-                      style: const TextStyle(color: Color(0xc3d5d5d5), fontWeight: FontWeight.w200),
-                    ),
-                  );
+                      title: GestureDetector(
+                        child: Text(
+                          arrNames[index],
+                          style: const TextStyle(color: Color(0xffEFEFEF), fontWeight: FontWeight.w200),
+                        ),
+                        onTap: () {
+                          Get.to(() => ChatScreen());
+                        },
+                      ),
+                      subtitle: GestureDetector(
+                        child: Row(
+                          children: [
+                            Icon(FontAwesomeIcons.checkDouble, color: Colors.lightBlue, size: 13),
+                            SizedBox(width: scrW * 0.005),
+                            Text(
+                              arrSubtitle[index],
+                              style: TextStyle(color: Color(0xc3919191), fontWeight: FontWeight.w200),
+                            ),
+                          ],
+                        ),
+                        onTap: () {
+                          Get.to(() => ChatScreen());
+                        },
+                      ),
+                      trailing: Text(
+                        arrTrailing[index],
+                        style: const TextStyle(color: Color(0xc3d5d5d5), fontWeight: FontWeight.w200),
+                      ),
+                    );
+                  }
                 },
               ),
             ),
+
           ],
         ),
       ),

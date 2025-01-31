@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:gradient_icon/gradient_icon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //import 'package:google_fonts/google_fonts.dart';
 import 'package:badges/badges.dart' ;
 import 'package:image_picker/image_picker.dart';
+import 'package:whatsapp/Updates/Channels/Explore/Channelsexplore.dart';
 import 'package:whatsapp/Updates/statusprivacy.dart';
 import 'package:whatsapp/chats/Settings.dart';
 
@@ -375,6 +377,33 @@ class _chatsState extends State<Updates> {
                       ),
                     ),
                   ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 10),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text("Channels",style: TextStyle(color: colr,fontSize: 25),),
+                            InkWell(
+                              onTap: () {
+                               Get.to(Channelsexplore());
+                              },
+                              child: Row(
+                                children: [
+                                  const Text("Explore",style: TextStyle(color: Colors.green),),
+                                  SizedBox(width: scrw*0.01,),
+                                  const FaIcon(FontAwesomeIcons.angleRight,color: Colors.green,size: 12,)
+                                ],
+                              )
+                            ),
+                          ],
+                        ),
+                        SizedBox(height: scrh*0.02,),
+                      ],
+                    ),
+                  ),
                   Container(
                     height: scrh*0.27,
                     child: ListView.builder(
@@ -389,30 +418,7 @@ class _chatsState extends State<Updates> {
                       },
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Text("Channels",style: TextStyle(color: colr,fontSize: 25),),
-                            Row(
-                              children: [
-                                const Text("Explore",style: TextStyle(color: Colors.green),),
-                                SizedBox(
-                                  width: scrw*0.01,
-                                ),
-                                const FaIcon(FontAwesomeIcons.angleRight,color: Colors.green,size: 12,)
-                              ],
-                            ),
-                          ],
-                        ),
-                        SizedBox(height: scrh*0.02,),
-                      ],
-                    ),
-                  ),
+
 
                   SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -420,153 +426,7 @@ class _chatsState extends State<Updates> {
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: Row(
                         children: [
-                          Card(
-                            color: Colors.transparent,
-                            elevation: 20,
-                            child: Container(
-                              height: scrh*0.18,
-                              width: scrw*0.35,
-                              decoration: BoxDecoration(
-                                borderRadius:BorderRadius.circular(10),
-                                border: Border.all(color: Colors.white60,width: 0.4),
-                                color: Colors.transparent,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  const CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/product-management-26/256/Creativity.png"),),
-                                  Text("Hello",style: TextStyle(color: colr),),
-                                  SizedBox(
-                                    height: scrh*0.04,
-                                    width: scrw*0.22,
-                                    child: ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => const Updates()),
-                                        );
-                                      },
-                                      style:
-                                      ElevatedButton.styleFrom(
-                                        foregroundColor: Colors.white, backgroundColor: Colors.green,),
-                                      child: const Text('Join'),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
                           SizedBox(width: scrw*0.02,),
-                          Card(
-                            color: Colors.transparent,
-                            elevation: 20,
-                            child: Container(
-                              height: scrh*0.18,
-                              width: scrw*0.35,
-                              decoration: BoxDecoration(
-                                borderRadius:BorderRadius.circular(10),
-                                border: Border.all(color: Colors.white60,width: 0.4),
-                                color: Colors.transparent,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  const CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/product-management-26/256/Creativity.png"),),
-                                  Text("Hello",style: TextStyle(color: colr),),
-                                  SizedBox(
-                                    height: scrh*0.04,
-                                    width: scrw*0.22,
-                                    child: ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => const Updates()),
-                                        );
-                                      },
-                                      style:
-                                      ElevatedButton.styleFrom(
-                                        foregroundColor: Colors.white, backgroundColor: Colors.green,),
-                                      child: const Text('Join'),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: scrw*0.02,),
-                          Card(
-                            color: Colors.transparent,
-                            elevation: 20,
-                            child: Container(
-                              height: scrh*0.18,
-                              width: scrw*0.35,
-                              decoration: BoxDecoration(
-                                borderRadius:BorderRadius.circular(10),
-                                border: Border.all(color: Colors.white60,width: 0.4),
-                                color: Colors.transparent,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  const CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/product-management-26/256/Creativity.png"),),
-                                  Text("Hello",style: TextStyle(color: colr),),
-                                  SizedBox(
-                                    height: scrh*0.04,
-                                    width: scrw*0.22,
-                                    child: ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => const Updates()),
-                                        );
-                                      },
-                                      style:
-                                      ElevatedButton.styleFrom(
-                                        foregroundColor: Colors.white, backgroundColor: Colors.green,),
-                                      child: const Text('Join'),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
-                          SizedBox(width: scrw*0.02,),
-                          Card(
-                            color: Colors.transparent,
-                            elevation: 20,
-                            child: Container(
-                              height: scrh*0.18,
-                              width: scrw*0.35,
-                              decoration: BoxDecoration(
-                                borderRadius:BorderRadius.circular(10),
-                                border: Border.all(color: Colors.white60,width: 0.4),
-                                color: Colors.transparent,
-                              ),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                children: [
-                                  const CircleAvatar(backgroundImage: NetworkImage("https://cdn3.iconfinder.com/data/icons/product-management-26/256/Creativity.png"),),
-                                  Text("Hello",style: TextStyle(color: colr),),
-                                  SizedBox(
-                                    height: scrh*0.04,
-                                    width: scrw*0.22,
-                                    child: ElevatedButton(
-                                      onPressed: () {
-                                        Navigator.push(
-                                          context,
-                                          MaterialPageRoute(builder: (context) => const Updates()),
-                                        );
-                                      },
-                                      style:
-                                      ElevatedButton.styleFrom(
-                                        foregroundColor: Colors.white, backgroundColor: Colors.green,),
-                                      child: const Text('Join'),
-                                    ),
-                                  )
-                                ],
-                              ),
-                            ),
-                          ),
                         ],
                       ),
                     ),)])),
