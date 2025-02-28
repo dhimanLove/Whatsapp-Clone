@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
@@ -7,12 +6,14 @@ import 'package:get/get.dart';
 import 'package:gradient_icon/gradient_icon.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp/chats/Chats/Chatscreeen.dart';
+import 'package:whatsapp/chats/Chats/infochatclickphoto.dart';
 import 'package:whatsapp/chats/Chats/meta.dart';
 import 'package:whatsapp/chats/Linkeddev.dart';
-import 'package:whatsapp/chats/New%20Group.dart';
+import 'package:whatsapp/chats/New_broadcast.dart';
 import 'package:whatsapp/chats/Payments.dart';
 import 'package:whatsapp/chats/Settings.dart';
 import 'package:whatsapp/chats/Starred.dart';
+//import 'package:whatsapp/chats/Starred.dart';
 import 'package:whatsapp/chats/details.dart';
 import 'package:whatsapp/chats/group.dart';
 import 'Chats/Selectconntact.dart';
@@ -88,7 +89,7 @@ class _ChatsState extends State<Chats> {
    List<String> arrNames = [
     'App Mentoring',
     'Sukhi',
-    'Kartik',
+    'Krishna',
     'Dhruv',
     'Kungsu',
     'Ajay Bhaiya GDG',
@@ -366,79 +367,90 @@ class _ChatsState extends State<Chats> {
                           ),
                         ),
                         SizedBox(height: scrH * 0.02),
-                        Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 0),
-                          child: Row(
-                            children: [
-                              Container(
-                                height: scrH * 0.038,
-                                width: scrW * 0.1,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xff1A3A2D),
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: const Center(child: Text("All", style: TextStyle(color: Colors.green))),
-                              ),
-                              SizedBox(width: scrW * 0.01),
-                              Container(
-                                height: scrH * 0.038,
-                                width: scrW * 0.2,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xff20292f),
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: const Center(child: Text("Unread", style: TextStyle(color: Colors.white38))),
-                              ),
-                              SizedBox(width: scrW * 0.01),
-                              Container(
-                                height: scrH * 0.038,
-                                width: scrW * 0.24,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xff20292f),
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: const Center(child: Text("Favourites", style: TextStyle(color: Colors.white38))),
-                              ),
-                              SizedBox(width: scrW * 0.01),
-                              Container(
-                                height: scrH * 0.038,
-                                width: scrW * 0.18,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xff20292f),
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: const Center(child: Text("Groups", style: TextStyle(color: Colors.white38))),
-                              ),
-                              SizedBox(width: scrW * 0.01),
-                              Container(
-                                height: scrH * 0.038,
-                                width: scrW * 0.12,
-                                decoration: BoxDecoration(
-                                    color: const Color(0xff20292f),
-                                    borderRadius: BorderRadius.circular(20)),
-                                child: const Center(child: Icon(Icons.add, color: Colors.white38)),
-                              ),
-                            ],
+                        SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 21, vertical: 0),
+                            child: Row(
+                              children: [
+                                ChoiceChip(
+                                  label: Text("All"),
+                                  selected: true,
+                                  selectedColor: Color(0xff1A3A2D),
+                                  backgroundColor: Colors.grey[800],
+                                  labelStyle: TextStyle(color: Colors.green),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                  onSelected: (bool selected) {},
+                                ),
+                                SizedBox(width: scrW * 0.01),
+                                ChoiceChip(
+                                  label: Text("Unread"),
+                                  selected: false,
+                                  selectedColor: Colors.green,
+                                  backgroundColor: Color(0xff20292f),
+                                  labelStyle: TextStyle(color: Colors.white38),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                  onSelected: (bool selected) {},
+                                ),
+                                SizedBox(width: scrW * 0.01),
+                                ChoiceChip(
+                                  label: Text("Favourites"),
+                                  selected: false,
+                                  selectedColor: Colors.green,
+                                  backgroundColor: Color(0xff20292f),
+                                  labelStyle: TextStyle(color: Colors.white38),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                  onSelected: (bool selected) {},
+                                ),
+                                SizedBox(width: scrW * 0.01),
+                                ChoiceChip(
+                                  label: Text("Groups"),
+                                  selected: false,
+                                  selectedColor: Colors.green,
+                                  backgroundColor: Color(0xff20292f),
+                                  labelStyle: TextStyle(color: Colors.white38),
+                                  shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
+                                  onSelected: (bool selected) {},
+                                ),
+                                SizedBox(width: scrW * 0.01),
+                                GestureDetector(
+                                  onTap: () {}, // Implement functionality to add a new chip
+                                  child: Container(
+                                    height: scrH * 0.038,
+                                    width: scrW * 0.12,
+                                    decoration: BoxDecoration(
+                                      color: Color(0xff20292f),
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    child: Center(child: Icon(Icons.add, color: Colors.white38)),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
                         SizedBox(height: scrH * 0.02),
                         ListTile(
-                          leading: Container(
+                          leading: SizedBox(
                             height: scrH * 0.13,
                             width: scrW * 0.122,
                             child: Stack(
                               children: [
                                 CircleAvatar(
-                                  backgroundImage: NetworkImage("https://gdscmpstme.com/images/gdsc-logo.png"),
+                                  backgroundImage: NetworkImage('https://images.unsplash.com/photo-1506968695017-764f86a9f9ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),
                                   backgroundColor: Colors.white,
                                   radius: 20,
                                 ),
                                 Positioned(
                                   bottom: 0,
                                   top: 12,
-                                  left: 9,
+                                  left: 12,
                                   child: Container(
                                     decoration: BoxDecoration(),
                                     child: CircleAvatar(
                                       backgroundImage: NetworkImage(
                                           'https://w7.pngwing.com/pngs/22/444/png-transparent-messenger-facebook-messenger-messenger-logo-social-media-icon-thumbnail.png'),
-                                      radius: 17,
+                                      radius: 15,
                                     ),
                                   ),
                                 ),
@@ -464,15 +476,92 @@ class _ChatsState extends State<Chats> {
                     return ListTile(
                       leading: InkWell(
                         onTap: () {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(builder: (context) => Details()),
+                          String imageUrl = (arrLeading[index] as CircleAvatar).backgroundImage.toString().split('"')[1];
+                          String name = arrNames[index];
+
+                          Get.dialog(
+                            Dialog(
+                              backgroundColor: Colors.transparent,
+                              child: SizedBox(
+                                height: 330,
+                                width: double.infinity,
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
+                                  children: [
+                                    Stack(
+                                      alignment: Alignment.center,
+                                      children: [
+                                        Container(
+                                          height: 250,
+                                          width: 250,
+                                          decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(0),
+                                          ),
+                                          child: Hero(
+                                            tag: 'bg',
+                                            child: ClipRRect(
+                                              borderRadius: BorderRadius.only(
+                                                  topLeft: Radius.circular(0),
+                                                  topRight: Radius.circular(0)),
+                                              child: Image.network(
+                                                imageUrl,
+                                                fit: BoxFit.cover,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                        // Text on top of image
+                                        Positioned(
+                                          top: 10,
+                                          child: Text(
+                                            name,
+                                            style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.w400,
+                                              fontSize: 22,
+                                              shadows: [Shadow(blurRadius: 10, color: Colors.black87, offset: Offset(2, 2))],
+                                            ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                   // SizedBox(height: 10),
+                                    Container(
+                                      width: 249,
+                                      height: 38,
+                                      decoration: BoxDecoration(
+                                        color: Color(0xff0B1014),
+                                        borderRadius: BorderRadius.only(
+                                          bottomLeft: Radius.circular(2),
+                                          bottomRight: Radius.circular(2),
+                                        ),
+                                      ),
+                                      child: Row(
+                                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
+                                        children: [
+                                          IconButton(onPressed: (){
+                                            Get.to(ChatScreen());
+                                          }, icon: Icon(Icons.chat_outlined, color: Colors.green)),
+                                          Icon(Icons.call_outlined, color: Colors.green),
+                                          IconButton(onPressed: (){
+                                            _takePicture();
+                                          }, icon: Icon(Icons.videocam_outlined, color: Colors.green)),
+                                         IconButton(onPressed: (){
+                                           Get.to(ProfileScreen());
+                                         }, icon:  Icon(Icons.info_outline, color: Colors.green),)
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
                           );
+
                         },
-                        child: Hero(
-                          tag: 'bg',
-                          child: arrLeading[index],
-                        ),
+                        child: arrLeading[index],
                       ),
                       title: GestureDetector(
                         child: Text(

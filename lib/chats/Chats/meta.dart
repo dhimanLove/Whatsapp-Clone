@@ -27,13 +27,16 @@ class _aiState extends State<ai> {
     '🚀', '🛸', '✈️', '🚗', '🏀', '⚽️', '🏈', '🎮', '🏁', '🥳',
   ];
 
-  void _sendMessage() {
-    setState(() {
-      messages.add(_controller.text);
-      _controller.clear();
-    });
-  }
+ Future<void> sendMessage() async {
+  setState(() {
+    messages.add(_controller.text);
+    _controller.clear();
+  });
 
+  // Simulate a network request
+  await Future.delayed(Duration(seconds: 2));
+  Get.snackbar('Message sent !', _controller.text);
+}
   @override
   Widget build(BuildContext context) {
     var scrH = MediaQuery.of(context).size.height;
@@ -116,7 +119,8 @@ class _aiState extends State<ai> {
                   borderRadius: BorderRadius.circular(30),
                   color: Color(0xff171e1e),
                 ),
-                child: Row(
+                child:
+                Row(
                   children: [
                     IconButton(onPressed: () {
                       Get.bottomSheet(
@@ -180,7 +184,7 @@ class _aiState extends State<ai> {
                             colorText: Colors.white,
                           );
                         } else {
-                          _sendMessage();
+                          sendMessage();
                         }
                       },
                       icon: Icon(Icons.send,color: Colors.white70,),

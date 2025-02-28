@@ -104,19 +104,10 @@ class _ChatScreenState extends State<ChatScreen> {
           ),
           IconButton(
             onPressed: () {
-              _takePicture();
+              //_takePicture();
             },
             icon: const Icon(Icons.video_call),
             color: Colors.white,
-          ),
-          Builder(
-            builder: (context) => IconButton(
-              onPressed: () {
-                Scaffold.of(context).openEndDrawer();
-              },
-              icon: const Icon(Icons.more_vert),
-              color: Colors.white,
-            ),
           ),
         ],
       ),
@@ -312,7 +303,8 @@ class _ChatScreenState extends State<ChatScreen> {
                   borderRadius: BorderRadius.circular(30),
                   color: Color(0xff171e1e),
                 ),
-                child: Row(
+                child:
+                Row(
                   children: [
                     IconButton(onPressed: () {
                       pickimage();

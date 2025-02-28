@@ -1,15 +1,17 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:get/get.dart';
 import 'package:whatsapp/Chats/Chats.dart';
 import 'package:whatsapp/Login&Signup/Language.dart';
+import 'package:whatsapp/Login&Signup/verifynnumber.dart';
 import 'package:whatsapp/Settings/Chat.dart';
 import 'package:whatsapp/main.dart';
 
 class Splashscee extends StatefulWidget {
   const Splashscee({super.key});
 
-  @override
+  @override 
   State<Splashscee> createState() => _SplashsceeState();
 }
 
@@ -19,15 +21,14 @@ class _SplashsceeState extends State<Splashscee> {
   void initState() {
     super.initState();
 
-    Timer(Duration(seconds: 3), () {
-      Navigator.push(context, MaterialPageRoute(builder: (context)=>Chats(),
-      ));
+    Timer(Duration(seconds: 2), () {
+      Get.off(() => Whatsapp());
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    var scrH = MediaQuery.of(context).size.height;
+    //var scrH = MediaQuery.of(context).size.height;
     var scrW = MediaQuery.of(context).size.width;
 
     return Scaffold(

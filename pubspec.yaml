@@ -1,5 +1,5 @@
 name: whatsapp
-description: "A new Flutter project."
+description: 'Whatsapp - Clone'
 publish_to: 'none'
 version: 1.0.0+1
 
@@ -10,9 +10,15 @@ dependencies:
   flutter:
     sdk: flutter
   path_provider:
+  http:
+  flutter_gemini:
+  flutter_dotenv:
+  firebase_core:
+  firebase_auth:
+  firebase_messaging:
   font_awesome_flutter: ^10.8.0
   google_fonts: 6.2.1
-  get: ^4.6.6
+  get:
   google_sign_in: ^6.2.2
   random_string: ^2.3.1
   gesture_x_detector: ^1.1.1
@@ -24,25 +30,31 @@ dependencies:
   getwidget: ^5.0.0
   gradient_icon: ^2.0.9
   camera:
+  video_player:
+  gradient_circular_progress_indicator: ^0.0.4
+  liquid_progress_indicator_v2: ^0.5.0
+  agora_rtc_engine:
+  permission_handler:
+  url_launcher: ^6.3.1
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  badges: ^3.1.2
-  icons_plus: ^5.0.0
-  flutter_lints: ^5.0.0
-  flutter_launcher_icons: ^0.14.3
+  badges:
+  icons_plus:
+  flutter_lints:
+  flutter_launcher_icons:
 
 flutter_launcher_icons:
   android: true
   ios: true
-  image_path: "lib/assets/Icon.png"
-  adaptive_icon_foreground: "lib/assets/Icon.png"
-  adaptive_icon_background: "#FFFFFF"
+  image_path: "lib/assets/splashscreen.jpg"
+  adaptive_icon_foreground: "lib/assets/splashscreen.jpg"
 
 flutter:
   uses-material-design: true
   assets:
+    - lib/assets/splashscreen.jpg
     - lib/assets/Icon.png
     - lib/assets/payments.png
     - lib/assets/Channels.png

@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:gradient_icon/gradient_icon.dart';
+//import 'package:gradient_icon/gradient_icon.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 //import 'package:google_fonts/google_fonts.dart';
-import 'package:badges/badges.dart' ;
+//import 'package:badges/badges.dart' ;
 import 'package:image_picker/image_picker.dart';
 import 'package:whatsapp/Updates/Channels/Explore/Channelsexplore.dart';
+import 'package:whatsapp/Updates/Status/Video/Sameekshavid.dart';
+import 'package:whatsapp/Updates/Status/Video/Vid3.dart';
+import 'package:whatsapp/Updates/Status/Video/vid2.dart';
+import 'package:whatsapp/Updates/Status/Video/videofive.dart';
+import 'package:whatsapp/Updates/Status/Video/videofour.dart';
+import 'package:whatsapp/Updates/edit.dart';
 import 'package:whatsapp/Updates/statusprivacy.dart';
 import 'package:whatsapp/chats/Settings.dart';
 
@@ -13,25 +19,36 @@ class Updates extends StatefulWidget {
   const Updates({super.key});
 
   @override
-  State<Updates> createState() => _chatsState();
+  State<Updates> createState() => ChatsState();
 }
 
-class _chatsState extends State<Updates> {
+class ChatsState extends State<Updates> {
   Future<void> _takePicture() async {
+    Future<void> _takePicture() async {
+      final ImagePicker picker = ImagePicker();
+      final XFile? image = await picker.pickImage(source: ImageSource.camera);
+
+      if (image != null) {
+        setState(() {
+// Store the image file
+        });
+      }
+    }
     final ImagePicker picker = ImagePicker();
     final XFile? image = await picker.pickImage(source: ImageSource.camera);
 
     if (image != null) {
       setState(() {
-// Store the image file
       });
     }
   }
   @override
   Widget build(BuildContext context) {
-    var arrNames=['Status Privacy','Create Channel','Settings'];
-    var color = const Color(0xc3d5d5d5);
-    var rng = const Color(0xc3919191);
+
+    // var arrNames=['Status Privacy','Create Channel','Settings'];
+    // var color = const Color(0xc3d5d5d5);
+    // var rng = const Color(0xc3919191);
+
     var colr =const Color(0xffEFEFEF);
     var scrh=MediaQuery.of(context).size.height;
     var scrw=MediaQuery.of(context).size.width;
@@ -120,7 +137,7 @@ class _chatsState extends State<Updates> {
                               ),
                             );
                           },
-                          child:Container(
+                          child:SizedBox(
                             width: scrw*0.6,
                             height: scrh*0.03,
                             //color: Colors.red,
@@ -149,7 +166,7 @@ class _chatsState extends State<Updates> {
                                     crossAxisAlignment: CrossAxisAlignment.start,
                                     children: [
                                       Center(
-                                        child: Container(
+                                        child: SizedBox(
                                           //color: Colors.red,
                                           height:scrh*0.16,
                                             width: scrw*0.6,
@@ -183,7 +200,7 @@ class _chatsState extends State<Updates> {
                               },
                             );
                           },
-                          child:Container(
+                          child:SizedBox(
                             width: scrw*0.6,
                             height: scrh*0.03,
                             child:  const Text(
@@ -205,7 +222,7 @@ class _chatsState extends State<Updates> {
                               ),
                             );
                           },
-                          child:Container(
+                          child:SizedBox(
                             width: scrw*0.6,
                             height: scrh*0.03,
                             child:  const Text(
@@ -224,7 +241,7 @@ class _chatsState extends State<Updates> {
         body:
         Container(
             decoration:const BoxDecoration(
-                color: Color(0xff0B1014)
+                color: Color(0xff0B1014),
             ),
             child: Column(
                 children: [
@@ -262,7 +279,7 @@ class _chatsState extends State<Updates> {
                                             width: scrw * 0.19,
                                             decoration: BoxDecoration(
                                               shape: BoxShape.circle,
-                                              //border: Border.all(color: Colors.green, width: 2), // Green border around the avatar
+                                              //border: Border.all(color: Colors.green, width: 2),
                                             ),
                                             child: const CircleAvatar(
                                               radius: 34,
@@ -273,19 +290,25 @@ class _chatsState extends State<Updates> {
                                           Positioned(
                                             bottom: 0,
                                             right: 0,
-                                            child: Container(
-                                              height: 18,
-                                              width: 18,
-                                              decoration: BoxDecoration(
-                                                color: Colors.green, // Green color for the badge
-                                                shape: BoxShape.circle,
+                                            child:
+                                            GestureDetector(
+                                              onTap: (){
+                                                _takePicture();
+                                              },
+                                              child: Container(
+                                                height: 18,
+                                                width: 18,
+                                                decoration: BoxDecoration(
+                                                  color: Colors.green,
+                                                  shape: BoxShape.circle,
+                                                ),
+                                                child: Icon(
+                                                  Icons.add,
+                                                  size: 12,
+                                                  color: Colors.white,
+                                                ),
                                               ),
-                                              child: Icon(
-                                                Icons.add,
-                                                size: 12,
-                                                color: Colors.white, // White "+" symbol in the badge
-                                              ),
-                                            ),
+                                            )
                                           ),
                                         ],
                                       ),
@@ -296,14 +319,19 @@ class _chatsState extends State<Updates> {
                                   SizedBox(width: scrw*0.04,),
                                   Column(
                                     children: [
-                                      Container(
-                                          height: scrh*0.085,
-                                          width: scrw*0.19,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(36),
-                                            border: Border.all(color: Colors.green,width: 2),
-                                          ),
-                                          child: const CircleAvatar(backgroundImage: NetworkImage("https://a.storyblok.com/f/112937/568x464/884e373bca/travel_pic_unsplash1-568x464.jpg/m/620x0/filters:quality(70)/"),backgroundColor:Colors.transparent,)),
+                                      GestureDetector(
+                                        child: Container(
+                                            height: scrh*0.085,
+                                            width: scrw*0.19,
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(36),
+                                              border: Border.all(color: Colors.green,width: 2),
+                                            ),
+                                            child: const CircleAvatar(backgroundImage: NetworkImage('https://images.unsplash.com/photo-1607454317530-68f30190f520?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),backgroundColor:Colors.transparent,)),
+                                      onTap: (){
+                                          Get.to(Videoscreen());
+                                      }
+                                      ),
                                       SizedBox(height:scrh*0.01,),
                                       Text("Sameeksha",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                                     ],
@@ -311,29 +339,39 @@ class _chatsState extends State<Updates> {
                                   SizedBox(width: scrw*0.04,),
                                   Column(
                                     children: [
-                                      Container(
-                                          height: scrh*0.085,
-                                          width: scrw*0.19,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(36),
-                                            border: Border.all(color: Colors.green,width: 2),
-                                          ),
-                                          child: const CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1571566882372-1598d88abd90?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),backgroundColor: Colors.transparent,)),
+                                      GestureDetector(
+                                          child: Container(
+                                              height: scrh*0.085,
+                                              width: scrw*0.19,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(36),
+                                                border: Border.all(color: Colors.green,width: 2),
+                                              ),
+                                              child: const CircleAvatar(backgroundImage: NetworkImage('https://images.unsplash.com/photo-1506968695017-764f86a9f9ec?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),backgroundColor:Colors.transparent,)),
+                                          onTap: (){
+                                            Get.to(Videotwo());
+                                          }
+                                      ),
                                       SizedBox(height:scrh*0.01,),
-                                      Text("Kartik",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
+                                      Text("Krishna",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                                     ],
                                   ),
                                   SizedBox(width: scrw*0.04,),
                                   Column(
                                     children: [
-                                      Container(
-                                          height: scrh*0.085,
-                                          width: scrw*0.19,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(36),
-                                            border: Border.all(color: Colors.green,width: 2),
-                                          ),
-                                          child: const CircleAvatar(backgroundImage: NetworkImage("https://images.unsplash.com/photo-1730470577490-40dd6677623a?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
+                                      GestureDetector(
+                                          child: Container(
+                                              height: scrh*0.085,
+                                              width: scrw*0.19,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(36),
+                                                border: Border.all(color: Colors.green,width: 2),
+                                              ),
+                                              child: const CircleAvatar(backgroundImage: NetworkImage("https://a.storyblok.com/f/112937/568x464/884e373bca/travel_pic_unsplash1-568x464.jpg/m/620x0/filters:quality(70)/"),backgroundColor:Colors.transparent,)),
+                                          onTap: (){
+                                            Get.to(Vidthree());
+                                          }
+                                      ),
                                       SizedBox(height:scrh*0.01,),
                                       Text("Dhruv",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                                     ],
@@ -341,14 +379,19 @@ class _chatsState extends State<Updates> {
                                   SizedBox(width: scrw*0.04,),
                                   Column(
                                     children: [
-                                      Container(
-                                          height: scrh*0.085,
-                                          width: scrw*0.19,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(36),
-                                            border: Border.all(color: Colors.green,width: 2),
-                                          ),
-                                          child: const CircleAvatar(backgroundImage: NetworkImage("https://plus.unsplash.com/premium_photo-1664971411943-cfb3d0778c82?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
+                                      GestureDetector(
+                                          child: Container(
+                                              height: scrh*0.085,
+                                              width: scrw*0.19,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(36),
+                                                border: Border.all(color: Colors.green,width: 2),
+                                              ),
+                                              child: const CircleAvatar(backgroundImage: NetworkImage('https://plus.unsplash.com/premium_photo-1716312742751-d1ca46aa9a0e?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),backgroundColor:Colors.transparent,)),
+                                          onTap: (){
+                                            Get.to(Videofour());
+                                          }
+                                      ),
                                       SizedBox(height:scrh*0.01,),
                                       Text("Krish",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                                     ],
@@ -356,14 +399,19 @@ class _chatsState extends State<Updates> {
                                   SizedBox(width: scrw*0.04,),
                                   Column(
                                     children: [
-                                      Container(
-                                          height: scrh*0.085,
-                                          width: scrw*0.19,
-                                          decoration: BoxDecoration(
-                                            borderRadius: BorderRadius.circular(36),
-                                            border: Border.all(color: Colors.green,width: 2),
-                                          ),
-                                          child: const CircleAvatar(backgroundImage: NetworkImage("https://plus.unsplash.com/premium_photo-1664527008854-90773bcc6d53?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"),)),
+                                      GestureDetector(
+                                          child: Container(
+                                              height: scrh*0.085,
+                                              width: scrw*0.19,
+                                              decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(36),
+                                                border: Border.all(color: Colors.green,width: 2),
+                                              ),
+                                              child: const CircleAvatar(backgroundImage: NetworkImage('https://images.unsplash.com/photo-1510712582399-2fbf760892ae?q=80&w=2009&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D'),backgroundColor:Colors.transparent,)),
+                                          onTap: (){
+                                            Get.to(Videofive());
+                                          }
+                                      ),
                                       SizedBox(height:scrh*0.01,),
                                       Text("Rudra",style: TextStyle(color: colr,fontWeight: FontWeight.w200,fontSize: 10),)
                                     ],
@@ -438,7 +486,9 @@ class _chatsState extends State<Updates> {
           width: scrw*0.12,
           child: FloatingActionButton(
             backgroundColor: Color(0xff1b262f),
-            onPressed: () {},
+            onPressed: () {
+             Get.to(Colorpage());
+            },
             child: Padding(
               padding: const EdgeInsets.only(bottom: 0),
               child: Icon(Icons.edit,color: Colors.white70,)

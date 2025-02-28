@@ -1,14 +1,23 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:whatsapp/Calls/Calls.dart';
+import 'package:whatsapp/Splashscee.dart';
 import 'package:whatsapp/Updates/Updates.dart';
 import 'package:whatsapp/Chats/Chats.dart';
 import 'package:whatsapp/communities/Communities.dart';
+//import 'package:whatsapp/firebase_options.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: 'https://vlonawwsmmnqdpyvvdyy.supabase.co',
+    anonKey: '',
+  );
   runApp(const MyApp());
 }
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -17,7 +26,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const Whatsapp(),
+      home:Splashscee(),
     );
   }
 }
@@ -85,7 +94,8 @@ class _WhatsappState extends State<Whatsapp> {
             const TextStyle(color: Colors.white54),
           ),
           Expanded(
-            child: PageView(
+            child:
+            PageView(
               controller: _pageController,
               onPageChanged: (index) {
                 setState(() {
@@ -107,7 +117,7 @@ class _WhatsappState extends State<Whatsapp> {
         children: _pages,
       ),
       bottomNavigationBar: isWideScreen
-          ? null // Hide BottomNavigationBar on wide screens
+          ? null
           : BottomNavigationBar(
         backgroundColor: const Color(0xff0B1014),
         selectedItemColor: Colors.green,

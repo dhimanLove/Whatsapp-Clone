@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+//import 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:get/get.dart';
 //import 'package:whatsapp/Calls/Delete.dart';
 import 'package:whatsapp/Calls/Selectcalls.dart';
@@ -21,6 +23,14 @@ class Calls extends StatelessWidget {
       'Calls',
       'Settings'
     ];
+    void _makePhoneCall(String phoneNumber) async {
+      final Uri url = Uri.parse("tel:$phoneNumber");
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url);
+      } else {
+        throw "Could not launch $url";
+      }
+    }
 
     var arrfavtitle = ['Favourites'];
     var arrLeading = [
@@ -37,15 +47,40 @@ class Calls extends StatelessWidget {
     var arrNames = ['Sameeksha', 'Papa', 'Dhruv', 'Kartik', 'Yash', 'Tinku Jiya', 'Project wala', 'Maqsood'];
     var arrSubtitle = ['Today', 'Yesterday', '13/11/2024', '12/11/2024', '5/11/2024', '1/10/2024', '19/10/2024', '1/01/2024'];
     var arrTrailing = [
-      Icon(Icons.call, color: Colors.white70),
-      Icon(Icons.call, color: Colors.white70),
-      Icon(Icons.phone_missed, color: Colors.redAccent),
-      Icon(Icons.call, color: Colors.white70),
-      Icon(Icons.missed_video_call_rounded, color: Colors.redAccent),
-      Icon(Icons.video_call, color: Colors.white70),
-      Icon(Icons.call, color: Colors.white70),
-      Icon(Icons.call, color: Colors.white70),
+      GestureDetector(
+        child: Icon(Icons.call, color: Colors.white70),
+        onTap: () => _makePhoneCall("8053645063"),
+      ),
+      GestureDetector(
+        child: Icon(Icons.call, color: Color(0xB3DDDBDB)),
+        onTap: () => _makePhoneCall("9876543210"),
+      ),
+      GestureDetector(
+        child: Icon(Icons.phone_missed, color: Colors.redAccent),
+        onTap: () => _makePhoneCall("9876543210"),
+      ),
+      GestureDetector(
+        child: Icon(Icons.call, color: Colors.white70),
+        onTap: () => _makePhoneCall("9876543210"),
+      ),
+      GestureDetector(
+        child: Icon(Icons.missed_video_call_rounded, color: Colors.redAccent),
+        onTap: () => _makePhoneCall("9876543210"),
+      ),
+      GestureDetector(
+        child: Icon(Icons.video_call, color: Colors.white70),
+        onTap: () => _makePhoneCall("9876543210"),
+      ),
+      GestureDetector(
+        child: Icon(Icons.call, color: Colors.white70),
+        onTap: () => _makePhoneCall("9876543210"),
+      ),
+      GestureDetector(
+        child: Icon(Icons.call, color: Colors.white70),
+        onTap: () => _makePhoneCall("9876543210"),
+      ),
     ];
+
 
     var color = Colors.grey[300];
     var avatarColor = Colors.grey[400];
@@ -61,6 +96,7 @@ class Calls extends StatelessWidget {
             color: Colors.white,
           ),
         ),
+
         actions: [
           IconButton(onPressed: () {}, icon: const Icon(Icons.photo_camera_outlined), color: color),
           IconButton(onPressed: () {}, icon: const Icon(Icons.search), color: color),
@@ -163,7 +199,6 @@ class Calls extends StatelessWidget {
                                 ),
                               ),
                             );
-
                           },
                         );
                       },

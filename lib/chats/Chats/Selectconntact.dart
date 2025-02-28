@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/chats/Chats/Chatwithai.dart';
+import 'package:whatsapp/chats/Chats/Newcontact.dart';
 import 'package:whatsapp/chats/group.dart';
 
 class Selectconntact extends StatefulWidget {
@@ -122,7 +124,7 @@ class _SelectconntactState extends State<Selectconntact> {
                   style: TextStyle(color: Colors.white),
                 ),
                 onTap: (){
-                  Group();
+                  Get.to(Group());
                 },
               ),
               ListTile(
@@ -134,10 +136,13 @@ class _SelectconntactState extends State<Selectconntact> {
                   ),
                 ),
                 title: Text(
-                  "New contact",
+                  "New Contact",
                   style: TextStyle(color: Colors.white),
                 ),
                 trailing: IconButton(onPressed: () {}, icon: Icon(Icons.qr_code, color: Colors.white)),
+                onTap: (){
+                  Get.to(NewContactScreen());
+                },
               ),
               ListTile(
                 leading: CircleAvatar(
@@ -164,6 +169,50 @@ class _SelectconntactState extends State<Selectconntact> {
                   "Chat with AIs",
                   style: TextStyle(color: Colors.white),
                 ),
+                onTap:
+                (){
+                 Get.bottomSheet(
+                   Container(
+                     decoration:BoxDecoration(
+                       //color: Colors.red,
+                       color: Color(0xff0B1014),
+                       borderRadius: BorderRadius.only(
+                         topRight: Radius.circular(20,),
+                         topLeft: Radius.circular(20),
+                       ),
+                     ),
+                     height: 700,
+                     width: double.infinity,
+                     child: Column(
+                       children: [
+                         Icon(Icons.drag_handle_outlined,color: Colors.grey,size: 35,),
+                         Container(
+                          // color: Colors.green,
+                           child: Icon(Icons.fiber_new_rounded,color: Colors.white70,size: 150,),
+                         ),
+                         SizedBox(
+                           height: 10,
+                         ),
+                         Text('Introducing AI Studio',
+                         style: TextStyle(
+                           color: Colors.grey,
+                           fontSize: 23,
+                           fontWeight: FontWeight.w400,
+                         ),
+                         ),
+                         SizedBox(
+                           height: 80,
+                         ),
+                         ListTile(
+                           leading: Icon(Icons.chat_bubble_outline_sharp,color: Colors.white70,),
+                           title: Text("Chat with different AI's"),
+                         )
+                       ],
+                     ),
+                   )
+                 );
+                },
+
               ),
               SizedBox(height: 10),
               Padding(
