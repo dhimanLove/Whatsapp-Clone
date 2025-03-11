@@ -27,12 +27,12 @@ class _AvatarProfilePhotoState extends State<AvatarProfilePhoto> {
   ];
 
   final List backgroundColors = [
-    Color(0xFF2C2C2C),
+    Color(0xFF4B4B4B),
     Color(0xFF333333),
     Color(0xDF333B86),
     Color(0xC5261672),
     Color(0xFF004D40),
-    Color(0xFF8B0000),
+    Color(0xFF720B0B),
     Color(0xFF1B5E20),
     Color(0xFF4E342E),
   ];

@@ -59,15 +59,22 @@ class Avatars extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  "Change profile photo",
+                  "Learn more",
                   style: TextStyle(
-                    color: Colors.blue,
+                    color: Color(0xFF095A91),
+                    fontSize: 17,
                     decoration: TextDecoration.underline,
-                    decorationColor: Colors.blue,
+                    decorationColor: Color(0xFF095A91),
                   ),
                 ),
                 SizedBox(height: 30),
-                Text("Delete avatar", style: TextStyle(color: Colors.red)),
+                Text(
+                  "Delete Avatar",
+                  style: TextStyle(
+                    color: Color(0xFF6C0000),
+                    fontSize: 16,
+                  ),
+                ),
               ],
             ),
           ),
