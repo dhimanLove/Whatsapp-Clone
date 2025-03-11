@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/Settings/avatar/Stickers.dart';
 
 class Avatars extends StatelessWidget {
   const Avatars({super.key});
@@ -23,30 +24,29 @@ class Avatars extends StatelessWidget {
         ),
         backgroundColor: const Color(0xff0B1014),
       ),
-      body:
-      Column(
+      body: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             height: scrh * 0.44,
             width: MediaQuery.of(context).size.width,
             color: Colors.black,
-            child: 
-            Image.network(fit: BoxFit.fill,
+            child: Image.network(
+                fit: BoxFit.fill,
                 "https://cdn2.iconfinder.com/data/icons/male-avatars/256/avatars_accounts___man_male_people_person_football_sport_sports_helmet.png"),
           ),
-          //SizedBox(height: 20),
-          Padding(
-            padding: const EdgeInsets.all(20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text("Browse stickers", style: TextStyle(color: Colors.white54)),
-                SizedBox(height: 30),
-                Text("Change profile photo", style: TextStyle(color: Colors.white54)),
-              ],
-            ),
+          SizedBox(height: 10),
+          ListTile(
+            title: Text("Browse stickers",
+                style: TextStyle(color: Colors.white54)),
+            onTap: () {
+              Get.to(Stickers());
+            },
           ),
+          ListTile(
+              title: Text("Change profile photo",
+                  style: TextStyle(color: Colors.white54)),
+              onTap: () {}),
           SizedBox(height: 20),
           Divider(thickness: 0.2, color: Colors.white54),
           SizedBox(height: 20),
