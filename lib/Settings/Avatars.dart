@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/Settings/avatar/Createpfp.dart';
 import 'package:whatsapp/Settings/avatar/Stickers.dart';
 
 class Avatars extends StatelessWidget {
@@ -46,10 +47,12 @@ class Avatars extends StatelessWidget {
           ListTile(
               title: Text("Change profile photo",
                   style: TextStyle(color: Colors.white54)),
-              onTap: () {}),
-          SizedBox(height: 20),
+              onTap: () {
+                Get.to(AvatarProfilePhoto());
+              }),
+          SizedBox(height: 10),
           Divider(thickness: 0.2, color: Colors.white54),
-          SizedBox(height: 20),
+          SizedBox(height: 10),
           Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
