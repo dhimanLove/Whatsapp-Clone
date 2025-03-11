@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 import 'package:whatsapp/Chats/Chats.dart';
 import 'package:whatsapp/Settings/Account.dart';
 import 'package:whatsapp/Settings/Avatars.dart';
@@ -25,6 +27,16 @@ class _SettingsState extends State<Settings> {
 
   @override
   Widget build(BuildContext context) {
+    Future<void> launchURL(String url) async {
+      final Uri uri = Uri.parse(url);
+      if (await canLaunchUrl(uri)) {
+        await launchUrl(uri, mode: LaunchMode.externalApplication);
+      } else {
+        Get.snackbar("Error", "Could not open $url",
+            snackPosition: SnackPosition.BOTTOM);
+      }
+    }
+
     var scrw = MediaQuery.of(context).size.width;
 
     var arrme = [
@@ -39,13 +51,16 @@ class _SettingsState extends State<Settings> {
     var arrlead = [
       const Icon(Icons.vpn_key_outlined, color: Colors.white54, size: 20),
       const Icon(Icons.lock_outline, color: Colors.white54, size: 20),
-      const FaIcon(FontAwesomeIcons.userAstronaut, color: Colors.white54, size: 20),
-      const FaIcon(FontAwesomeIcons.contactBook, color: Colors.white54, size: 20),
+      const FaIcon(FontAwesomeIcons.userAstronaut,
+          color: Colors.white54, size: 20),
+      const FaIcon(FontAwesomeIcons.contactBook,
+          color: Colors.white54, size: 20),
       const FaIcon(FontAwesomeIcons.message, color: Colors.white54, size: 20),
       const FaIcon(FontAwesomeIcons.bell, color: Colors.white54, size: 20),
       const FaIcon(FontAwesomeIcons.circle, color: Colors.white54, size: 20),
       const FaIcon(FontAwesomeIcons.globe, color: Colors.white54, size: 20),
-      const FaIcon(FontAwesomeIcons.questionCircle, color: Colors.white54, size: 20),
+      const FaIcon(FontAwesomeIcons.questionCircle,
+          color: Colors.white54, size: 20),
     ];
 
     var arrtitle = [
@@ -73,13 +88,13 @@ class _SettingsState extends State<Settings> {
     ];
 
     var navigateTo = [
-       Account(),
-       Privacy(),
-       Avatars(),
-       Listss(),
-       Chat(),
-       Notifications(),
-       Storage(),
+      Account(),
+      Privacy(),
+      Avatars(),
+      Listss(),
+      Chat(),
+      Notifications(),
+      Storage(),
       null,
       Help(),
     ];
@@ -88,7 +103,8 @@ class _SettingsState extends State<Settings> {
         backgroundColor: const Color(0xff0B1014),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context, MaterialPageRoute(builder: (context) => const Chats()));
+            Navigator.pop(context,
+                MaterialPageRoute(builder: (context) => const Chats()));
           },
           icon: const Icon(Icons.arrow_back, color: Colors.white),
         ),
@@ -98,9 +114,9 @@ class _SettingsState extends State<Settings> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-            },
-            icon: const FaIcon(FontAwesomeIcons.search, size: 18, color: Colors.white),
+            onPressed: () {},
+            icon: const FaIcon(FontAwesomeIcons.search,
+                size: 18, color: Colors.white),
           ),
         ],
       ),
@@ -113,15 +129,15 @@ class _SettingsState extends State<Settings> {
           children: [
             Container(
               decoration: const BoxDecoration(
-                border: Border(bottom: BorderSide(color: Colors.white, width: 0.1)),
+                border:
+                    Border(bottom: BorderSide(color: Colors.white, width: 0.1)),
               ),
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
                 child: ListTile(
-                  onTap: (){
-                    Get.to(Pfpmain());
-                  },
-                  leading: arrme[0],
+                  leading: arrme.isNotEmpty
+                      ? arrme[0]
+                      : const Icon(Icons.error, color: Colors.red),
                   title: const Text(
                     "Love Raj",
                     style: TextStyle(
@@ -156,7 +172,8 @@ class _SettingsState extends State<Settings> {
                     children: [
                       const Icon(Icons.qr_code, color: Color(0xff60c054)),
                       SizedBox(width: scrw * 0.05),
-                      const Icon(Icons.add_circle_outline_rounded, color: Color(0xff60c054)),
+                      const Icon(Icons.add_circle_outline_rounded,
+                          color: Color(0xff60c054)),
                     ],
                   ),
                 ),
@@ -173,11 +190,13 @@ class _SettingsState extends State<Settings> {
                     leading: arrlead[index],
                     title: Text(
                       arrtitle[index],
-                      style: const TextStyle(color: Colors.white70, fontWeight: FontWeight.w300),
+                      style: const TextStyle(
+                          color: Colors.white70, fontWeight: FontWeight.w300),
                     ),
                     subtitle: Text(
                       arrsubt[index],
-                      style: const TextStyle(color: Colors.white38, fontWeight: FontWeight.w200),
+                      style: const TextStyle(
+                          color: Colors.white38, fontWeight: FontWeight.w200),
                     ),
                     onTap: () {
                       if (navigateTo[index] != null) {
@@ -195,22 +214,45 @@ class _SettingsState extends State<Settings> {
                                       SizedBox(
                                         height: 10,
                                       ),
-                                      Text("Select Language",style: TextStyle(color: Colors.white70,fontSize: 20),textAlign: TextAlign.center,),
+                                      Text(
+                                        "Select Language",
+                                        style: TextStyle(
+                                            color: Colors.white70,
+                                            fontSize: 20),
+                                        textAlign: TextAlign.center,
+                                      ),
                                       SizedBox(
                                         height: 10,
                                       ),
-                                      languageTile("English", "https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-states-of-america-usa.png"),
-                                      languageTile("\u0939\u093f\u0902\u0926\u0940", "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/India.png"),
-                                      languageTile("Fran\u00e7ais", "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/France.png"),
-                                      languageTile("\u0627\u0644\u0639\u0631\u0628\u064a\u0629", "https://cdn0.iconfinder.com/data/icons/world-flags-13/130/Flag-01-256.png"),
-                                      languageTile("\u0420\u0443\u0441\u0441\u043a\u0438\u0439", "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Russia.png"),
-                                      languageTile("Espa\u00f1ol", "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Spain.png"),
-                                      languageTile("Italiano", "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Italy.png"),
-                                      languageTile("\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac", "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Greece.png"),
-                                      languageTile("\u05e2\u05d1\u05e8\u05d9\u05ea", "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Israel.png"),
-                                      languageTile("\ud55c\uad6d\uc5b4", "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/South-Korea.png"),
-                                      languageTile("Portugu\u00eas", "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Portugal.png"),
-                                      languageTile("\u65e5\u672c\u8a9e", "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Japan.png"),
+                                      languageTile("English",
+                                          "https://cdn2.iconfinder.com/data/icons/flags/flags/48/united-states-of-america-usa.png"),
+                                      languageTile(
+                                          "\u0939\u093f\u0902\u0926\u0940",
+                                          "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/India.png"),
+                                      languageTile("Fran\u00e7ais",
+                                          "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/France.png"),
+                                      languageTile(
+                                          "\u0627\u0644\u0639\u0631\u0628\u064a\u0629",
+                                          "https://cdn0.iconfinder.com/data/icons/world-flags-13/130/Flag-01-256.png"),
+                                      languageTile(
+                                          "\u0420\u0443\u0441\u0441\u043a\u0438\u0439",
+                                          "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Russia.png"),
+                                      languageTile("Espa\u00f1ol",
+                                          "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Spain.png"),
+                                      languageTile("Italiano",
+                                          "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Italy.png"),
+                                      languageTile(
+                                          "\u0395\u03bb\u03bb\u03b7\u03bd\u03b9\u03ba\u03ac",
+                                          "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Greece.png"),
+                                      languageTile(
+                                          "\u05e2\u05d1\u05e8\u05d9\u05ea",
+                                          "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Israel.png"),
+                                      languageTile("\ud55c\uad6d\uc5b4",
+                                          "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/South-Korea.png"),
+                                      languageTile("Portugu\u00eas",
+                                          "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Portugal.png"),
+                                      languageTile("\u65e5\u672c\u8a9e",
+                                          "https://cdn2.iconfinder.com/data/icons/flags_gosquared/64/Japan.png"),
                                     ],
                                   ),
                                 ),
@@ -226,18 +268,17 @@ class _SettingsState extends State<Settings> {
                 },
               ),
             ),
-             Padding(
-              padding: EdgeInsets.only(left: 10),
-              child:
-              ListTile(
-                leading: Icon(Icons.people_alt_outlined, color: Colors.white54),
-                title: Text("Invite Friend", style: TextStyle(color: Colors.white54)),
-                onTap: () {
-                  Get.to(Invite());
-                },
-              )
-
-            ),
+            Padding(
+                padding: EdgeInsets.only(left: 10),
+                child: ListTile(
+                  leading:
+                      Icon(Icons.people_alt_outlined, color: Colors.white54),
+                  title: Text("Invite Friend",
+                      style: TextStyle(color: Colors.white54)),
+                  onTap: () {
+                    Get.to(Invite());
+                  },
+                )),
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 10, top: 40),
               child: Column(
@@ -247,20 +288,36 @@ class _SettingsState extends State<Settings> {
                     padding: EdgeInsets.only(left: 17),
                     child: Text(
                       "Also from Meta",
-                      style: TextStyle(color: Colors.white54, fontWeight: FontWeight.w300),
+                      style: TextStyle(
+                          color: Colors.white54, fontWeight: FontWeight.w300),
                     ),
                   ),
-                  const ListTile(
-                    leading: FaIcon(FontAwesomeIcons.instagram, color: Colors.white54),
-                    title: Text("Open Instagram", style: TextStyle(color: Colors.white54)),
+                  ListTile(
+                      leading: FaIcon(FontAwesomeIcons.instagram,
+                          color: Colors.white54),
+                      title: Text("Open Instagram",
+                          style: TextStyle(color: Colors.white54)),
+                      onTap: () {
+                        launchUrlString(
+                            'https://www.instagram.com/accounts/login/?hl=en');
+                      }),
+                  ListTile(
+                    leading: const FaIcon(FontAwesomeIcons.facebookSquare,
+                        color: Colors.white54),
+                    title: const Text("Open Facebook",
+                        style: TextStyle(color: Colors.white54)),
+                    onTap: () {
+                      launchUrlString('https://www.facebook.com/login/');
+                    },
                   ),
-                  const ListTile(
-                    leading: FaIcon(FontAwesomeIcons.facebookSquare, color: Colors.white54),
-                    title: Text("Open Facebook", style: TextStyle(color: Colors.white54)),
-                  ),
-                  const ListTile(
-                    leading: FaIcon(FontAwesomeIcons.threads, color: Colors.white54),
-                    title: Text("Open Threads", style: TextStyle(color: Colors.white54)),
+                  ListTile(
+                    leading: const FaIcon(FontAwesomeIcons.threads,
+                        color: Colors.white54),
+                    title: const Text("Open Threads",
+                        style: TextStyle(color: Colors.white54)),
+                    onTap: () {
+                      launchUrlString('https://www.threads.net/login');
+                    },
                   ),
                 ],
               ),

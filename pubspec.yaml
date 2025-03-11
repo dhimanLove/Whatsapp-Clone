@@ -9,31 +9,52 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+
+  # File and Storage Management
   path_provider:
-  http:
-  flutter_gemini:
   flutter_dotenv:
+  cached_network_image:
+
+  # Networking
+  http:
+  supabase_flutter: ^2.8.3
+
+  # Firebase Services
   firebase_core:
   firebase_auth:
   firebase_messaging:
+
+  # UI and Icons
   font_awesome_flutter: ^10.8.0
   google_fonts: 6.2.1
-  get:
-  google_sign_in: ^6.2.2
-  random_string: ^2.3.1
-  gesture_x_detector: ^1.1.1
-  supabase_flutter: ^2.8.3
-  intl: ^0.20.2
-  image_picker:
   cupertino_icons: ^1.0.8
+  shimmer:
   fl_chart: ^0.70.2
   getwidget: ^5.0.0
   gradient_icon: ^2.0.9
-  camera:
-  video_player:
   gradient_circular_progress_indicator: ^0.0.4
   liquid_progress_indicator_v2: ^0.5.0
+
+  # State Management & Utilities
+  get:
+  random_string: ^2.3.1
+  intl: ^0.20.2
+
+  # User Authentication
+  google_sign_in: ^6.2.2
+
+  # Gesture & Interaction
+  gesture_x_detector: ^1.1.1
+
+  # Media & Video
+  image_picker:
+  camera:
+  video_player:
+
+  # Real-time Communication
   agora_rtc_engine:
+
+  # Permissions & System Features
   permission_handler:
   url_launcher: ^6.3.1
 
