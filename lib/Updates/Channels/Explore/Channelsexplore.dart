@@ -9,7 +9,7 @@ class Channelsexplore extends StatefulWidget {
 }
 
 class _ChannelsexploreState extends State<Channelsexplore> {
-  final List  channels = [
+  final List channels = [
     {
       'name': 'Savita Ki Rasoi',
       'stories': '972K stories',
@@ -68,6 +68,7 @@ class _ChannelsexploreState extends State<Channelsexplore> {
     },
   ];
 
+  String selectedRegion = 'All Regions'; // Track selected region
 
   void _toggleFollow(int index) {
     setState(() {
@@ -99,201 +100,43 @@ class _ChannelsexploreState extends State<Channelsexplore> {
             onPressed: () {
               Get.bottomSheet(
                 Container(
-                  height: Get.height * 0.8,
+                  height: Get.height * 0.5,
                   width: Get.width,
                   decoration: const BoxDecoration(
-                    color: Color(0xff0B1014),
-                    borderRadius: BorderRadius.vertical(top: Radius.circular(30)),
+                    color: Color(0xff1A1F24),
+                    borderRadius: BorderRadius.vertical(top: Radius.circular(20)),
                   ),
                   child: Column(
                     children: [
-                      const SizedBox(height: 10),
                       Container(
+                        margin: const EdgeInsets.only(top: 12),
                         width: 40,
-                        height: 5,
+                        height: 4,
                         decoration: BoxDecoration(
-                          color: Colors.white54,
-                          borderRadius: BorderRadius.circular(10),
+                          color: Colors.grey[600],
+                          borderRadius: BorderRadius.circular(2),
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.all(8),
-                        child: Container(
-                          height: 50,
-                          width: MediaQuery.of(context).size.width * 0.88,
-                          decoration: BoxDecoration(
-                            color: const Color.fromARGB(255, 48, 48, 48),
-                            borderRadius: BorderRadius.circular(50),
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.black.withOpacity(0.2),
-                                blurRadius: 5,
-                                offset: const Offset(0, 2),
-                              ),
-                            ],
-                          ),
-                          child: const Row(
-                            children: [
-                              SizedBox(width: 10),
-                              Icon(Icons.search, color: Colors.white),
-                              SizedBox(width: 10),
-                              Text(
-                                'Search for Region',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.w300,
-                                ),
-                              ),
-                            ],
+                      const Padding(
+                        padding: EdgeInsets.all(16),
+                        child: Text(
+                          'Filter by Region',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
                           ),
                         ),
                       ),
                       Expanded(
-                        child: Container(
-                          decoration: const BoxDecoration(
-                            color: Color.fromARGB(255, 224, 224, 224),
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(30),
-                              topRight: Radius.circular(30),
-                            ),
-                          ),
-                          child: ListView(
-                            children: [
-                              ListTile(
-                                title: const Text(
-                                  'All Regions',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                onTap: () {
-                                  Get.back();
-                                  Get.snackbar(
-                                    'Region Selected',
-                                    'Showing channels from All Regions',
-                                    snackPosition: SnackPosition.TOP,
-                                    backgroundColor: Colors.green,
-                                    colorText: Colors.white,
-                                  );
-                                },
-                              ),
-                              ListTile(
-                                title: const Text(
-                                  'North America',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                onTap: () {
-                                  Get.back();
-                                  Get.snackbar(
-                                    'Region Selected',
-                                    'Showing channels from North America',
-                                    snackPosition: SnackPosition.TOP,
-                                    backgroundColor: Colors.green,
-                                    colorText: Colors.white,
-                                  );
-                                },
-                              ),
-                              ListTile(
-                                title: const Text(
-                                  'Europe',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                onTap: () {
-                                  Get.back();
-                                  Get.snackbar(
-                                    'Region Selected',
-                                    'Showing channels from Europe',
-                                    snackPosition: SnackPosition.TOP,
-                                    backgroundColor: Colors.green,
-                                    colorText: Colors.white,
-                                  );
-                                },
-                              ),
-                              ListTile(
-                                title: const Text(
-                                  'Asia',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                onTap: () {
-                                  Get.back();
-                                  Get.snackbar(
-                                    'Region Selected',
-                                    'Showing channels from Asia',
-                                    snackPosition: SnackPosition.TOP,
-                                    backgroundColor: Colors.green,
-                                    colorText: Colors.white,
-                                  );
-                                },
-                              ),
-                              ListTile(
-                                title: const Text(
-                                  'Africa',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                onTap: () {
-                                  Get.back();
-                                  Get.snackbar(
-                                    'Region Selected',
-                                    'Showing channels from Africa',
-                                    snackPosition: SnackPosition.TOP,
-                                    backgroundColor: Colors.green,
-                                    colorText: Colors.white,
-                                  );
-                                },
-                              ),
-                              ListTile(
-                                title: const Text(
-                                  'South America',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                onTap: () {
-                                  Get.back();
-                                  Get.snackbar(
-                                    'Region Selected',
-                                    'Showing channels from South America',
-                                    snackPosition: SnackPosition.TOP,
-                                    backgroundColor: Colors.green,
-                                    colorText: Colors.white,
-                                  );
-                                },
-                              ),
-                              ListTile(
-                                title: const Text(
-                                  'Australia',
-                                  style: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w400,
-                                  ),
-                                ),
-                                onTap: () {
-                                  Get.back();
-                                  Get.snackbar(
-                                    'Region Selected',
-                                    'Showing channels from Australia',
-                                    snackPosition: SnackPosition.TOP,
-                                    backgroundColor: Colors.green,
-                                    colorText: Colors.white,
-                                  );
-                                },
-                              ),
-                            ],
-                          ),
+                        child: RegionList(
+                          onRegionSelected: (region) {
+                            setState(() {
+                              selectedRegion = region;
+                            });
+                            Get.back();
+                          },
+                          selectedRegion: selectedRegion,
                         ),
                       ),
                     ],
@@ -328,13 +171,13 @@ class _ChannelsexploreState extends State<Channelsexplore> {
                   shrinkWrap: true,
                   physics: const NeverScrollableScrollPhysics(),
                   itemCount: channels.length,
-                  separatorBuilder: (context, index) => SizedBox(
+                  separatorBuilder: (context, index) => const SizedBox(
                     height: 5,
                   ),
                   itemBuilder: (context, index) {
                     final channel = channels[index];
                     return Card(
-                      color: const Color(0xff1A1F24),
+                      color:const Color(0xff0B1014),
                       margin: const EdgeInsets.symmetric(vertical: 6),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12),
@@ -416,6 +259,75 @@ class _ChannelsexploreState extends State<Channelsexplore> {
           ),
         ),
       ),
+    );
+  }
+}
+
+// Separate RegionList widget
+class RegionList extends StatelessWidget {
+  final Function(String) onRegionSelected;
+  final String selectedRegion;
+
+  const RegionList({
+    required this.onRegionSelected,
+    required this.selectedRegion,
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    final regions = [
+      'All Regions',
+      'North America',
+      'Europe',
+      'Asia',
+      'Africa',
+      'South America',
+      'Australia',
+    ];
+
+    return ListView.builder(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      itemCount: regions.length,
+      itemBuilder: (context, index) {
+        final region = regions[index];
+        final isSelected = region == selectedRegion;
+
+        return GestureDetector(
+          onTap: () => onRegionSelected(region),
+          child: Container(
+            margin: const EdgeInsets.only(bottom: 8),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            decoration: BoxDecoration(
+              color: isSelected ? Colors.green.withOpacity(0.1) : Colors.transparent,
+              borderRadius: BorderRadius.circular(12),
+              border: Border.all(
+                color: isSelected ? Colors.green : Colors.grey.withOpacity(0.3),
+                width: 1,
+              ),
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  region,
+                  style: TextStyle(
+                    color: isSelected ? Colors.green : Colors.white,
+                    fontSize: 16,
+                    fontWeight: isSelected ? FontWeight.w600 : FontWeight.w400,
+                  ),
+                ),
+                if (isSelected)
+                  const Icon(
+                    Icons.check_circle,
+                    color: Colors.green,
+                    size: 20,
+                  ),
+              ],
+            ),
+          ),
+        );
+      },
     );
   }
 }

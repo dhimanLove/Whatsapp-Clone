@@ -236,7 +236,7 @@ class _ChatsState extends State<Chats> {
                 children: [
                   const SizedBox(width: 10),
                   Padding(
-                    padding: const EdgeInsets.only(bottom: 16),
+                    padding: const EdgeInsets.only(bottom: 16,left: 10),
                     child: GradientIcon(
                       icon: Icons.circle_outlined,
                       gradient: LinearGradient(
@@ -250,13 +250,14 @@ class _ChatsState extends State<Chats> {
                         begin: Alignment.centerLeft,
                         end: Alignment.bottomRight,
                       ),
-                      size: 30,
+                      size: 25,
                     ),
                   ),
                   Expanded(
                     child: Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 10),
                       child: TextField(
+                        cursorColor: Colors.white70,
                         controller: _metaController,
                         style: const TextStyle(color: Colors.white),
                         decoration: const InputDecoration(
