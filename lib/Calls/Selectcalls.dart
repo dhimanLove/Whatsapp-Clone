@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:whatsapp/chats/Settings.dart';
 
-class ContactUI extends StatelessWidget {
+class ContactUI extends StatefulWidget {
+  const ContactUI({super.key});
+
+  @override
+  State<ContactUI> createState() => _ContactUIState();
+}
+
+class _ContactUIState extends State<ContactUI> {
+  // TextEditingController for the search field
+  final TextEditingController _searchController = TextEditingController();
+
+  // Data for frequently contacted
   final List<Map<String, dynamic>> frequentlyContacted = [
     {
       'name': 'Krish GDG MMU',
@@ -25,6 +37,7 @@ class ContactUI extends StatelessWidget {
     },
   ];
 
+  // Data for WhatsApp contacts
   final List<Map<String, String>> whatsappContacts = [
     {'name': 'Varish', 'image': 'https://randomuser.me/api/portraits/men/6.jpg'},
     {'name': 'Aarav', 'image': 'https://randomuser.me/api/portraits/men/7.jpg'},
@@ -49,20 +62,63 @@ class ContactUI extends StatelessWidget {
     {'name': 'Priya', 'image': 'https://randomuser.me/api/portraits/women/26.jpg'},
   ];
 
+  // Filtered lists for search functionality
+  List<Map<String, dynamic>> filteredFrequentlyContacted = [];
+  List<Map<String, String>> filteredWhatsappContacts = [];
+
+  @override
+  void initState() {
+    super.initState();
+    // Initialize filtered lists with all contacts
+    filteredFrequentlyContacted = List.from(frequentlyContacted);
+    filteredWhatsappContacts = List.from(whatsappContacts);
+
+    // Add listener to search controller for filtering
+    _searchController.addListener(_filterContacts);
+  }
+
+  // Filter contacts based on search query
+  void _filterContacts() {
+    final query = _searchController.text.toLowerCase();
+    setState(() {
+      filteredFrequentlyContacted = frequentlyContacted
+          .where((contact) =>
+          contact['name'].toString().toLowerCase().contains(query))
+          .toList();
+      filteredWhatsappContacts = whatsappContacts
+          .where((contact) =>
+          contact['name']!.toLowerCase().contains(query))
+          .toList();
+    });
+  }
+
+  @override
+  void dispose() {
+    _searchController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
+    // Screen dimensions
+    final double scrH = MediaQuery.of(context).size.height;
+
     return Scaffold(
-      backgroundColor: Color(0xff0B1014),
+      backgroundColor: const Color(0xff0B1014),
       appBar: AppBar(
-        leading: IconButton(onPressed: (){
-          Get.back();
-        }, icon:Icon(Icons.arrow_back,color: Colors.white,)),
-        backgroundColor:Color(0xff0B1014) ,
+        leading: IconButton(
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back, color: Colors.white),
+        ),
+        backgroundColor: const Color(0xff0B1014),
         elevation: 0,
         title: TextField(
-          style: TextStyle(color: Colors.white),
+          controller: _searchController,
+          style: const TextStyle(color: Colors.white),
           cursorColor: Colors.green,
-          decoration: InputDecoration(
+          decoration: const InputDecoration(
             hintText: 'Search name or number...',
             hintStyle: TextStyle(color: Colors.grey),
             border: InputBorder.none,
@@ -70,8 +126,36 @@ class ContactUI extends StatelessWidget {
         ),
         actions: [
           IconButton(
-            icon: Icon(Icons.dialpad, color: Colors.white),
+            icon: const Icon(Icons.dialpad, color: Colors.white),
             onPressed: () {},
+          ),
+          PopupMenuButton<String>(
+            icon: const Icon(Icons.more_vert, color: Colors.white),
+            onSelected: (String value) {
+
+              if (value == 'Settings') {
+                Get.to(Settings());
+              }
+            },
+            itemBuilder: (BuildContext context) {
+              return const [
+                PopupMenuItem<String>(
+                  value: 'New Group',
+                  child: Text(
+                    'New Group',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                PopupMenuItem<String>(
+                  value: 'Settings',
+                  child: Text(
+                    'Settings',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+              ];
+            },
+            color: const Color(0xff171e1e),
           ),
         ],
       ),
@@ -79,21 +163,26 @@ class ContactUI extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            ListTile(
+            // New Call Link
+            const ListTile(
               leading: Icon(Icons.link, color: Colors.green),
               title: Text(
                 'New call link',
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            ListTile(
+
+            // Call a Number
+            const ListTile(
               leading: Icon(Icons.dialpad, color: Colors.green),
               title: Text(
                 'Call a number',
                 style: TextStyle(color: Colors.white),
               ),
             ),
-            ListTile(
+
+            // New Contact
+            const ListTile(
               leading: Icon(Icons.person_add, color: Colors.green),
               title: Text(
                 'New contact',
@@ -101,8 +190,10 @@ class ContactUI extends StatelessWidget {
               ),
               trailing: Icon(Icons.qr_code, color: Colors.green),
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
+
+            // Frequently Contacted Section
+            const Padding(
+              padding: EdgeInsets.all(10.0),
               child: Text(
                 'Frequently contacted',
                 style: TextStyle(color: Colors.grey, fontSize: 14),
@@ -110,24 +201,26 @@ class ContactUI extends StatelessWidget {
             ),
             ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: frequentlyContacted.length,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: filteredFrequentlyContacted.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   leading: CircleAvatar(
                     backgroundImage: NetworkImage(
-                      frequentlyContacted[index]['image'],
+                      filteredFrequentlyContacted[index]['image'],
                     ),
                   ),
                   title: Text(
-                    frequentlyContacted[index]['name'],
-                    style: TextStyle(color: Colors.white),
+                    filteredFrequentlyContacted[index]['name'],
+                    style: const TextStyle(color: Colors.white),
                   ),
                 );
               },
             ),
-            Padding(
-              padding: const EdgeInsets.all(10.0),
+
+            // Contacts on WhatsApp Section
+            const Padding(
+              padding: EdgeInsets.all(10.0),
               child: Text(
                 'Contacts on WhatsApp',
                 style: TextStyle(color: Colors.grey, fontSize: 14),
@@ -135,22 +228,25 @@ class ContactUI extends StatelessWidget {
             ),
             ListView.builder(
               shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: whatsappContacts.length,
+              physics: const NeverScrollableScrollPhysics(),
+              itemCount: filteredWhatsappContacts.length,
               itemBuilder: (context, index) {
                 return ListTile(
                   leading: CircleAvatar(
                     backgroundImage: NetworkImage(
-                      whatsappContacts[index]['image']!,
+                      filteredWhatsappContacts[index]['image']!,
                     ),
                   ),
                   title: Text(
-                    whatsappContacts[index]['name']!,
-                    style: TextStyle(color: Colors.white),
+                    filteredWhatsappContacts[index]['name']!,
+                    style: const TextStyle(color: Colors.white),
                   ),
                 );
               },
             ),
+
+            // Bottom padding to ensure last item is visible
+            SizedBox(height: scrH * 0.1),
           ],
         ),
       ),

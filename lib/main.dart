@@ -41,10 +41,10 @@ class _WhatsappState extends State<Whatsapp> {
   int _selectedIndex = 0;
   final PageController _pageController = PageController();
   final List<Widget> _pages = [
-    const Chats(),
-    const Updates(),
-    const Community(),
-    const Calls(),
+     Chats(),
+     Updates(),
+    Community(),
+     Calls(),
   ];
 
   void _onItemTapped(int index) {

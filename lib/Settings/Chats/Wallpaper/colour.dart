@@ -11,14 +11,14 @@ class Colour extends StatefulWidget {
 class _ColourState extends State<Colour> {
   @override
   Widget build(BuildContext context) {
-    // Generate a list of 30 unique solid colors
+
     final List<Color> colors = List.generate(
       20,
           (index) => Color.fromRGBO(
-        (index * 10) % 200, // Red value
-        (index * 20) % 200, // Green value
-        (index * 30) % 256, // Blue value
-        1.0, // Opacity (1.0 for solid)
+        (index * 10) % 200,
+        (index * 20) % 200,
+        (index * 30) % 256,
+        1.0,
       ),
     );
 
@@ -39,7 +39,7 @@ class _ColourState extends State<Colour> {
           crossAxisCount: 2,
           crossAxisSpacing: 20,
           mainAxisSpacing: 14,
-          childAspectRatio: 0.7, // Square tiles (width:height ratio)
+          childAspectRatio: 0.7,
         ),
         itemCount: colors.length,
         itemBuilder: (context, index) {

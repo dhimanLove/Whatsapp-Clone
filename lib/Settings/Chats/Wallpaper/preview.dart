@@ -25,8 +25,8 @@ class _PreviewState extends State<Preview> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-
               Slider(
+                mouseCursor:SystemMouseCursors.precise,
                 value: _sliderValue,
                 min: 0.0,
                 max: 1.0,
@@ -38,7 +38,6 @@ class _PreviewState extends State<Preview> {
                   });
                 },
               ),
-
               Text(
                 'Current Value: ${_sliderValue.toStringAsFixed(2)}',
                 style: const TextStyle(fontSize: 16),

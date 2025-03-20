@@ -55,7 +55,7 @@ class Invite extends StatelessWidget {
             onPressed: () {
               showSearch(
                 context: context,
-                delegate: SimpleSearchDelegate(),
+                delegate: PremiumSearchDelegate(),
               );
             },
             icon: Icon(Icons.search, color: Colors.white),

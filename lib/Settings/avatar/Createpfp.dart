@@ -9,7 +9,6 @@ class AvatarProfilePhoto extends StatefulWidget {
 }
 
 class _AvatarProfilePhotoState extends State<AvatarProfilePhoto> {
-
   int selectedAvatarIndex = 0;
   int selectedBackgroundIndex = 0;
 
@@ -59,8 +58,7 @@ class _AvatarProfilePhotoState extends State<AvatarProfilePhoto> {
         ),
         actions: [
           IconButton(
-            onPressed: () {
-            },
+            onPressed: () {},
             icon: Icon(
               Icons.check,
               color: Colors.white,
@@ -90,12 +88,10 @@ class _AvatarProfilePhotoState extends State<AvatarProfilePhoto> {
             ),
           ),
 
-
           Divider(
             color: Colors.grey[800],
             height: 1,
           ),
-
 
           Padding(
             padding: const EdgeInsets.only(left: 16, top: 16, bottom: 8),
@@ -110,7 +106,6 @@ class _AvatarProfilePhotoState extends State<AvatarProfilePhoto> {
               ),
             ),
           ),
-
 
           SizedBox(
             height: 70,

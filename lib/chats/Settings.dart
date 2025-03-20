@@ -14,6 +14,7 @@ import 'package:whatsapp/Settings/list.dart';
 import 'package:whatsapp/Settings/notifications.dart';
 import 'package:whatsapp/Settings/pfpmain.dart';
 import 'package:whatsapp/Settings/storage.dart';
+import 'package:whatsapp/searchdelegatee.dart';
 
 class Settings extends StatefulWidget {
   const Settings({super.key});
@@ -103,8 +104,7 @@ class _SettingsState extends State<Settings> {
         backgroundColor: const Color(0xff0B1014),
         leading: IconButton(
           onPressed: () {
-            Navigator.pop(context,
-                MaterialPageRoute(builder: (context) => const Chats()));
+            Get.back();
           },
           icon: const Icon(Icons.arrow_back, color: Colors.white),
         ),
@@ -114,9 +114,9 @@ class _SettingsState extends State<Settings> {
         ),
         actions: [
           IconButton(
-            onPressed: () {},
-            icon: const FaIcon(FontAwesomeIcons.search,
-                size: 18, color: Colors.white),
+            onPressed: () =>
+                showSearch(context: context, delegate:PremiumSearchDelegate()),
+            icon: Icon(Icons.search, color: Colors.white),
           ),
         ],
       ),
@@ -183,7 +183,10 @@ class _SettingsState extends State<Settings> {
               padding: const EdgeInsets.symmetric(horizontal: 10),
               child: ListView.builder(
                 shrinkWrap: true,
-                physics: const NeverScrollableScrollPhysics(),
+                keyboardDismissBehavior: ScrollViewKeyboardDismissBehavior.onDrag,
+                physics: BouncingScrollPhysics(
+                    decelerationRate: ScrollDecelerationRate.fast
+                ),
                 itemCount: arrlead.length,
                 itemBuilder: (context, index) {
                   return ListTile(
